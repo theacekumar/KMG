@@ -1,9 +1,9 @@
 import SearchForm from "@/components/search-form";
-import { translations } from "@/lib/translations";
+import { Translations } from "@/lib/translations";
 import Image from "next/image";
 
 export default function Home() {
-  const t = translations['en']; // Default to English for initial static render
+  const t = Translations['en']; // Default to English for initial static render
 
   return (
     <div className="relative flex-grow flex flex-col items-center justify-center p-4 overflow-hidden">
