@@ -1,7 +1,7 @@
 import { Line, Station, Fare, lines, stations, fares } from './data';
 import type { Translations } from './translations';
 
-export type StationNode = Station & { line: 'Blue' | 'Green' };
+export type StationNode = Station & { line: 'Blue' | 'Green' | 'Purple' | 'Orange' };
 
 // Adjacency list representation of the metro graph
 const adjacencyList = new Map<string, string[]>();
@@ -30,6 +30,21 @@ function buildAdjacencyList() {
       }
     }
   });
+
+  // Manual interchange connections
+  const interchanges = {
+    'esplanade': ['esplanade'], // Interchange between Blue and Green
+    'kavi-subhash': ['kavi-subhash-orange'], // Interchange between Blue and Orange
+  };
+
+  for (const stationAId in interchanges) {
+      const stationBIds = interchanges[stationAId as keyof typeof interchanges];
+      stationBIds.forEach(stationBId => {
+          adjacencyList.get(stationAId)?.push(stationBId);
+          adjacencyList.get(stationBId)?.push(stationAId);
+      });
+  }
+
 }
 
 // Ensure the graph is built on module load
@@ -66,10 +81,12 @@ export function findShortestPath(startId: string, endId: string): Station[] | nu
 }
 
 // Function to determine the line color
-export function getLineColor(lineName: 'Blue' | 'Green'): string {
+export function getLineColor(lineName: 'Blue' | 'Green' | 'Purple' | 'Orange'): string {
     switch(lineName) {
         case 'Blue': return 'bg-blue-500';
         case 'Green': return 'bg-green-500';
+        case 'Purple': return 'bg-purple-500';
+        case 'Orange': return 'bg-orange-500';
         default: return 'bg-gray-500';
     }
 }
@@ -89,9 +106,9 @@ export function calculateFare(fromId: string, toId: string): number {
     const distance = path.length - 1;
     if (distance <= 2) return 5;
     if (distance <= 5) return 10;
-    if (distance <= 8) return 15;
-    if (distance <= 12) return 20;
-    return 25;
+    if (distance <= 10) return 20;
+    if (distance <= 15) return 25;
+    return 30;
 }
 
 export function getRouteDetails(fromId: string, toId: string, t: (typeof Translations)['en']) {
@@ -110,8 +127,14 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
         let line = station.line;
         if (index > 0) {
             const prevStation = path[index - 1];
-            if (station.line !== prevStation.line && station.id === 'esplanade') {
-                interchanges++;
+            if (station.line !== prevStation.line) {
+                 // Check if it's a valid interchange point
+                if ((station.id === 'esplanade' && prevStation.line === 'Green') ||
+                    (station.id === 'esplanade' && prevStation.line === 'Blue') ||
+                    (station.id === 'kavi-subhash-orange' && prevStation.line === 'Blue') ||
+                    (station.id === 'kavi-subhash' && prevStation.line === 'Orange')) {
+                    interchanges++;
+                }
             }
         }
         return { ...station, line };

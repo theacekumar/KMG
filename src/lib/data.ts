@@ -2,7 +2,7 @@ export interface Station {
   id: string;
   name: string;
   code: string;
-  line: 'Blue' | 'Green' | 'Purple';
+  line: 'Blue' | 'Green' | 'Purple' | 'Orange';
   gates: number;
   facilities: string[];
   firstTrain: string;
@@ -17,7 +17,7 @@ export interface Fare {
 }
 
 export interface Line {
-  name: 'Blue' | 'Green' | 'Purple';
+  name: 'Blue' | 'Green' | 'Purple' | 'Orange';
   stations: string[];
 }
 
@@ -46,7 +46,7 @@ export const stations: Station[] = [
     { id: 'gitanjali', name: 'Gitanjali', code: 'GTN', line: 'Blue', gates: 2, facilities: [], firstTrain: "06:56", lastTrain: "21:46", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'kavi-nazrul', name: 'Kavi Nazrul', code: 'KZN', line: 'Blue', gates: 3, facilities: ["Elevator", "Escalator"], firstTrain: "06:58", lastTrain: "21:44", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'shahid-khudiram', name: 'Shahid Khudiram', code: 'SKD', line: 'Blue', gates: 2, facilities: [], firstTrain: "07:01", lastTrain: "21:41", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'kavi-subhash', name: 'Kavi Subhash', code: 'KVS', line: 'Blue', gates: 4, facilities: ["Elevator", "Escalator", "Parking", "Toilets"], firstTrain: "06:45", lastTrain: "21:45", platformInfo: "Platform 1: Terminating | Platform 2: Dakshineswar" },
+    { id: 'kavi-subhash', name: 'Kavi Subhash', code: 'KVS', line: 'Blue', gates: 4, facilities: ["Elevator", "Escalator", "Parking", "Toilets", "Interchange"], firstTrain: "06:45", lastTrain: "21:45", platformInfo: "Blue Line: P1 Terminating, P2 Dakshineswar | Orange Line: Interchange" },
 
     // Green Line (East-West)
     { id: 'salt-lake-sector-v', name: 'Salt Lake Sector V', code: 'SLV', line: 'Green', gates: 3, facilities: ["Elevator", "Toilets", "Wifi"], firstTrain: "06:55", lastTrain: "22:00", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Terminating" },
@@ -59,7 +59,6 @@ export const stations: Station[] = [
     { id: 'sealdah', name: 'Sealdah', code: 'SDH', line: 'Green', gates: 4, facilities: ["Elevator", "Escalator", "Interchange", "Toilets"], firstTrain: "07:00", lastTrain: "21:40", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Salt Lake Sector V | Indian Railways Interchange" },
     { id: 'howrah', name: 'Howrah', code: 'HWH', line: 'Green', gates: 5, facilities: ["Elevator", "Escalator", "Toilets"], firstTrain: "07:00", lastTrain: "21:30", platformInfo: "Platform 1: Salt Lake Sector V | Platform 2: Terminating" },
     { id: 'howrah-maidan', name: 'Howrah Maidan', code: 'HWM', line: 'Green', gates: 3, facilities: ["Elevator", "Escalator"], firstTrain: "07:00", lastTrain: "21:30", platformInfo: "Platform 1: Salt Lake Sector V | Platform 2: Terminating" },
-    { id: 'mahanayak-uttam-kumar-green', name: 'Mahanayak Uttam Kumar', code: 'MUK', line: 'Green', gates: 4, facilities: ["Elevator", "Escalator", "Parking"], firstTrain: "06:45", lastTrain: "21:55", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'behala-bazar', name: 'Behala Bazar', code: 'BHBZ', line: 'Green', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Joka | Platform 2: Esplanade" },
     { id: 'behala-chowrasta', name: 'Behala Chowrasta', code: 'BHCR', line: 'Green', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Joka | Platform 2: Esplanade" },
     { id: 'sakher-bazar', name: 'Sakher Bazar', code: 'SKBZ', line: 'Green', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Joka | Platform 2: Esplanade" },
@@ -76,16 +75,16 @@ export const stations: Station[] = [
     { id: 'majherhat-purple', name: 'Majherhat', code: 'MAJ', line: 'Purple', gates: 3, facilities: ["Elevator", "Escalator", "Interchange"], firstTrain: "09:15", lastTrain: "16:20", platformInfo: "Platform 1: Terminating | Platform 2: Joka | Indian Railways Interchange" },
     
     // Orange Line (Kavi Subhash-Jai Hind)
-    { id: 'kavi-subhash-orange', name: 'Kavi Subhash', code: 'KVS', line: 'Blue', gates: 4, facilities: ["Elevator", "Escalator", "Parking", "Toilets"], firstTrain: "06:45", lastTrain: "21:45", platformInfo: "Platform 1: Terminating | Platform 2: Dakshineswar" },
-    { id: 'satyajit-ray', name: 'Satyajit Ray', code: 'SJR', line: 'Blue', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'jyotirindra-nandi', name: 'Jyotirindra Nandi', code: 'JYN', line: 'Blue', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'kavi-sukanta', name: 'Kavi Sukanta', code: 'KSK', line: 'Blue', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'hemanta-mukhopadhyay', name: 'Hemanta Mukhopadhyay', code: 'HMK', line: 'Blue', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'vip-bazar', name: 'VIP Bazar', code: 'VIP', line: 'Blue', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'ritwik-ghatak', name: 'Ritwik Ghatak', code: 'RTG', line: 'Blue', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'barun-sengupta', name: 'Barun Sengupta', code: 'BSG', line: 'Blue', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'beleghata', name: 'Beleghata', code: 'BLG', line: 'Blue', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'subhas-sarobar', name: 'Subhas Sarobar', code: 'SSR', line: 'Blue', gates: 2, facilities: [], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
+    { id: 'kavi-subhash-orange', name: 'Kavi Subhash (New Garia)', code: 'KVS', line: 'Orange', gates: 4, facilities: ["Elevator", "Escalator", "Parking", "Toilets", "Interchange"], firstTrain: "09:00", lastTrain: "16:40", platformInfo: "Platform 1: Jai Hind | Platform 2: Terminating" },
+    { id: 'satyajit-ray', name: 'Satyajit Ray', code: 'SJR', line: 'Orange', gates: 2, facilities: [], firstTrain: "09:03", lastTrain: "16:43", platformInfo: "Platform 1: Jai Hind | Platform 2: Kavi Subhash" },
+    { id: 'jyotirindra-nandi', name: 'Jyotirindra Nandi', code: 'JYN', line: 'Orange', gates: 2, facilities: [], firstTrain: "09:05", lastTrain: "16:45", platformInfo: "Platform 1: Jai Hind | Platform 2: Kavi Subhash" },
+    { id: 'kavi-sukanta', name: 'Kavi Sukanta', code: 'KSK', line: 'Orange', gates: 2, facilities: [], firstTrain: "09:08", lastTrain: "16:48", platformInfo: "Platform 1: Jai Hind | Platform 2: Kavi Subhash" },
+    { id: 'hemanta-mukhopadhyay', name: 'Hemanta Mukhopadhyay', code: 'HMK', line: 'Orange', gates: 2, facilities: [], firstTrain: "09:10", lastTrain: "16:50", platformInfo: "Platform 1: Jai Hind | Platform 2: Kavi Subhash" },
+    { id: 'vip-bazar', name: 'VIP Bazar', code: 'VIP', line: 'Orange', gates: 2, facilities: [], firstTrain: "09:13", lastTrain: "16:53", platformInfo: "Platform 1: Jai Hind | Platform 2: Kavi Subhash" },
+    { id: 'ritwik-ghatak', name: 'Ritwik Ghatak', code: 'RTG', line: 'Orange', gates: 2, facilities: [], firstTrain: "09:15", lastTrain: "16:55", platformInfo: "Platform 1: Jai Hind | Platform 2: Kavi Subhash" },
+    { id: 'barun-sengupta', name: 'Barun Sengupta', code: 'BSG', line: 'Orange', gates: 2, facilities: [], firstTrain: "09:18", lastTrain: "16:58", platformInfo: "Platform 1: Jai Hind | Platform 2: Kavi Subhash" },
+    { id: 'beleghata', name: 'Beleghata', code: 'BLG', line: 'Orange', gates: 2, facilities: [], firstTrain: "09:21", lastTrain: "17:01", platformInfo: "Platform 1: Jai Hind | Platform 2: Kavi Subhash" },
+    { id: 'subhas-sarobar', name: 'Subhas Sarobar', code: 'SSR', line: 'Orange', gates: 2, facilities: [], firstTrain: "09:24", lastTrain: "17:04", platformInfo: "Platform 1: Jai Hind | Platform 2: Kavi Subhash" },
 ];
 
 export const lines: Line[] = [
@@ -103,14 +102,20 @@ export const lines: Line[] = [
     name: 'Green',
     stations: [
       'howrah-maidan', 'howrah', 'esplanade', 'sealdah', 'phoolbagan', 'salt-lake-stadium',
-      'bengal-chemical', 'city-center', 'central-park', 'karunamoyee', 'salt-lake-sector-v',
-      'mahanayak-uttam-kumar-green', 'behala-bazar', 'behala-chowrasta', 'sakher-bazar', 'taratala', 'majherhat'
+      'bengal-chemical', 'city-center', 'central-park', 'karunamoyee', 'salt-lake-sector-v'
     ],
   },
   {
       name: 'Purple',
       stations: [
           'joka', 'thakurpukur-cancer-hospital', 'sakherbazar', 'behala-chowrasta-purple', 'behala-bazar-purple', 'taratala-purple', 'majherhat-purple'
+      ]
+  },
+  {
+      name: 'Orange',
+      stations: [
+        'kavi-subhash-orange', 'satyajit-ray', 'jyotirindra-nandi', 'kavi-sukanta', 
+        'hemanta-mukhopadhyay', 'vip-bazar', 'ritwik-ghatak', 'barun-sengupta', 'beleghata', 'subhas-sarobar'
       ]
   }
 ];
@@ -124,4 +129,6 @@ export const fares: Fare[] = [
   { from: 'esplanade', to: 'salt-lake-sector-v', fare: 20 },
   { from: 'dakshineswar', to: 'kavi-subhash', fare: 30 },
   { from: 'joka', to: 'majherhat-purple', fare: 20 },
+  { from: 'kavi-subhash-orange', to: 'hemanta-mukhopadhyay', fare: 20 },
+  { from: 'kavi-subhash-orange', to: 'subhas-sarobar', fare: 30 },
 ];

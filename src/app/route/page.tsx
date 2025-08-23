@@ -83,25 +83,23 @@ function RouteResult() {
                 <CardContent>
                     <ol className="relative border-l-2 border-primary/20 ml-3">
                         {path.map((station, index) => {
-                             const isFirst = index === 0;
-                             const isLast = index === path.length - 1;
                              let isInterchange = false;
-                             if(index > 0 && station.line !== path[index-1].line && station.id === 'esplanade'){
+                             if(index > 0 && station.line !== path[index-1].line){
                                 isInterchange = true;
                              }
 
                             return (
-                                <li key={station.id} className="mb-6 ml-6">
+                                <li key={`${station.id}-${index}`} className="mb-6 ml-6">
                                     <span className={`absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 ring-4 ring-background ${getLineColor(station.line)}`}>
                                         <Train className="w-3 h-3 text-white"/>
                                     </span>
                                     <h3 className="font-semibold text-lg">{station.name}</h3>
-                                    <Badge variant={station.line === 'Blue' ? 'default' : 'secondary'} className={`${getLineColor(station.line)} text-white`}>
+                                    <Badge style={{backgroundColor: getLineColor(station.line).replace('bg-','').replace('-500','')}} className={`text-white`}>
                                         {station.line} {t.route.line}
                                     </Badge>
                                     {isInterchange && (
                                         <div className="mt-2 p-2 bg-yellow-100 dark:bg-yellow-900/50 rounded-md border border-accent/50 text-sm">
-                                            <p className="font-semibold text-accent-foreground">{t.route.changeLine} {station.line} {t.route.line}</p>
+                                            <p className="font-semibold text-accent-foreground">{t.route.changeLine} {path[index-1].line} {t.route.line}</p>
                                         </div>
                                     )}
                                 </li>
