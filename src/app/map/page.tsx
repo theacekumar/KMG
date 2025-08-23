@@ -13,15 +13,14 @@ export default function MapPage() {
           <CardTitle className="text-2xl font-headline">{t.map.title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="w-full h-[70vh] md:h-[80vh] border rounded-lg overflow-auto bg-muted/30">
-            <div className="w-fit h-fit" style={{ minWidth: '1200px', minHeight: '900px' }}>
+          <div className="w-full h-[70vh] md:h-[80vh] border rounded-lg overflow-auto bg-muted/30 flex items-center justify-center">
+            <div className="relative" style={{ width: '1200px', height: '900px' }}>
                 <Image
-                    src="/kolkata-metro-map.png"
+                    src="https://placehold.co/1200x900.png"
                     alt="Kolkata Metro Map"
-                    data-ai-hint="kolkata metro map"
-                    width={1200}
-                    height={900}
-                    className="object-contain"
+                    data-ai-hint="metro map"
+                    layout="fill"
+                    objectFit="contain"
                 />
             </div>
           </div>
