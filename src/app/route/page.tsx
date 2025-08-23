@@ -84,8 +84,13 @@ function RouteResult() {
                     <ol className="relative border-l-2 border-primary/20 ml-3">
                         {path.map((station, index) => {
                              let isInterchange = false;
-                             if(index > 0 && station.line !== path[index-1].line){
-                                isInterchange = true;
+                             let prevLine: string | undefined;
+                             if (index > 0) {
+                                const prevStationInfo = path[index-1];
+                                if (station.line !== prevStationInfo.line) {
+                                    isInterchange = true;
+                                    prevLine = prevStationInfo.line;
+                                }
                              }
 
                             return (
@@ -97,9 +102,9 @@ function RouteResult() {
                                     <Badge style={{backgroundColor: getLineColor(station.line).replace('bg-','').replace('-500','')}} className={`text-white`}>
                                         {station.line} {t.route.line}
                                     </Badge>
-                                    {isInterchange && (
+                                    {isInterchange && prevLine && (
                                         <div className="mt-2 p-2 bg-yellow-100 dark:bg-yellow-900/50 rounded-md border border-accent/50 text-sm">
-                                            <p className="font-semibold text-accent-foreground">{t.route.changeLine} {path[index-1].line} {t.route.line}</p>
+                                            <p className="font-semibold text-accent-foreground">{t.route.changeLine} {station.line} {t.route.line}</p>
                                         </div>
                                     )}
                                 </li>

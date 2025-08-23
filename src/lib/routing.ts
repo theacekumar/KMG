@@ -32,18 +32,14 @@ function buildAdjacencyList() {
   });
 
   // Manual interchange connections
-  const interchanges = {
-    'esplanade': ['esplanade'], // Interchange between Blue and Green
-    'kavi-subhash': ['kavi-subhash-orange'], // Interchange between Blue and Orange
-  };
-
-  for (const stationAId in interchanges) {
-      const stationBIds = interchanges[stationAId as keyof typeof interchanges];
-      stationBIds.forEach(stationBId => {
-          adjacencyList.get(stationAId)?.push(stationBId);
-          adjacencyList.get(stationBId)?.push(stationAId);
-      });
-  }
+  const interchanges = stations.filter(s => s.lines.length > 1);
+  interchanges.forEach(station => {
+      const connectedStations = stations.filter(s => s.name === station.name && s.id !== station.id);
+      connectedStations.forEach(connected => {
+          adjacencyList.get(station.id)?.push(connected.id);
+          adjacencyList.get(connected.id)?.push(station.id);
+      })
+  })
 
 }
 
@@ -111,6 +107,16 @@ export function calculateFare(fromId: string, toId: string): number {
     return 30;
 }
 
+const getLineForPathSegment = (stationA: Station, stationB: Station): 'Blue' | 'Green' | 'Purple' | 'Orange' => {
+    const commonLines = stationA.lines.filter(line => stationB.lines.includes(line));
+    if (commonLines.length > 0) {
+        return commonLines[0];
+    }
+    // Default to the first line of the starting station of the segment if no common line is found.
+    return stationA.lines[0];
+}
+
+
 export function getRouteDetails(fromId: string, toId: string, t: (typeof Translations)['en']) {
     const path = findShortestPath(fromId, toId);
 
@@ -124,18 +130,23 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
     
     let interchanges = 0;
     const routeWithLines = path.map((station, index) => {
-        let line = station.line;
+        let line: 'Blue' | 'Green' | 'Purple' | 'Orange';
+        
         if (index > 0) {
             const prevStation = path[index - 1];
-            if (station.line !== prevStation.line) {
-                 // Check if it's a valid interchange point
-                if ((station.id === 'esplanade' && prevStation.line === 'Green') ||
-                    (station.id === 'esplanade' && prevStation.line === 'Blue') ||
-                    (station.id === 'kavi-subhash-orange' && prevStation.line === 'Blue') ||
-                    (station.id === 'kavi-subhash' && prevStation.line === 'Orange')) {
-                    interchanges++;
-                }
+            const currentLine = getLineForPathSegment(prevStation, station);
+            const prevLine = getLineForPathSegment(path[Math.max(0, index - 2)], prevStation);
+            if (currentLine !== prevLine) {
+                interchanges++;
             }
+            line = currentLine;
+        } else {
+             const nextStation = path[index + 1];
+             if(nextStation){
+                line = getLineForPathSegment(station, nextStation);
+             } else {
+                line = station.lines[0];
+             }
         }
         return { ...station, line };
     });
@@ -145,6 +156,6 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
         fare,
         stops,
         time,
-        interchanges,
+        interchanges: Math.max(0, interchanges), // Ensure interchanges are not negative
     };
 }
