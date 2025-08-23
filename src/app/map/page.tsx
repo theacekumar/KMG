@@ -16,7 +16,7 @@ export default function MapPage() {
           <div className="w-full h-[70vh] md:h-[80vh] border rounded-lg overflow-auto bg-muted/30">
             <div className="w-fit h-fit" style={{ minWidth: '1200px', minHeight: '900px' }}>
                 <Image
-                    src="https://placehold.co/1200x900.png"
+                    src="/kolkata-metro-map.png"
                     alt="Kolkata Metro Map"
                     data-ai-hint="kolkata metro map"
                     width={1200}
