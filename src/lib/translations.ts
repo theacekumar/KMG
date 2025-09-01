@@ -59,7 +59,7 @@ export const Translations = {
         cardCostValue: "150",
         cardCostDescription: "Includes a security deposit of ₹80 and a starting balance of ₹70.",
         rechargeTitle: "Recharge Value",
-        rechargeValue: "100 to 3000",
+        rechargeValue: "100 to 5000",
         rechargeDescription: "Recharge in multiples of ₹100 from any station.",
         benefitsTitle: "Benefits",
         benefitsList: [
@@ -134,7 +134,7 @@ export const Translations = {
         cardCostValue: "১৫০",
         cardCostDescription: "এর মধ্যে ৮০ টাকার নিরাপত্তা আমানত এবং ৭০ টাকার প্রাথমিক ব্যালেন্স অন্তর্ভুক্ত রয়েছে।",
         rechargeTitle: "রিচার্জের পরিমাণ",
-        rechargeValue: "১০০ থেকে ৩০০০",
+        rechargeValue: "১০০ থেকে ৫০০০",
         rechargeDescription: "যেকোনো স্টেশন থেকে ১০০ টাকার গুণিতকে রিচার্জ করুন।",
         benefitsTitle: "সুবিধাসমূহ",
         benefitsList: [
