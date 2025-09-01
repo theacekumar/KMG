@@ -146,22 +146,38 @@ export const fares: Fare[] = [
   // Orange Line
   { from: 'kavi-subhash', to: 'hemanta-mukhopadhyay', fare: 10 },
   { from: 'kavi-subhash', to: 'beleghata', fare: 20 },
-  // Jai Hind Airport Fares
+
+  // --- From Jai Hind (Airport) ---
+  // To Blue Line
   { from: 'jai-hind', to: 'shyambazar', fare: 35 },
   { from: 'jai-hind', to: 'central', fare: 35 },
   { from: 'jai-hind', to: 'girish-park', fare: 35 },
-  { from: 'jai-hind', to: 'chandni-chowk', fare: 40 },
   { from: 'jai-hind', to: 'esplanade', fare: 40 },
   { from: 'jai-hind', to: 'park-street', fare: 40 },
-  { from: 'jai-hind', to: 'maidan', fare: 40 },
   { from: 'jai-hind', to: 'rabindra-sarobar', fare: 40 },
-  { from: 'jai-hind', to: 'mahanayak-uttam-kumar', fare: 40 },
+  { from: 'jai-hind', to: 'netaji', fare: 45 },
   { from: 'jai-hind', to: 'kavi-subhash', fare: 45 },
-  { from: 'jai-hind', to: 'satyajit-ray', fare: 50 },
-  { from: 'jai-hind', to: 'howrah', fare: 50 },
+  // To Green Line
+  { from: 'jai-hind', to: 'phoolbagan', fare: 50 },
   { from: 'jai-hind', to: 'sealdah', fare: 50 },
-  { from: 'jai-hind', to: 'jyotirindra-nandi', fare: 55 },
-  { from: 'jai-hind', to: 'kavi-sukanta', fare: 55 },
-  { from: 'jai-hind', to: 'hemanta-mukhopadhyay', fare: 65 },
+  { from: 'jai-hind', to: 'howrah', fare: 50 },
+  { from: 'jai-hind', to: 'howrah-maidan', fare: 50 },
   { from: 'jai-hind', to: 'salt-lake-sector-v', fare: 70 },
+  // To Orange Line
+  { from: 'jai-hind', to: 'hemanta-mukhopadhyay', fare: 65 },
+  { from: 'jai-hind', to: 'beleghata', fare: 65 },
+  
+  // --- From Hemanta Mukhopadhyay (Ruby) ---
+  // To Blue Line
+  { from: 'hemanta-mukhopadhyay', to: 'dakshineswar', fare: 45 },
+  { from: 'hemanta-mukhopadhyay', to: 'dum-dum', fare: 45 },
+  { from: 'hemanta-mukhopadhyay', to: 'girish-park', fare: 40 },
+  { from: 'hemanta-mukhopadhyay', to: 'esplanade', fare: 40 },
+  { from: 'hemanta-mukhopadhyay', to: 'park-street', fare: 40 },
+  { from: 'hemanta-mukhopadhyay', to: 'mahanayak-uttam-kumar', fare: 35 },
+  // To Green Line
+  { from: 'hemanta-mukhopadhyay', to: 'howrah-maidan', fare: 50 },
+  { from: 'hemanta-mukhopadhyay', to: 'sealdah', fare: 50 },
 ];
+
+    
