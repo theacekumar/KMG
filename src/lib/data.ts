@@ -95,8 +95,7 @@ export const lines: Line[] = [
     stations: [
       'dakshineswar', 'baranagar', 'noapara', 'dum-dum', 'belgachia', 'shyambazar',
       'shobhabazar-sutanuti', 'girish-park', 'mahatma-gandhi-road', 'central',
-      'chandni-chowk', 'esplanade', 'park-street', 'maidan', 'rabindra-sadan',
-      'netaji-bhavan', 'jatindas-park', 'kalighat', 'rabindra-sarobar', 'mahanayak-uttam-kumar',
+      'chandni-chowk', 'esplanade', 'park-street', 'maidan', 'rabindra-sadan', 'netaji-bhavan', 'jatindas-park', 'kalighat', 'rabindra-sarobar', 'mahanayak-uttam-kumar',
       'netaji', 'masterda-surya-sen', 'gitanjali', 'kavi-nazrul',
       'shahid-khudiram', 'kavi-subhash'
     ],
@@ -132,6 +131,7 @@ export const lines: Line[] = [
 export const fares: Fare[] = [
   // Green Line
   { from: 'howrah-maidan', to: 'howrah', fare: 5 },
+  { from: 'howrah', to: 'mahakaran', fare: 10 },
   { from: 'howrah-maidan', to: 'esplanade', fare: 10 },
   { from: 'howrah-maidan', to: 'sealdah', fare: 10 },
   { from: 'howrah-maidan', to: 'salt-lake-sector-v', fare: 20 },
@@ -143,9 +143,6 @@ export const fares: Fare[] = [
   { from: 'jai-hind', to: 'jessore-road', fare: 5 },
   { from: 'jai-hind', to: 'dumdum-cantonment', fare: 10 },
   { from: 'jai-hind', to: 'noapara', fare: 20 },
-  { from: 'jai-hind', to: 'dakshineswar', fare: 30 },
-  { from: 'jai-hind', to: 'esplanade', fare: 40 },
-  { from: 'jai-hind', to: 'kavi-subhash', fare: 45 },
   // Orange Line
   { from: 'kavi-subhash', to: 'hemanta-mukhopadhyay', fare: 10 },
   { from: 'kavi-subhash', to: 'beleghata', fare: 20 },
