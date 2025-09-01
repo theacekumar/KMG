@@ -1,3 +1,4 @@
+
 export interface Station {
   id: string;
   name: string;
@@ -178,6 +179,22 @@ export const fares: Fare[] = [
   // To Green Line
   { from: 'hemanta-mukhopadhyay', to: 'howrah-maidan', fare: 50 },
   { from: 'hemanta-mukhopadhyay', to: 'sealdah', fare: 50 },
+
+  // --- From Jessore Road ---
+  { from: 'jessore-road', to: 'shyambazar', fare: 35 },
+  { from: 'jessore-road', to: 'central', fare: 35 },
+  { from: 'jessore-road', to: 'girish-park', fare: 35 },
+  { from: 'jessore-road', to: 'chandni-chowk', fare: 40 },
+  { from: 'jessore-road', to: 'esplanade', fare: 40 },
+  { from: 'jessore-road', to: 'park-street', fare: 40 },
+  { from: 'jessore-road', to: 'rabindra-sarobar', fare: 40 },
+  { from: 'jessore-road', to: 'mahanayak-uttam-kumar', fare: 40 },
+  { from: 'jessore-road', to: 'kavi-subhash', fare: 45 },
+  { from: 'jessore-road', to: 'howrah-maidan', fare: 50 },
+  { from: 'jessore-road', to: 'howrah', fare: 50 },
+  { from: 'jessore-road', to: 'salt-lake-sector-v', fare: 70 },
+  { from: 'jessore-road', to: 'hemanta-mukhopadhyay', fare: 65 },
+  { from: 'jessore-road', to: 'beleghata', fare: 65 },
 ];
 
     
