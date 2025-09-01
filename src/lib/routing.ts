@@ -1,7 +1,7 @@
 import { Line, Station, Fare, lines, stations, fares } from './data';
 import type { Translations } from './translations';
 
-export type StationNode = Station & { line: 'Blue' | 'Green' | 'Purple' | 'Orange' };
+export type StationNode = Station & { line: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' };
 
 // Adjacency list representation of the metro graph
 const adjacencyList = new Map<string, string[]>();
@@ -77,12 +77,13 @@ export function findShortestPath(startId: string, endId: string): Station[] | nu
 }
 
 // Function to determine the line color
-export function getLineColor(lineName: 'Blue' | 'Green' | 'Purple' | 'Orange'): string {
+export function getLineColor(lineName: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow'): string {
     switch(lineName) {
         case 'Blue': return 'bg-blue-500';
         case 'Green': return 'bg-green-500';
         case 'Purple': return 'bg-purple-500';
         case 'Orange': return 'bg-orange-500';
+        case 'Yellow': return 'bg-yellow-500';
         default: return 'bg-gray-500';
     }
 }
@@ -107,7 +108,7 @@ export function calculateFare(fromId: string, toId: string): number {
     return 30;
 }
 
-const getLineForPathSegment = (stationA: Station, stationB: Station): 'Blue' | 'Green' | 'Purple' | 'Orange' => {
+const getLineForPathSegment = (stationA: Station, stationB: Station): 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' => {
     const commonLines = stationA.lines.filter(line => stationB.lines.includes(line));
     if (commonLines.length > 0) {
         return commonLines[0];
@@ -130,7 +131,7 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
     
     let interchanges = 0;
     const routeWithLines = path.map((station, index) => {
-        let line: 'Blue' | 'Green' | 'Purple' | 'Orange';
+        let line: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow';
         
         if (index > 0) {
             const prevStation = path[index - 1];

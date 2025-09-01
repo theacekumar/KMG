@@ -92,14 +92,16 @@ function RouteResult() {
                                     prevLine = prevStationInfo.line;
                                 }
                              }
+                             const lineColor = getLineColor(station.line);
+                             const interchangeColor = isInterchange && prevLine ? getLineColor(prevLine as any) : '';
 
                             return (
                                 <li key={`${station.id}-${index}`} className="mb-6 ml-6">
-                                    <span className={`absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 ring-4 ring-background ${getLineColor(station.line)}`}>
+                                    <span className={`absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 ring-4 ring-background ${lineColor}`}>
                                         <Train className="w-3 h-3 text-white"/>
                                     </span>
                                     <h3 className="font-semibold text-lg">{station.name}</h3>
-                                    <Badge style={{backgroundColor: getLineColor(station.line).replace('bg-','').replace('-500','')}} className={`text-white`}>
+                                    <Badge style={{backgroundColor: lineColor.replace('bg-','').replace('-500','')}} className={`text-white`}>
                                         {station.line} {t.route.line}
                                     </Badge>
                                     {isInterchange && prevLine && (
