@@ -93,25 +93,50 @@ export function getStationById(id: string): Station | undefined {
 }
 
 export function calculateFare(fromId: string, toId: string): number {
-    // This is a simplified fare calculation. A real app would have a more complex matrix.
+    // Check for specific predefined fares first
     const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
     if (directFare) return directFare.fare;
 
-    // Fallback fare based on distance if not explicitly defined
     const path = findShortestPath(fromId, toId);
     if (!path) return 0;
-    const distance = path.length - 1;
-    if (distance <= 2) return 5;
-    if (distance <= 5) return 10;
-    if (distance <= 10) return 20;
-    if (distance <= 15) return 25;
-    return 30;
+    
+    const distance = path.length - 1; // Number of stations travelled
+    const startStation = getStationById(fromId);
+    const endStation = getStationById(toId);
+
+    if (!startStation || !endStation) return 0;
+
+    // Use the line of the first segment to determine fare structure, this is a simplification
+    const routeDetails = getRouteDetails(fromId, toId, {} as any);
+    const primaryLine = routeDetails.path?.[0].line;
+
+    // Distance is approx stations * 2km
+    const km = distance * 2;
+
+    if (km <= 2) return 5;
+    if (km <= 5) return 10;
+    if (km <= 10) {
+        if (primaryLine === 'Green') return 20;
+        return 15; // Blue line and others
+    }
+    if (km <= 20) {
+        if (primaryLine === 'Green') return 30;
+        return 20; // Blue line and others
+    }
+    if (km <= 30) {
+      if (primaryLine === 'Blue') return 25;
+    }
+    
+    return 30; // for distances over 30km or other lines
 }
+
 
 const getLineForPathSegment = (stationA: Station, stationB: Station): 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' => {
     const commonLines = stationA.lines.filter(line => stationB.lines.includes(line));
     if (commonLines.length > 0) {
-        return commonLines[0];
+        // Prioritize non-blue line if multiple are common, for fare calculation.
+        // This is a heuristic and might need refinement.
+        return commonLines.find(l => l !== 'Blue') || commonLines[0];
     }
     // Default to the first line of the starting station of the segment if no common line is found.
     return stationA.lines[0];
@@ -136,9 +161,20 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
         if (index > 0) {
             const prevStation = path[index - 1];
             const currentLine = getLineForPathSegment(prevStation, station);
-            const prevLine = getLineForPathSegment(path[Math.max(0, index - 2)], prevStation);
-            if (currentLine !== prevLine) {
-                interchanges++;
+
+            const prevPathSegmentA = path[Math.max(0, index - 2)];
+            const prevPathSegmentB = prevStation;
+            const prevLine = getLineForPathSegment(prevPathSegmentA, prevPathSegmentB);
+
+            if (currentLine !== prevLine && station.lines.length > 1) {
+                 if(path[index-1].name === station.name) {
+                    // This is an interchange happening at the same station name but different line ids
+                    interchanges++;
+                 } else if (station.lines.includes(prevLine)) {
+                    // We are at a station that is part of the previous line, but we are changing.
+                 } else {
+                    interchanges++;
+                 }
             }
             line = currentLine;
         } else {
@@ -152,11 +188,22 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
         return { ...station, line };
     });
 
+    const finalInterchanges = routeWithLines.reduce((acc, station, index, arr) => {
+        if (index > 0 && station.line !== arr[index-1].line) {
+            // Check if the station name is the same as previous, which indicates a line change within the same physical interchange
+            if (arr[index-1].name !== station.name) {
+                 acc++;
+            }
+        }
+        return acc;
+    }, 0);
+
+
     return {
         path: routeWithLines,
         fare,
         stops,
         time,
-        interchanges: Math.max(0, interchanges), // Ensure interchanges are not negative
+        interchanges: finalInterchanges,
     };
 }

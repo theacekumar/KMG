@@ -35,7 +35,7 @@ export const stations: Station[] = [
     { id: 'central', name: 'Central', code: 'CEN', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "06:59", lastTrain: "21:46", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'chandni-chowk', name: 'Chandni Chowk', code: 'CHC', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:01", lastTrain: "21:44", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'esplanade', name: 'Esplanade', code: 'ESP', lines: ['Blue', 'Green'], gates: 6, facilities: ["Elevator", "Escalator", "Interchange", "Toilets"], firstTrain: "07:00", lastTrain: "21:45", platformInfo: "Blue Line: P1 Kavi Subhash, P2 Dum Dum | Green Line: P1 Howrah Maidan, P2 Sealdah" },
-    { id: 'park-street', name: 'Park Street', code: 'PST', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:03", lastTrain: "21:42", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
+    { id: 'park-street', name: 'Park Street', code: 'PST', lines: ['Blue', 'Purple'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:03", lastTrain: "21:42", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'maidan', name: 'Maidan', code: 'MDN', lines: ['Blue'], gates: 2, facilities: [], firstTrain: "07:05", lastTrain: "21:40", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'rabindra-sadan', name: 'Rabindra Sadan', code: 'RSD', lines: ['Blue'], gates: 2, facilities: ["Escalator"], firstTrain: "07:07", lastTrain: "21:38", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'netaji-bhavan', name: 'Netaji Bhavan', code: 'NBH', lines: ['Blue'], gates: 2, facilities: ["Escalator"], firstTrain: "07:09", lastTrain: "21:36", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
@@ -62,7 +62,7 @@ export const stations: Station[] = [
     { id: 'mahakaran', name: 'Mahakaran', code: 'MHK', lines: ['Green'], gates: 4, facilities: ["Elevator", "Escalator", "Toilets"], firstTrain: "07:00", lastTrain: "21:40", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Salt Lake Sector V" },
     { id: 'howrah', name: 'Howrah', code: 'HWH', lines: ['Green'], gates: 5, facilities: ["Elevator", "Escalator", "Toilets"], firstTrain: "07:00", lastTrain: "21:30", platformInfo: "Platform 1: Salt Lake Sector V | Platform 2: Terminating" },
     { id: 'howrah-maidan', name: 'Howrah Maidan', code: 'HWM', lines: ['Green'], gates: 3, facilities: ["Elevator", "Escalator"], firstTrain: "07:00", lastTrain: "21:30", platformInfo: "Platform 1: Salt Lake Sector V | Platform 2: Terminating" },
-    
+
     // Purple Line (Joka-Esplanade)
     { id: 'joka', name: 'Joka', code: 'JOK', lines: ['Purple'], gates: 2, facilities: ["Parking"], firstTrain: "08:55", lastTrain: "16:00", platformInfo: "Platform 1: Majherhat | Platform 2: Terminating" },
     { id: 'thakurpukur-cancer-hospital', name: 'Thakurpukur Cancer Hospital', code: 'TCP', lines: ['Purple'], gates: 2, facilities: [], firstTrain: "09:00", lastTrain: "16:05", platformInfo: "Platform 1: Majherhat | Platform 2: Joka" },
@@ -71,7 +71,7 @@ export const stations: Station[] = [
     { id: 'behala-bazar', name: 'Behala Bazar', code: 'BHB', lines: ['Purple'], gates: 2, facilities: [], firstTrain: "09:08", lastTrain: "16:13", platformInfo: "Platform 1: Majherhat | Platform 2: Joka" },
     { id: 'taratala', name: 'Taratala', code: 'TAR', lines: ['Purple'], gates: 2, facilities: ["Elevator"], firstTrain: "09:12", lastTrain: "16:17", platformInfo: "Platform 1: Majherhat | Platform 2: Joka" },
     { id: 'majherhat', name: 'Majherhat', code: 'MAJ', lines: ['Purple'], gates: 3, facilities: ["Elevator", "Escalator", "Interchange"], firstTrain: "09:15", lastTrain: "16:20", platformInfo: "Platform 1: Terminating | Platform 2: Joka | Indian Railways Interchange" },
-    
+
     // Orange Line (Kavi Subhash-Jai Hind)
     { id: 'satyajit-ray', name: 'Satyajit Ray', code: 'SJR', lines: ['Orange'], gates: 2, facilities: [], firstTrain: "09:03", lastTrain: "16:43", platformInfo: "Platform 1: Jai Hind | Platform 2: Kavi Subhash" },
     { id: 'jyotirindra-nandi', name: 'Jyotirindra Nandi', code: 'JYN', lines: ['Orange'], gates: 2, facilities: [], firstTrain: "09:05", lastTrain: "16:45", platformInfo: "Platform 1: Jai Hind | Platform 2: Kavi Subhash" },
@@ -93,11 +93,11 @@ export const lines: Line[] = [
   {
     name: 'Blue',
     stations: [
-      'dakshineswar', 'baranagar', 'noapara', 'dum-dum', 'belgachia', 'shyambazar', 
-      'shobhabazar-sutanuti', 'girish-park', 'mahatma-gandhi-road', 'central', 
-      'chandni-chowk', 'esplanade', 'park-street', 'maidan', 'rabindra-sadan', 
-      'netaji-bhavan', 'jatindas-park', 'kalighat', 'rabindra-sarobar', 'mahanayak-uttam-kumar', 
-      'netaji', 'masterda-surya-sen', 'gitanjali', 'kavi-nazrul', 
+      'dakshineswar', 'baranagar', 'noapara', 'dum-dum', 'belgachia', 'shyambazar',
+      'shobhabazar-sutanuti', 'girish-park', 'mahatma-gandhi-road', 'central',
+      'chandni-chowk', 'esplanade', 'park-street', 'maidan', 'rabindra-sadan',
+      'netaji-bhavan', 'jatindas-park', 'kalighat', 'rabindra-sarobar', 'mahanayak-uttam-kumar',
+      'netaji', 'masterda-surya-sen', 'gitanjali', 'kavi-nazrul',
       'shahid-khudiram', 'kavi-subhash'
     ],
   },
@@ -111,13 +111,13 @@ export const lines: Line[] = [
   {
       name: 'Purple',
       stations: [
-          'joka', 'thakurpukur-cancer-hospital', 'sakherbazar', 'behala-chowrasta', 'behala-bazar', 'taratala', 'majherhat'
+          'joka', 'thakurpukur-cancer-hospital', 'sakherbazar', 'behala-chowrasta', 'behala-bazar', 'taratala', 'majherhat', 'park-street'
       ]
   },
   {
       name: 'Orange',
       stations: [
-        'kavi-subhash', 'satyajit-ray', 'jyotirindra-nandi', 'kavi-sukanta', 
+        'kavi-subhash', 'satyajit-ray', 'jyotirindra-nandi', 'kavi-sukanta',
         'hemanta-mukhopadhyay', 'vip-bazar', 'ritwik-ghatak', 'barun-sengupta', 'beleghata', 'subhas-sarobar'
       ]
   },
@@ -130,14 +130,22 @@ export const lines: Line[] = [
 ];
 
 export const fares: Fare[] = [
-  { from: 'dum-dum', to: 'esplanade', fare: 10 },
-  { from: 'dum-dum', to: 'kavi-subhash', fare: 25 },
-  { from: 'kalighat', to: 'dum-dum', fare: 15 },
-  { from: 'salt-lake-sector-v', to: 'sealdah', fare: 10 },
-  { from: 'howrah-maidan', to: 'esplanade', fare: 5 },
-  { from: 'esplanade', to: 'salt-lake-sector-v', fare: 20 },
-  { from: 'dakshineswar', to: 'kavi-subhash', fare: 30 },
-  { from: 'joka', to: 'majherhat', fare: 20 },
-  { from: 'kavi-subhash', to: 'hemanta-mukhopadhyay', fare: 20 },
-  { from: 'kavi-subhash', to: 'subhas-sarobar', fare: 30 },
+  // Green Line
+  { from: 'howrah-maidan', to: 'howrah', fare: 5 },
+  { from: 'howrah-maidan', to: 'esplanade', fare: 10 },
+  { from: 'howrah-maidan', to: 'sealdah', fare: 10 },
+  { from: 'howrah-maidan', to: 'salt-lake-sector-v', fare: 20 },
+  // Blue Line
+  { from: 'dakshineswar', to: 'dum-dum', fare: 10 },
+  { from: 'dakshineswar', to: 'esplanade', fare: 20 },
+  { from: 'dakshineswar', to: 'kavi-subhash', fare: 25 },
+  // Yellow Line
+  { from: 'jai-hind', to: 'jessore-road', fare: 5 },
+  { from: 'jai-hind', to: 'noapara', fare: 20 },
+  { from: 'jai-hind', to: 'dakshineswar', fare: 30 },
+  { from: 'jai-hind', to: 'esplanade', fare: 40 },
+  { from: 'jai-hind', to: 'kavi-subhash', fare: 45 },
+  // Orange Line
+  { from: 'kavi-subhash', to: 'hemanta-mukhopadhyay', fare: 10 },
+  { from: 'kavi-subhash', to: 'beleghata', fare: 20 },
 ];
