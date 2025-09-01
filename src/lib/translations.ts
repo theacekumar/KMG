@@ -76,8 +76,8 @@ export const Translations = {
             title: "Tourist Card",
             description: "A special card designed for tourists, offering unlimited rides for a fixed period. It's the perfect way to explore the city without worrying about buying tickets for each trip.",
             types: [
-                { name: "1-Day Unlimited", price: "250", description: "Valid for unlimited rides for a single day." },
-                { name: "3-Day Unlimited", price: "400", description: "Valid for unlimited rides for three consecutive days." },
+                { name: "Tourist Smart Card-I (3-Day)", price: "250", description: "Valid for unlimited rides for three consecutive days." },
+                { name: "Tourist Smart Card-II (5-Day)", price: "550", description: "Valid for unlimited rides for five consecutive days." },
             ],
             features: [
                 "Both cards include a refundable security deposit of ₹80.",
@@ -164,8 +164,8 @@ export const Translations = {
             title: "ট্যুরিস্ট কার্ড",
             description: "পর্যটকদের জন্য ডিজাইন করা একটি বিশেষ কার্ড, যা একটি নির্দিষ্ট সময়ের জন্য সীমাহীন রাইড অফার করে। প্রতিটি ভ্রমণের জন্য টিকিট কেনার চিন্তা ছাড়াই শহর ঘুরে দেখার এটি একটি নিখুঁত উপায়।",
             types: [
-                { name: "১-দিনের আনলিমিটেড", price: "২৫০", description: "একদিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
-                { name: "৩-দিনের আনলিমিটেড", price: "৪০০", description: "টানা তিন দিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
+                { name: "ট্যুরিস্ট স্মার্ট কার্ড-I (৩-দিন)", price: "২৫০", description: "টানা তিন দিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
+                { name: "ট্যুরিস্ট স্মার্ট কার্ড-II (৫-দিন)", price: "৫৫০", description: "টানা পাঁচ দিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
             ],
             features: [
                 "দুটি কার্ডেই ৮০ টাকার ফেরতযোগ্য নিরাপত্তা আমানত অন্তর্ভুক্ত রয়েছে।",
