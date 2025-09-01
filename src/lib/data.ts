@@ -36,11 +36,13 @@ export const stations: Station[] = [
     { id: 'chandni-chowk', name: 'Chandni Chowk', code: 'CHC', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:01", lastTrain: "21:44", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'esplanade', name: 'Esplanade', code: 'ESP', lines: ['Blue', 'Green'], gates: 6, facilities: ["Elevator", "Escalator", "Interchange", "Toilets"], firstTrain: "07:00", lastTrain: "21:45", platformInfo: "Blue Line: P1 Kavi Subhash, P2 Dum Dum | Green Line: P1 Howrah Maidan, P2 Sealdah" },
     { id: 'park-street', name: 'Park Street', code: 'PST', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:03", lastTrain: "21:42", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
+    { id: 'maidan', name: 'Maidan', code: 'MDN', lines: ['Blue'], gates: 2, facilities: [], firstTrain: "07:05", lastTrain: "21:40", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
+    { id: 'rabindra-sadan', name: 'Rabindra Sadan', code: 'RSD', lines: ['Blue'], gates: 2, facilities: ["Escalator"], firstTrain: "07:07", lastTrain: "21:38", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
+    { id: 'netaji-bhavan', name: 'Netaji Bhavan', code: 'NBH', lines: ['Blue'], gates: 2, facilities: ["Escalator"], firstTrain: "07:09", lastTrain: "21:36", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
+    { id: 'jatindas-park', name: 'Jatindas Park', code: 'JDP', lines: ['Blue'], gates: 3, facilities: [], firstTrain: "07:11", lastTrain: "21:34", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
+    { id: 'kalighat', name: 'Kalighat', code: 'KGT', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:13", lastTrain: "21:32", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
+    { id: 'rabindra-sarobar', name: 'Rabindra Sarobar', code: 'RBS', lines: ['Blue'], gates: 3, facilities: ["Parking"], firstTrain: "07:15", lastTrain: "21:30", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'mahanayak-uttam-kumar', name: 'Mahanayak Uttam Kumar', code: 'MUK', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator", "Parking"], firstTrain: "06:45", lastTrain: "21:55", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'netaji-bhavan', name: 'Netaji Bhavan', code: 'NBH', lines: ['Blue'], gates: 2, facilities: ["Escalator"], firstTrain: "07:07", lastTrain: "21:38", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'jatindas-park', name: 'Jatindas Park', code: 'JDP', lines: ['Blue'], gates: 3, facilities: [], firstTrain: "07:09", lastTrain: "21:36", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'kalighat', name: 'Kalighat', code: 'KGT', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:11", lastTrain: "21:34", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'rabindra-sarobar', name: 'Rabindra Sarobar', code: 'RBS', lines: ['Blue'], gates: 3, facilities: ["Parking"], firstTrain: "07:13", lastTrain: "21:32", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'netaji', name: 'Netaji', code: 'NTJ', lines: ['Blue'], gates: 2, facilities: [], firstTrain: "06:51", lastTrain: "21:51", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'masterda-surya-sen', name: 'Masterda Surya Sen', code: 'MSS', lines: ['Blue'], gates: 2, facilities: [], firstTrain: "06:54", lastTrain: "21:48", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'gitanjali', name: 'Gitanjali', code: 'GTN', lines: ['Blue'], gates: 2, facilities: [], firstTrain: "06:56", lastTrain: "21:46", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
@@ -88,9 +90,10 @@ export const lines: Line[] = [
     stations: [
       'dakshineswar', 'baranagar', 'noapara', 'dum-dum', 'belgachia', 'shyambazar', 
       'shobhabazar-sutanuti', 'girish-park', 'mahatma-gandhi-road', 'central', 
-      'chandni-chowk', 'esplanade', 'park-street', 'mahanayak-uttam-kumar', 'netaji-bhavan', 
-      'jatindas-park', 'kalighat', 'rabindra-sarobar', 'netaji', 'masterda-surya-sen', 
-      'gitanjali', 'kavi-nazrul', 'shahid-khudiram', 'kavi-subhash'
+      'chandni-chowk', 'esplanade', 'park-street', 'maidan', 'rabindra-sadan', 
+      'netaji-bhavan', 'jatindas-park', 'kalighat', 'rabindra-sarobar', 'mahanayak-uttam-kumar', 
+      'netaji', 'masterda-surya-sen', 'gitanjali', 'kavi-nazrul', 
+      'shahid-khudiram', 'kavi-subhash'
     ],
   },
   {
