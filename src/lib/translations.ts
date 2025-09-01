@@ -4,6 +4,7 @@ export const Translations = {
     nav: {
       home: "Home",
       map: "Map",
+      smartCard: "Smart Card",
       about: "About",
     },
     home: {
@@ -48,6 +49,29 @@ export const Translations = {
         tech1: "Built with Next.js and React",
         tech2: "Styled with Tailwind CSS and Shadcn/UI",
         tech3: "Hosted on Firebase",
+    },
+    smartCard: {
+        title: "Smart Card",
+        whatIsTitle: "What is a Smart Card?",
+        whatIsDescription: "The Kolkata Metro Smart Card is a rechargeable card that can be used for hassle-free travel. It eliminates the need to stand in queues for tickets for every journey.",
+        pricingTitle: "Pricing & Recharge",
+        cardCostTitle: "Card Cost",
+        cardCostValue: "100",
+        cardCostDescription: "Includes a security deposit of ₹60 and a starting balance of ₹40.",
+        rechargeTitle: "Recharge Value",
+        rechargeValue: "100 to 3000",
+        rechargeDescription: "Recharge in multiples of ₹100 from any station.",
+        benefitsTitle: "Benefits",
+        benefitsList: [
+            "10% discount on every journey's fare.",
+            "Saves time by avoiding queues at ticket counters.",
+            "Seamless travel across all metro lines.",
+            "Valid for one year from the date of the last recharge."
+        ],
+        howToUseTitle: "How to Use",
+        howToUseStep1: "Tap the card on the reader at the entry gate.",
+        howToUseStep2: "Enjoy your journey and deboard at your destination.",
+        howToUseStep3: "Tap the card again on the reader at the exit gate. The fare is automatically deducted.",
     }
   },
   bn: {
@@ -55,6 +79,7 @@ export const Translations = {
     nav: {
       home: "হোম",
       map: "মানচিত্র",
+      smartCard: "স্মার্ট কার্ড",
       about: "সম্পর্কে",
     },
     home: {
@@ -99,6 +124,29 @@ export const Translations = {
         tech1: "Next.js এবং React দিয়ে নির্মিত",
         tech2: "Tailwind CSS এবং Shadcn/UI দিয়ে স্টাইল করা হয়েছে",
         tech3: "Firebase-এ হোস্ট করা হয়েছে",
+    },
+    smartCard: {
+        title: "স্মার্ট কার্ড",
+        whatIsTitle: "স্মার্ট কার্ড কী?",
+        whatIsDescription: "কলকাতা মেট্রো স্মার্ট কার্ড একটি রিচার্জযোগ্য কার্ড যা ঝামেলা-মুক্ত ভ্রমণের জন্য ব্যবহার করা যেতে পারে। এটি প্রতিটি যাত্রার জন্য টিকিটের লাইনে দাঁড়ানোর প্রয়োজনীয়তা দূর করে।",
+        pricingTitle: "মূল্য এবং রিচার্জ",
+        cardCostTitle: "কার্ডের মূল্য",
+        cardCostValue: "১০০",
+        cardCostDescription: "এর মধ্যে ৬০ টাকার নিরাপত্তা আমানত এবং ৪০ টাকার প্রাথমিক ব্যালেন্স অন্তর্ভুক্ত রয়েছে।",
+        rechargeTitle: "রিচার্জের পরিমাণ",
+        rechargeValue: "১০০ থেকে ৩০০০",
+        rechargeDescription: "যেকোনো স্টেশন থেকে ১০০ টাকার গুণিতকে রিচার্জ করুন।",
+        benefitsTitle: "সুবিধাসমূহ",
+        benefitsList: [
+            "প্রতিটি যাত্রার ভাড়ায় ১০% ছাড়।",
+            "টিকিট কাউন্টারে লাইন এড়িয়ে সময় বাঁচায়।",
+            "সমস্ত মেট্রো লাইন জুড়ে নির্বিঘ্ন ভ্রমণ।",
+            "শেষ রিচার্জের তারিখ থেকে এক বছরের জন্য বৈধ।"
+        ],
+        howToUseTitle: "কীভাবে ব্যবহার করবেন",
+        howToUseStep1: "প্রবেশ গেটে রিডারের উপর কার্ডটি আলতো চাপুন।",
+        howToUseStep2: "আপনার যাত্রা উপভোগ করুন এবং আপনার গন্তব্যে নামুন।",
+        howToUseStep3: "প্রস্থান গেটে রিডারের উপর কার্ডটি আবার আলতো চাপুন। ভাড়া স্বয়ংক্রিয়ভাবে কেটে নেওয়া হবে।",
     }
   },
 };

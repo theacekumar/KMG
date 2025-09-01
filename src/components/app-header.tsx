@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Map, Info, Train } from 'lucide-react';
+import { Home, Map, Info, Train, Ticket } from 'lucide-react';
 
 import { useLanguage } from '@/context/language-provider';
 import { cn } from '@/lib/utils';
@@ -15,6 +15,7 @@ export default function AppHeader() {
   const navItems = [
     { href: '/', label: t.nav.home, icon: <Home className="w-4 h-4" /> },
     { href: '/map', label: t.nav.map, icon: <Map className="w-4 h-4" /> },
+    { href: '/smart-card', label: t.nav.smartCard, icon: <Ticket className="w-4 h-4" /> },
     { href: '/about', label: t.nav.about, icon: <Info className="w-4 h-4" /> },
   ];
 

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Map, Info, Settings } from 'lucide-react';
+import { Home, Map, Info, Settings, Ticket } from 'lucide-react';
 import { useLanguage } from '@/context/language-provider';
 import { cn } from '@/lib/utils';
 import LanguageToggle from './language-toggle';
@@ -16,12 +16,13 @@ export default function MobileNav() {
   const navItems = [
     { href: '/', label: t.nav.home, icon: <Home className="w-5 h-5" /> },
     { href: '/map', label: t.nav.map, icon: <Map className="w-5 h-5" /> },
+    { href: '/smart-card', label: t.nav.smartCard, icon: <Ticket className="w-5 h-5" /> },
     { href: '/about', label: t.nav.about, icon: <Info className="w-5 h-5" /> },
   ];
 
   return (
     <div className="fixed bottom-0 left-0 z-50 w-full h-16 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden">
-      <div className="grid h-full grid-cols-4 mx-auto font-medium">
+      <div className="grid h-full grid-cols-5 mx-auto font-medium">
         {navItems.map((item) => (
           <Link
             href={item.href}
