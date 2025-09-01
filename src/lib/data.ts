@@ -131,10 +131,10 @@ export const lines: Line[] = [
 export const fares: Fare[] = [
   // Green Line
   { from: 'howrah-maidan', to: 'howrah', fare: 5 },
-  { from: 'howrah', to: 'mahakaran', fare: 10 },
   { from: 'howrah-maidan', to: 'esplanade', fare: 10 },
   { from: 'howrah-maidan', to: 'sealdah', fare: 10 },
   { from: 'howrah-maidan', to: 'salt-lake-sector-v', fare: 20 },
+  { from: 'howrah', to: 'mahakaran', fare: 10 },
   // Blue Line
   { from: 'dakshineswar', to: 'dum-dum', fare: 10 },
   { from: 'dakshineswar', to: 'esplanade', fare: 20 },
@@ -146,4 +146,22 @@ export const fares: Fare[] = [
   // Orange Line
   { from: 'kavi-subhash', to: 'hemanta-mukhopadhyay', fare: 10 },
   { from: 'kavi-subhash', to: 'beleghata', fare: 20 },
+  // Jai Hind Airport Fares
+  { from: 'jai-hind', to: 'shyambazar', fare: 35 },
+  { from: 'jai-hind', to: 'central', fare: 35 },
+  { from: 'jai-hind', to: 'girish-park', fare: 35 },
+  { from: 'jai-hind', to: 'chandni-chowk', fare: 40 },
+  { from: 'jai-hind', to: 'esplanade', fare: 40 },
+  { from: 'jai-hind', to: 'park-street', fare: 40 },
+  { from: 'jai-hind', to: 'maidan', fare: 40 },
+  { from: 'jai-hind', to: 'rabindra-sarobar', fare: 40 },
+  { from: 'jai-hind', to: 'mahanayak-uttam-kumar', fare: 40 },
+  { from: 'jai-hind', to: 'kavi-subhash', fare: 45 },
+  { from: 'jai-hind', to: 'satyajit-ray', fare: 50 },
+  { from: 'jai-hind', to: 'howrah', fare: 50 },
+  { from: 'jai-hind', to: 'sealdah', fare: 50 },
+  { from: 'jai-hind', to: 'jyotirindra-nandi', fare: 55 },
+  { from: 'jai-hind', to: 'kavi-sukanta', fare: 55 },
+  { from: 'jai-hind', to: 'hemanta-mukhopadhyay', fare: 65 },
+  { from: 'jai-hind', to: 'salt-lake-sector-v', fare: 70 },
 ];
