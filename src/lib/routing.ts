@@ -98,18 +98,16 @@ export function calculateFare(fromId: string, toId: string): number {
     if (directFare) return directFare.fare;
 
     const path = findShortestPath(fromId, toId);
-    if (!path) return 0;
+    if (!path || path.length < 2) return 0;
     
     const distance = path.length - 1; // Number of stations travelled
-    const startStation = getStationById(fromId);
-    const endStation = getStationById(toId);
-
-    if (!startStation || !endStation) return 0;
+    
+    // Determine the primary line for fare calculation
+    const firstStation = path[0];
+    const secondStation = path[1];
+    const primaryLine = getLineForPathSegment(firstStation, secondStation);
 
     // Use the line of the first segment to determine fare structure, this is a simplification
-    const routeDetails = getRouteDetails(fromId, toId, {} as any);
-    const primaryLine = routeDetails.path?.[0].line;
-
     // Distance is approx stations * 2km
     const km = distance * 2;
 
