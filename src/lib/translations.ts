@@ -63,7 +63,7 @@ export const Translations = {
         rechargeDescription: "Recharge in multiples of ₹100 from any station.",
         benefitsTitle: "Benefits",
         benefitsList: [
-            "10% discount on every journey's fare.",
+            "5% bonus on every topup",
             "Saves time by avoiding queues at ticket counters.",
             "Seamless travel across all metro lines.",
             "Valid for one year from the date of the last recharge."
@@ -138,7 +138,7 @@ export const Translations = {
         rechargeDescription: "যেকোনো স্টেশন থেকে ১০০ টাকার গুণিতকে রিচার্জ করুন।",
         benefitsTitle: "সুবিধাসমূহ",
         benefitsList: [
-            "প্রতিটি যাত্রার ভাড়ায় ১০% ছাড়।",
+            "প্রতিটি টপআপে ৫% বোনাস",
             "টিকিট কাউন্টারে লাইন এড়িয়ে সময় বাঁচায়।",
             "সমস্ত মেট্রো লাইন জুড়ে নির্বিঘ্ন ভ্রমণ।",
             "শেষ রিচার্জের তারিখ থেকে এক বছরের জন্য বৈধ।"
