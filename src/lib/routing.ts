@@ -93,50 +93,51 @@ export function getStationById(id: string): Station | undefined {
 }
 
 export function calculateFare(fromId: string, toId: string): number {
-    // Check for specific predefined fares first
+    // Check for specific predefined fares first, this handles Orange and Yellow line logic
     const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
     if (directFare) return directFare.fare;
 
     const path = findShortestPath(fromId, toId);
     if (!path || path.length < 2) return 0;
     
-    const distance = path.length - 1; // Number of stations travelled
+    // Using an approximation of 2km per station
+    const km = (path.length - 1) * 2; 
     
     // Determine the primary line for fare calculation
     const firstStation = path[0];
     const secondStation = path[1];
     const primaryLine = getLineForPathSegment(firstStation, secondStation);
 
-    // Use the line of the first segment to determine fare structure, this is a simplification
-    // Distance is approx stations * 2km
-    const km = distance * 2;
+    if (primaryLine === 'Blue') {
+        if (km <= 2) return 5;
+        if (km <= 5) return 10;
+        if (km <= 10) return 15;
+        if (km <= 20) return 20;
+        return 25;
+    }
 
+    if (primaryLine === 'Green') {
+        if (km <= 2) return 5;
+        if (km <= 5) return 10;
+        if (km <= 10) return 20;
+        if (km <= 16.5) return 30;
+        return 30; // Max fare for green line
+    }
+
+    // Default fare structure if not Blue or Green
     if (km <= 2) return 5;
     if (km <= 5) return 10;
-    if (km <= 10) {
-        if (primaryLine === 'Green') return 20;
-        return 15; // Blue line and others
-    }
-    if (km <= 20) {
-        if (primaryLine === 'Green') return 30;
-        return 20; // Blue line and others
-    }
-    if (km <= 30) {
-      if (primaryLine === 'Blue') return 25;
-    }
-    
-    return 30; // for distances over 30km or other lines
+    return 15;
 }
 
 
 const getLineForPathSegment = (stationA: Station, stationB: Station): 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' => {
     const commonLines = stationA.lines.filter(line => stationB.lines.includes(line));
     if (commonLines.length > 0) {
-        // Prioritize non-blue line if multiple are common, for fare calculation.
-        // This is a heuristic and might need refinement.
-        return commonLines.find(l => l !== 'Blue') || commonLines[0];
+        // This logic can be enhanced if more complex line priority is needed
+        return commonLines[0];
     }
-    // Default to the first line of the starting station of the segment if no common line is found.
+    // Default to the first line of the starting station if no common line.
     return stationA.lines[0];
 }
 

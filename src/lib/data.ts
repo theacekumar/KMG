@@ -141,6 +141,7 @@ export const fares: Fare[] = [
   { from: 'dakshineswar', to: 'kavi-subhash', fare: 25 },
   // Yellow Line
   { from: 'jai-hind', to: 'jessore-road', fare: 5 },
+  { from: 'jai-hind', to: 'dumdum-cantonment', fare: 10 },
   { from: 'jai-hind', to: 'noapara', fare: 20 },
   { from: 'jai-hind', to: 'dakshineswar', fare: 30 },
   { from: 'jai-hind', to: 'esplanade', fare: 40 },
