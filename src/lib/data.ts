@@ -195,6 +195,24 @@ export const fares: Fare[] = [
   { from: 'jessore-road', to: 'salt-lake-sector-v', fare: 70 },
   { from: 'jessore-road', to: 'hemanta-mukhopadhyay', fare: 65 },
   { from: 'jessore-road', to: 'beleghata', fare: 65 },
+  
+  // -- From Dum Dum Cantonment --
+  { from: 'dumdum-cantonment', to: 'shyambazar', fare: 25 },
+  { from: 'dumdum-cantonment', to: 'central', fare: 25 },
+  { from: 'dumdum-cantonment', to: 'girish-park', fare: 25 },
+  { from: 'dumdum-cantonment', to: 'chandni-chowk', fare: 30 },
+  { from: 'dumdum-cantonment', to: 'esplanade', fare: 30 },
+  { from: 'dumdum-cantonment', to: 'park-street', fare: 30 },
+  { from: 'dumdum-cantonment', to: 'rabindra-sarobar', fare: 30 },
+  { from: 'dumdum-cantonment', to: 'mahanayak-uttam-kumar', fare: 30 },
+  { from: 'dumdum-cantonment', to: 'kavi-subhash', fare: 35 },
+  { from: 'dumdum-cantonment', to: 'howrah-maidan', fare: 40 },
+  { from: 'dumdum-cantonment', to: 'howrah', fare: 40 },
+  { from: 'dumdum-cantonment', to: 'sealdah', fare: 40 },
+  { from: 'dumdum-cantonment', to: 'salt-lake-sector-v', fare: 60 },
+  { from: 'dumdum-cantonment', to: 'hemanta-mukhopadhyay', fare: 55 },
+  { from: 'dumdum-cantonment', to: 'beleghata', fare: 55 },
 ];
 
     
+
