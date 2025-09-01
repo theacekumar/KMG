@@ -2,12 +2,13 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { IndianRupee, Star, Ticket, Percent } from 'lucide-react';
+import { IndianRupee, Star, Ticket, Percent, Briefcase } from 'lucide-react';
 import { useLanguage } from '@/context/language-provider';
 
 export default function SmartCardPage() {
     const { t } = useLanguage();
     const benefits = t.smartCard.benefitsList;
+    const touristCardTypes = t.smartCard.touristCard.types;
 
     return (
         <div className="container mx-auto max-w-4xl p-4 md:p-8">
@@ -78,6 +79,42 @@ export default function SmartCardPage() {
                     </section>
                 </CardContent>
             </Card>
+
+             <Card className="mt-8">
+                <CardHeader>
+                    <CardTitle className="text-3xl font-headline text-primary flex items-center">
+                        <Briefcase className="mr-3 h-8 w-8" />
+                        {t.smartCard.touristCard.title}
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                    <p className="text-lg text-muted-foreground">
+                        {t.smartCard.touristCard.description}
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {touristCardTypes.map((card, index) => (
+                             <Card key={index} className="bg-muted/50">
+                                <CardHeader>
+                                    <CardTitle className="text-xl">{card.name}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-3xl font-bold">{t.route.rupees}{card.price}</p>
+                                    <p className="text-muted-foreground mt-1">{card.description}</p>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                     <ul className="space-y-3 text-muted-foreground">
+                        {t.smartCard.touristCard.features.map((feature, index) => (
+                            <li key={index} className="flex items-start">
+                                <Star className="h-4 w-4 text-accent mr-3 mt-1 flex-shrink-0" />
+                                <span>{feature}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </CardContent>
+            </Card>
+
         </div>
     );
 }

@@ -72,6 +72,19 @@ export const Translations = {
         howToUseStep1: "Tap the card on the reader at the entry gate.",
         howToUseStep2: "Enjoy your journey and deboard at your destination.",
         howToUseStep3: "Tap the card again on the reader at the exit gate. The fare is automatically deducted.",
+        touristCard: {
+            title: "Tourist Card",
+            description: "A special card designed for tourists, offering unlimited rides for a fixed period. It's the perfect way to explore the city without worrying about buying tickets for each trip.",
+            types: [
+                { name: "1-Day Unlimited", price: "250", description: "Valid for unlimited rides for a single day." },
+                { name: "3-Day Unlimited", price: "400", description: "Valid for unlimited rides for three consecutive days." },
+            ],
+            features: [
+                "Both cards include a refundable security deposit of ₹80.",
+                "The deposit is returned when you hand back the card in good condition.",
+                "Available at all metro station ticket counters.",
+            ]
+        }
     }
   },
   bn: {
@@ -147,6 +160,19 @@ export const Translations = {
         howToUseStep1: "প্রবেশ গেটে রিডারের উপর কার্ডটি আলতো চাপুন।",
         howToUseStep2: "আপনার যাত্রা উপভোগ করুন এবং আপনার গন্তব্যে নামুন।",
         howToUseStep3: "প্রস্থান গেটে রিডারের উপর কার্ডটি আবার আলতো চাপুন। ভাড়া স্বয়ংক্রিয়ভাবে কেটে নেওয়া হবে।",
+        touristCard: {
+            title: "ট্যুরিস্ট কার্ড",
+            description: "পর্যটকদের জন্য ডিজাইন করা একটি বিশেষ কার্ড, যা একটি নির্দিষ্ট সময়ের জন্য সীমাহীন রাইড অফার করে। প্রতিটি ভ্রমণের জন্য টিকিট কেনার চিন্তা ছাড়াই শহর ঘুরে দেখার এটি একটি নিখুঁত উপায়।",
+            types: [
+                { name: "১-দিনের আনলিমিটেড", price: "২৫০", description: "একদিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
+                { name: "৩-দিনের আনলিমিটেড", price: "৪০০", description: "টানা তিন দিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
+            ],
+            features: [
+                "দুটি কার্ডেই ৮০ টাকার ফেরতযোগ্য নিরাপত্তা আমানত অন্তর্ভুক্ত রয়েছে।",
+                "কার্ডটি ভালো অবস্থায় ফেরত দিলে আমানত ফেরত দেওয়া হয়।",
+                "সমস্ত মেট্রো স্টেশন টিকিট কাউন্টারে উপলব্ধ।",
+            ]
+        }
     }
   },
 };
