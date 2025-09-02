@@ -131,6 +131,21 @@ function calculateSegmentFare(segment: StationNode[]): number {
 
 export function calculateFare(fromId: string, toId: string, pathWithLines: StationNode[]): number {
     if (pathWithLines.length < 2) return 0;
+    
+    let interchanges = 0;
+    for (let i = 1; i < pathWithLines.length; i++) {
+        if (pathWithLines[i-1].name !== pathWithLines[i].name && pathWithLines[i-1].line !== pathWithLines[i].line) {
+            interchanges++;
+        }
+    }
+
+    if (interchanges === 0) {
+        const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
+        if (directFare) {
+            return directFare.fare;
+        }
+        return calculateSegmentFare(pathWithLines);
+    }
 
     const segments: StationNode[][] = [];
     let currentSegment: StationNode[] = [pathWithLines[0]];
@@ -143,12 +158,6 @@ export function calculateFare(fromId: string, toId: string, pathWithLines: Stati
         }
     }
     segments.push(currentSegment);
-
-    if (segments.length === 1) {
-        const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
-        if (directFare) return directFare.fare;
-        return calculateSegmentFare(segments[0]);
-    }
     
     let totalFare = 0;
     for (const segment of segments) {
