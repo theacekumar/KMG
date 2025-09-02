@@ -92,23 +92,20 @@ export function getStationById(id: string): Station | undefined {
   return stations.find(s => s.id === id);
 }
 
-export function calculateFare(fromId: string, toId: string): number {
-    // Check for specific predefined fares first, this handles Orange and Yellow line logic
+function calculateSegmentFare(segment: StationNode[]): number {
+    if (segment.length < 2) return 0;
+
+    const fromId = segment[0].id;
+    const toId = segment[segment.length - 1].id;
+    const line = segment[0].line;
+
+    // Check for specific predefined fares first
     const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
     if (directFare) return directFare.fare;
 
-    const path = findShortestPath(fromId, toId);
-    if (!path || path.length < 2) return 0;
-    
-    // Using an approximation of 2km per station
-    const km = (path.length - 1) * 2; 
-    
-    // Determine the primary line for fare calculation
-    const firstStation = path[0];
-    const secondStation = path[1];
-    const primaryLine = getLineForPathSegment(firstStation, secondStation);
+    const km = (segment.length - 1) * 2; // Approximation of 2km per station
 
-    if (primaryLine === 'Blue') {
+    if (line === 'Blue') {
         if (km <= 2) return 5;
         if (km <= 5) return 10;
         if (km <= 10) return 15;
@@ -116,28 +113,68 @@ export function calculateFare(fromId: string, toId: string): number {
         return 25;
     }
 
-    if (primaryLine === 'Green') {
+    if (line === 'Green') {
         if (km <= 2) return 5;
         if (km <= 5) return 10;
         if (km <= 10) return 20;
         if (km <= 16.5) return 30;
-        return 30; // Max fare for green line
+        return 30;
     }
 
-    // Default fare structure if not Blue or Green
+    // Default fare structure for other lines (Purple, Orange, Yellow)
     if (km <= 2) return 5;
     if (km <= 5) return 10;
-    return 15;
+    if (km <= 10) return 15;
+    if (km <= 20) return 20;
+    return 25;
+}
+
+
+export function calculateFare(fromId: string, toId: string): number {
+    // Check for a direct fare in the master list first.
+    const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
+    if (directFare) return directFare.fare;
+
+    const routeDetails = getRouteDetails(fromId, toId, {} as any);
+    if (!routeDetails || routeDetails.error || !routeDetails.path) return 0;
+    
+    const pathWithLines = routeDetails.path;
+
+    if (pathWithLines.length < 2) return 0;
+
+    const segments: StationNode[][] = [];
+    let currentSegment: StationNode[] = [pathWithLines[0]];
+
+    for (let i = 1; i < pathWithLines.length; i++) {
+        currentSegment.push(pathWithLines[i]);
+        // If the line changes, the current segment ends.
+        if (i < pathWithLines.length - 1 && pathWithLines[i].line !== pathWithLines[i+1].line) {
+            segments.push(currentSegment);
+            currentSegment = [pathWithLines[i]]; // The interchange station starts the next segment.
+        }
+    }
+    segments.push(currentSegment); // Add the last segment.
+
+    // If there's only one segment (no interchange), calculate its fare directly.
+    if (segments.length === 1) {
+        return calculateSegmentFare(segments[0]);
+    }
+    
+    // Otherwise, sum the fares of all segments.
+    let totalFare = 0;
+    for (const segment of segments) {
+        totalFare += calculateSegmentFare(segment);
+    }
+    
+    return totalFare;
 }
 
 
 const getLineForPathSegment = (stationA: Station, stationB: Station): 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' => {
     const commonLines = stationA.lines.filter(line => stationB.lines.includes(line));
     if (commonLines.length > 0) {
-        // This logic can be enhanced if more complex line priority is needed
         return commonLines[0];
     }
-    // Default to the first line of the starting station if no common line.
     return stationA.lines[0];
 }
 
@@ -148,34 +185,17 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
     if (!path) {
         return { error: t.route.noRouteFound };
     }
-
-    const fare = calculateFare(fromId, toId);
+    
     const stops = path.length - 1;
     const time = stops * 3; // Estimated 3 minutes per station (including wait)
     
     let interchanges = 0;
-    const routeWithLines = path.map((station, index) => {
+    const routeWithLines: StationNode[] = path.map((station, index) => {
         let line: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow';
         
         if (index > 0) {
             const prevStation = path[index - 1];
-            const currentLine = getLineForPathSegment(prevStation, station);
-
-            const prevPathSegmentA = path[Math.max(0, index - 2)];
-            const prevPathSegmentB = prevStation;
-            const prevLine = getLineForPathSegment(prevPathSegmentA, prevPathSegmentB);
-
-            if (currentLine !== prevLine && station.lines.length > 1) {
-                 if(path[index-1].name === station.name) {
-                    // This is an interchange happening at the same station name but different line ids
-                    interchanges++;
-                 } else if (station.lines.includes(prevLine)) {
-                    // We are at a station that is part of the previous line, but we are changing.
-                 } else {
-                    interchanges++;
-                 }
-            }
-            line = currentLine;
+            line = getLineForPathSegment(prevStation, station);
         } else {
              const nextStation = path[index + 1];
              if(nextStation){
@@ -187,9 +207,10 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
         return { ...station, line };
     });
 
+    const fare = calculateFare(fromId, toId);
+
     const finalInterchanges = routeWithLines.reduce((acc, station, index, arr) => {
         if (index > 0 && station.line !== arr[index-1].line) {
-            // Check if the station name is the same as previous, which indicates a line change within the same physical interchange
             if (arr[index-1].name !== station.name) {
                  acc++;
             }
