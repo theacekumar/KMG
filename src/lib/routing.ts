@@ -124,17 +124,12 @@ function calculateSegmentFare(segment: StationNode[]): number {
     // Default fare structure for other lines (Purple, Orange, Yellow)
     if (km <= 2) return 5;
     if (km <= 5) return 10;
-    if (km <= 10) return 15;
-    if (km <= 20) return 20;
+    if (km <= 15) return 20;
     return 25;
 }
 
 
 export function calculateFare(fromId: string, toId: string, pathWithLines: StationNode[]): number {
-    // Check for a direct fare in the master list first.
-    const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
-    if (directFare) return directFare.fare;
-    
     if (pathWithLines.length < 2) return 0;
 
     const segments: StationNode[][] = [];
@@ -142,20 +137,19 @@ export function calculateFare(fromId: string, toId: string, pathWithLines: Stati
 
     for (let i = 1; i < pathWithLines.length; i++) {
         currentSegment.push(pathWithLines[i]);
-        // If the line changes, the current segment ends.
         if (i < pathWithLines.length - 1 && pathWithLines[i].line !== pathWithLines[i+1].line) {
             segments.push(currentSegment);
-            currentSegment = [pathWithLines[i]]; // The interchange station starts the next segment.
+            currentSegment = [pathWithLines[i]]; 
         }
     }
-    segments.push(currentSegment); // Add the last segment.
+    segments.push(currentSegment);
 
-    // If there's only one segment (no interchange), calculate its fare directly.
     if (segments.length === 1) {
+        const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
+        if (directFare) return directFare.fare;
         return calculateSegmentFare(segments[0]);
     }
     
-    // Otherwise, sum the fares of all segments.
     let totalFare = 0;
     for (const segment of segments) {
         totalFare += calculateSegmentFare(segment);
