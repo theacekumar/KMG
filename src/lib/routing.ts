@@ -130,16 +130,11 @@ function calculateSegmentFare(segment: StationNode[]): number {
 }
 
 
-export function calculateFare(fromId: string, toId: string): number {
+export function calculateFare(fromId: string, toId: string, pathWithLines: StationNode[]): number {
     // Check for a direct fare in the master list first.
     const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
     if (directFare) return directFare.fare;
-
-    const routeDetails = getRouteDetails(fromId, toId, {} as any);
-    if (!routeDetails || routeDetails.error || !routeDetails.path) return 0;
     
-    const pathWithLines = routeDetails.path;
-
     if (pathWithLines.length < 2) return 0;
 
     const segments: StationNode[][] = [];
@@ -189,7 +184,6 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
     const stops = path.length - 1;
     const time = stops * 3; // Estimated 3 minutes per station (including wait)
     
-    let interchanges = 0;
     const routeWithLines: StationNode[] = path.map((station, index) => {
         let line: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow';
         
@@ -207,7 +201,7 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
         return { ...station, line };
     });
 
-    const fare = calculateFare(fromId, toId);
+    const fare = calculateFare(fromId, toId, routeWithLines);
 
     const finalInterchanges = routeWithLines.reduce((acc, station, index, arr) => {
         if (index > 0 && station.line !== arr[index-1].line) {
