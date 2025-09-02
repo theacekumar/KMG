@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Translations } from '@/lib/translations';
+import { useLanguage } from '@/context/language-provider';
 
 export default function MapPage() {
-  const t = Translations.en;
+  const { t } = useLanguage();
 
   return (
     <div className="container mx-auto max-w-7xl p-4 md:p-8">
@@ -13,9 +13,9 @@ export default function MapPage() {
         </CardHeader>
         <CardContent>
           <div className="w-full h-[70vh] md:h-[80vh] border rounded-lg overflow-auto bg-muted/30 flex items-center justify-center">
-            <div className="relative" style={{ width: '1200px', height: '900px' }}>
+            <div className="relative" style={{ width: '1200px', height: '1200px' }}>
                 <Image
-                    src="https://i.ibb.co/bF9gV0d/kolkata-metro-route-map.png"
+                    src="https://i.ibb.co/Y7Nq25F/kolkata-metro-map.png"
                     alt="Kolkata Metro Map"
                     data-ai-hint="metro map"
                     layout="fill"
