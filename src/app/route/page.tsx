@@ -101,7 +101,7 @@ function RouteResult() {
                                         <Train className="w-3 h-3 text-white"/>
                                     </span>
                                     <h3 className="font-semibold text-lg">{station.name}</h3>
-                                    <Badge style={{backgroundColor: lineColor.replace('bg-','').replace('-500','')}} className={`text-white`}>
+                                    <Badge style={{backgroundColor: lineColor.replace('bg-','').replace('-500','')}} className={station.line === 'Yellow' ? `text-black` : `text-white`}>
                                         {station.line} {t.route.line}
                                     </Badge>
                                     {isInterchange && prevLine && (
