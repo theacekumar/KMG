@@ -1,10 +1,9 @@
-'use client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle } from 'lucide-react';
-import { useLanguage } from '@/context/language-provider';
+import { Translations } from '@/lib/translations';
 
 export default function AboutPage() {
-    const { t } = useLanguage();
+    const t = Translations.en;
     const features = [
         t.about.feature1,
         t.about.feature2,

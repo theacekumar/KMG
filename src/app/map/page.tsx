@@ -1,10 +1,9 @@
-'use client';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useLanguage } from '@/context/language-provider';
+import { Translations } from '@/lib/translations';
 
 export default function MapPage() {
-  const { t } = useLanguage();
+  const t = Translations.en;
 
   return (
     <div className="container mx-auto max-w-7xl p-4 md:p-8">

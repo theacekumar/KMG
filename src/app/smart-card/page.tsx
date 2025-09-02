@@ -1,12 +1,10 @@
-'use client';
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { IndianRupee, Star, Ticket, Percent, Briefcase } from 'lucide-react';
-import { useLanguage } from '@/context/language-provider';
+import { Translations } from '@/lib/translations';
 
 export default function SmartCardPage() {
-    const { t } = useLanguage();
+    const t = Translations.en;
     const benefits = t.smartCard.benefitsList;
     const touristCardTypes = t.smartCard.touristCard.types;
 
