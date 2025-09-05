@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Map, Info, Train, Ticket } from 'lucide-react';
+import { Home, Map, Info, Train, Ticket, FileText, ShieldCheck } from 'lucide-react';
 
 import { useLanguage } from '@/context/language-provider';
 import { cn } from '@/lib/utils';
@@ -17,6 +17,8 @@ export default function AppHeader() {
     { href: '/map', label: t.nav.map, icon: <Map className="w-4 h-4" /> },
     { href: '/smart-card', label: t.nav.smartCard, icon: <Ticket className="w-4 h-4" /> },
     { href: '/about', label: t.nav.about, icon: <Info className="w-4 h-4" /> },
+    { href: '/privacy-policy', label: t.nav.privacyPolicy, icon: <ShieldCheck className="w-4 h-4" /> },
+    { href: '/terms-and-conditions', label: t.nav.termsAndConditions, icon: <FileText className="w-4 h-4" /> },
   ];
 
   return (
@@ -26,7 +28,7 @@ export default function AppHeader() {
           <Train className="h-6 w-6 text-primary" />
           <span className="font-bold">{t.appName}</span>
         </Link>
-        <nav className="flex items-center space-x-6 text-sm font-medium">
+        <nav className="flex items-center space-x-4 text-sm font-medium">
           {navItems.map((item) => (
             <Link
               key={item.href}
