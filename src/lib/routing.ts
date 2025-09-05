@@ -31,17 +31,6 @@ function buildAdjacencyList() {
       }
     }
   });
-
-  // Manual interchange connections
-  const interchanges = stations.filter(s => s.lines.length > 1);
-  interchanges.forEach(station => {
-      const connectedStations = stations.filter(s => s.name === station.name && s.id !== station.id);
-      connectedStations.forEach(connected => {
-          adjacencyList.get(station.id)?.push(connected.id);
-          adjacencyList.get(connected.id)?.push(station.id);
-      })
-  })
-
 }
 
 // Ensure the graph is built on module load
@@ -61,7 +50,7 @@ export function findShortestPath(startId: string, endId: string): Station[] | nu
     const stationId = path[path.length - 1];
 
     if (stationId === endId) {
-      return path.map(id => stations.find(s => s.id === id)!);
+      return path.map(id => getStationById(id)!);
     }
 
     const neighbors = adjacencyList.get(stationId) || [];
@@ -89,8 +78,16 @@ export function getLineColor(lineName: 'Blue' | 'Green' | 'Purple' | 'Orange' | 
     }
 }
 
+const stationCache = new Map<string, Station>();
 export function getStationById(id: string): Station | undefined {
-  return stations.find(s => s.id === id);
+  if (stationCache.has(id)) {
+    return stationCache.get(id);
+  }
+  const station = stations.find(s => s.id === id);
+  if (station) {
+    stationCache.set(id, station);
+  }
+  return station;
 }
 
 function calculateSegmentFare(segment: StationNode[]): number {
@@ -98,13 +95,14 @@ function calculateSegmentFare(segment: StationNode[]): number {
 
     const fromId = segment[0].id;
     const toId = segment[segment.length - 1].id;
-    const line = segment[0].line;
-
+    
     // Check for specific predefined fares first
     const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
     if (directFare) return directFare.fare;
 
+    // Fallback fare logic based on distance if no direct fare is found
     const km = (segment.length - 1) * 2; // Approximation of 2km per station
+    const line = segment[0].line;
 
     if (line === 'Blue') {
         if (km <= 2) return 5;
@@ -134,12 +132,17 @@ export function calculateFare(pathWithLines: StationNode[]): number {
     if (pathWithLines.length < 2) return 0;
 
     const segments: StationNode[][] = [];
+    let interchanges = 0;
+    
     if (pathWithLines.length > 0) {
         let currentSegment: StationNode[] = [pathWithLines[0]];
         for (let i = 1; i < pathWithLines.length; i++) {
-            if (pathWithLines[i].line !== pathWithLines[i - 1].line) {
-                segments.push(currentSegment);
-                currentSegment = [pathWithLines[i-1], pathWithLines[i]];
+            if (pathWithLines[i].line !== pathWithLines[i-1].line) {
+                interchanges++;
+            }
+            if (pathWithLines[i].name !== pathWithLines[i-1].name && pathWithLines[i].line !== pathWithLines[i-1].line) {
+                 segments.push(currentSegment);
+                 currentSegment = [pathWithLines[i-1], pathWithLines[i]];
             } else {
                 currentSegment.push(pathWithLines[i]);
             }
@@ -147,22 +150,17 @@ export function calculateFare(pathWithLines: StationNode[]): number {
         segments.push(currentSegment);
     }
     
-    // For journeys with interchanges, we MUST sum the segments.
-    if (segments.length > 1) {
-        return segments.reduce((total, segment) => {
-            return total + calculateSegmentFare(segment);
-        }, 0);
+    if (interchanges > 0) {
+        return segments.reduce((total, segment) => total + calculateSegmentFare(segment), 0);
     }
 
-    // For direct journeys (no interchanges), check for a direct fare first.
     const fromId = pathWithLines[0].id;
     const toId = pathWithLines[pathWithLines.length - 1].id;
     const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
     if (directFare) {
         return directFare.fare;
     }
-
-    // If no direct fare, calculate based on segment logic.
+    
     return calculateSegmentFare(pathWithLines);
 }
 
@@ -178,7 +176,7 @@ const getLineForPathSegment = (stationA: Station, stationB: Station, preferredLi
         return commonLines[0];
     }
     
-    // Handle interchange stations like Esplanade where the next station in path might not share a direct line
+    // Handle interchange stations where the next station in path might not share a direct line
     if(stationA.name === stationB.name){
         return stationB.lines[0];
     }
@@ -197,51 +195,44 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
     const stops = path.length - 1;
     const time = stops * 3; // Estimated 3 minutes per station (including wait)
     
-    const routeWithLines: StationNode[] = [];
+    const pathWithLines: StationNode[] = [];
     let currentLine: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' | undefined = undefined;
 
     for (let i = 0; i < path.length; i++) {
         const currentStation = path[i];
         if (i === 0) {
-            // First station
             const nextStation = path[i + 1];
             currentLine = nextStation ? getLineForPathSegment(currentStation, nextStation) : currentStation.lines[0];
-            routeWithLines.push({ ...currentStation, line: currentLine });
+            pathWithLines.push({ ...currentStation, line: currentLine });
         } else {
             const prevStation = path[i - 1];
-            const prevStationNode = routeWithLines[i - 1];
+            const prevStationNode = pathWithLines[i - 1];
 
-            // This logic handles the line change. If the current station doesn't share a line with the previous station's ASSIGNED line, we need to find a new line.
             if (!currentStation.lines.includes(prevStationNode.line)) {
-                // This indicates an interchange. Find the new line based on the connection to the next station.
                  const nextStation = path[i + 1];
                  currentLine = nextStation ? getLineForPathSegment(currentStation, nextStation, currentLine) : currentStation.lines.find(l => l !== prevStationNode.line) || currentStation.lines[0];
             } else {
                 currentLine = prevStationNode.line;
             }
-             routeWithLines.push({ ...currentStation, line: currentLine! });
+             pathWithLines.push({ ...currentStation, line: currentLine! });
         }
     }
 
-    const finalPath = routeWithLines;
-
-    const fare = calculateFare(finalPath);
+    const fare = calculateFare(pathWithLines);
 
     let interchanges = 0;
-    for (let i = 1; i < finalPath.length; i++) {
-        if (finalPath[i].line !== finalPath[i - 1].line) {
+    for (let i = 1; i < pathWithLines.length; i++) {
+        if (pathWithLines[i].line !== pathWithLines[i - 1].line) {
             interchanges++;
         }
     }
 
 
     return {
-        path: finalPath,
+        path: pathWithLines,
         fare,
         stops,
         time,
-        interchanges: interchanges,
+        interchanges,
     };
 }
-
-    
