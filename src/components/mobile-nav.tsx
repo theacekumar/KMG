@@ -1,8 +1,9 @@
+
 'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Map, Info, Settings, Ticket } from 'lucide-react';
+import { Home, Map, Info, Menu, Ticket } from 'lucide-react';
 import { useLanguage } from '@/context/language-provider';
 import { cn } from '@/lib/utils';
 import LanguageToggle from './language-toggle';
@@ -42,8 +43,8 @@ export default function MobileNav() {
               type="button"
               className="inline-flex flex-col items-center justify-center px-5 text-muted-foreground hover:bg-muted"
             >
-              <Settings className="w-5 h-5" />
-              <span className="text-xs">Settings</span>
+              <Menu className="w-5 h-5" />
+              <span className="text-xs">Menu</span>
             </button>
           </PopoverTrigger>
           <PopoverContent className="w-auto p-4 mb-2">
