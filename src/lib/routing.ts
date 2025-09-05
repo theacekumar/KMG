@@ -134,13 +134,13 @@ export function calculateFare(fromId: string, toId: string, pathWithLines: Stati
     
     let interchanges = 0;
     for (let i = 1; i < pathWithLines.length; i++) {
-        if (pathWithLines[i-1].name !== pathWithLines[i].name && pathWithLines[i-1].line !== pathWithLines[i].line) {
+        if (pathWithLines[i-1].line !== pathWithLines[i].line) {
             interchanges++;
         }
     }
 
     if (interchanges === 0) {
-        const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
+        const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.from === fromId));
         if (directFare) {
             return directFare.fare;
         }
@@ -151,19 +151,32 @@ export function calculateFare(fromId: string, toId: string, pathWithLines: Stati
     let currentSegment: StationNode[] = [pathWithLines[0]];
 
     for (let i = 1; i < pathWithLines.length; i++) {
-        currentSegment.push(pathWithLines[i]);
-        if (i < pathWithLines.length - 1 && pathWithLines[i].line !== pathWithLines[i+1].line) {
+        if (pathWithLines[i-1].line !== pathWithLines[i].line) {
             segments.push(currentSegment);
-            currentSegment = [pathWithLines[i]]; 
+            currentSegment = [pathWithLines[i-1]]; 
         }
+        currentSegment.push(pathWithLines[i]);
     }
     segments.push(currentSegment);
     
     let totalFare = 0;
     for (const segment of segments) {
-        totalFare += calculateSegmentFare(segment);
+        if(segment.length > 1) {
+            const directFare = fares.find(f => (f.from === segment[0].id && f.to === segment[segment.length-1].id) || (f.from === segment[segment.length-1].id && f.to === segment[0].id));
+            if (directFare) {
+                 totalFare += directFare.fare;
+            } else {
+                 totalFare += calculateSegmentFare(segment);
+            }
+        }
     }
     
+    // If a direct fare exists for the entire journey, it might be a special case
+    const overallDirectFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.from === fromId));
+    if (overallDirectFare && interchanges > 0) {
+        return overallDirectFare.fare;
+    }
+
     return totalFare;
 }
 
@@ -173,6 +186,11 @@ const getLineForPathSegment = (stationA: Station, stationB: Station): 'Blue' | '
     if (commonLines.length > 0) {
         return commonLines[0];
     }
+    // Handle interchange stations like Esplanade where the next station in path might not share a direct line
+    if(stationA.name === stationB.name){
+        return stationB.lines[0];
+    }
+
     return stationA.lines[0];
 }
 
@@ -191,8 +209,30 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
         let line: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow';
         
         if (index > 0) {
-            const prevStation = path[index - 1];
-            line = getLineForPathSegment(prevStation, station);
+            const prevStation = routeWithLines[index - 1]; // Use already processed station
+            const commonLines = station.lines.filter(l => prevStation.lines.includes(l));
+            
+            if(commonLines.length > 0 && prevStation.line !== station.lines[0] && station.name !== prevStation.name){
+                 line = commonLines[0];
+            } else {
+                line = prevStation.line;
+            }
+
+            if(station.name === prevStation.name){ // Interchange station
+                const nextStation = path[index+1];
+                if(nextStation){
+                    const nextCommonLines = station.lines.filter(l => nextStation.lines.includes(l));
+                     if(nextCommonLines.length > 0){
+                        line = nextCommonLines[0];
+                     } else {
+                        line = station.lines[0]
+                     }
+                } else {
+                    line = station.lines[0]
+                }
+            }
+
+
         } else {
              const nextStation = path[index + 1];
              if(nextStation){
@@ -204,20 +244,38 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
         return { ...station, line };
     });
 
-    const fare = calculateFare(fromId, toId, routeWithLines);
-
-    const finalInterchanges = routeWithLines.reduce((acc, station, index, arr) => {
-        if (index > 0 && station.line !== arr[index-1].line) {
-            if (arr[index-1].name !== station.name) {
-                 acc++;
+    // Second pass to correct line assignments
+    for (let i = 1; i < routeWithLines.length; i++) {
+        const prev = routeWithLines[i - 1];
+        const curr = routeWithLines[i];
+        if (curr.name !== prev.name) {
+            const commonLines = curr.lines.filter(l => prev.lines.includes(l));
+            if (commonLines.length > 0) {
+                // If the previous line assignment is not in the common lines, update it.
+                if(!commonLines.includes(prev.line)){
+                    routeWithLines[i-1].line = commonLines[0];
+                }
+                routeWithLines[i].line = commonLines[0];
             }
+        } else { // Interchange
+            routeWithLines[i].line = routeWithLines[i-1].line;
+        }
+    }
+    const finalPath = routeWithLines;
+
+    const fare = calculateFare(fromId, toId, finalPath);
+
+    const finalInterchanges = finalPath.reduce((acc, station, index, arr) => {
+        if (index > 0 && station.line !== arr[index-1].line) {
+            // This is a more accurate way to count interchanges
+            acc++;
         }
         return acc;
     }, 0);
 
 
     return {
-        path: routeWithLines,
+        path: finalPath,
         fare,
         stops,
         time,
