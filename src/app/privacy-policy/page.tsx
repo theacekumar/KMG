@@ -3,8 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Translations } from '@/lib/translations';
 
 export default function PrivacyPolicyPage() {
-    // Since this is a server component, we'll default to English.
-    // A more advanced implementation would use middleware to detect language.
     const t = Translations.en.privacyPolicy;
 
     return (
