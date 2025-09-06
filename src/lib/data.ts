@@ -130,15 +130,43 @@ export const lines: Line[] = [
 ];
 
 export const fares: Fare[] = [
+  // Blue Line Fares
+  { from: 'dakshineswar', to: 'baranagar', fare: 10 },
+  { from: 'dakshineswar', to: 'noapara', fare: 15 },
+  { from: 'dakshineswar', to: 'dum-dum', fare: 15 },
+  { from: 'dakshineswar', to: 'belgachia', fare: 20 },
+  { from: 'dakshineswar', to: 'shyambazar', fare: 20 },
+  { from: 'dakshineswar', to: 'shobhabazar-sutanuti', fare: 20 },
+  { from: 'dakshineswar', to: 'girish-park', fare: 20 },
+  { from: 'dakshineswar', to: 'mahatma-gandhi-road', fare: 25 },
+  { from: 'dakshineswar', to: 'central', fare: 25 },
+  { from: 'dakshineswar', to: 'chandni-chowk', fare: 25 },
+  { from: 'dakshineswar', to: 'esplanade', fare: 25 },
+  { from: 'dakshineswar', to: 'park-street', fare: 25 },
+  { from: 'dakshineswar', to: 'maidan', fare: 25 },
+  { from: 'dakshineswar', to: 'rabindra-sadan', fare: 25 },
+  { from: 'dakshineswar', to: 'netaji-bhavan', fare: 30 },
+  { from: 'dakshineswar', to: 'jatindas-park', fare: 30 },
+  { from: 'dakshineswar', to: 'kalighat', fare: 30 },
+  { from: 'dakshineswar', to: 'rabindra-sarobar', fare: 30 },
+  { from: 'dakshineswar', to: 'mahanayak-uttam-kumar', fare: 30 },
+  { from: 'dakshineswar', to: 'netaji', fare: 30 },
+  { from: 'dakshineswar', to: 'masterda-surya-sen', fare: 30 },
+  { from: 'dakshineswar', to: 'gitanjali', fare: 30 },
+  { from: 'dakshineswar', to: 'kavi-nazrul', fare: 30 },
+  { from: 'dakshineswar', to: 'shahid-khudiram', fare: 30 },
+  { from: 'dakshineswar', to: 'kavi-subhash', fare: 30 },
+  { from: 'dum-dum', to: 'kavi-subhash', fare: 25 },
+  { from: 'dum-dum', to: 'mahanayak-uttam-kumar', fare: 20 },
+  { from: 'esplanade', to: 'kavi-subhash', fare: 20 },
+  { from: 'esplanade', to: 'mahanayak-uttam-kumar', fare: 15 },
+  
   // Base Fares
   { from: 'howrah-maidan', to: 'howrah', fare: 5 },
   { from: 'howrah-maidan', to: 'esplanade', fare: 10 },
   { from: 'howrah-maidan', to: 'sealdah', fare: 20 },
   { from: 'howrah-maidan', to: 'salt-lake-sector-v', fare: 30 },
   { from: 'howrah', to: 'mahakaran', fare: 10 },
-  { from: 'dakshineswar', to: 'dum-dum', fare: 15 },
-  { from: 'dakshineswar', to: 'esplanade', fare: 20 },
-  { from: 'dakshineswar', to: 'kavi-subhash', fare: 25 },
   { from: 'dakshineswar', to: 'karunamoyee', fare: 50 },
   { from: 'dakshineswar', to: 'central-park', fare: 40 },
   { from: 'dakshineswar', to: 'city-center', fare: 40 },
@@ -469,4 +497,5 @@ export const fares: Fare[] = [
     
 
     
+
 

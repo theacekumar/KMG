@@ -96,11 +96,21 @@ function calculateSegmentFare(segment: StationNode[]): number {
     const fromId = segment[0].id;
     const toId = segment[segment.length - 1].id;
     
-    // Check for specific predefined fares first
-    const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
+    const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.from === fromId));
     if (directFare) return directFare.fare;
 
-    // Fallback fare logic based on distance if no direct fare is found
+    const blueLineStations = lines.find(l => l.name === 'Blue')?.stations || [];
+    const fromIndex = blueLineStations.indexOf(fromId);
+    const toIndex = blueLineStations.indexOf(toId);
+
+    if (fromIndex !== -1 && toIndex !== -1) {
+        const distance = Math.abs(toIndex - fromIndex);
+        if (distance <= 2) return 10;
+        if (distance <= 5) return 15;
+        if (distance <= 10) return 20;
+        return 25;
+    }
+
     const km = (segment.length - 1) * 2; // Approximation of 2km per station
     const line = segment[0].line;
 
@@ -154,6 +164,12 @@ export function calculateFare(path: Station[]): number {
         }
     }
     totalFare += calculateSegmentFare(currentSegment);
+    
+    // If the entire journey is on the blue line, use the specific blue line logic
+    const isBlueLineOnly = pathWithLines.every(station => station.line === 'Blue');
+    if (isBlueLineOnly) {
+      return calculateSegmentFare(pathWithLines);
+    }
     
     return totalFare;
 }
