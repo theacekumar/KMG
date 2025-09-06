@@ -160,6 +160,7 @@ export const fares: Fare[] = [
   { from: 'dum-dum', to: 'mahanayak-uttam-kumar', fare: 20 },
   { from: 'esplanade', to: 'kavi-subhash', fare: 20 },
   { from: 'esplanade', to: 'mahanayak-uttam-kumar', fare: 15 },
+  { from: 'esplanade', to: 'park-street', fare: 5 },
   
   // Base Fares
   { from: 'howrah-maidan', to: 'howrah', fare: 5 },
@@ -497,5 +498,7 @@ export const fares: Fare[] = [
     
 
     
+
+
 
 
