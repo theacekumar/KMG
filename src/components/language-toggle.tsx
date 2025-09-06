@@ -20,7 +20,7 @@ export default function LanguageToggle() {
         id="language-switch"
         checked={language === 'bn'}
         onCheckedChange={handleToggle}
-        aria-label="Toggle language"
+        aria-label="Toggle language between English and Bengali"
       />
       <Label htmlFor="language-switch" className={language === 'bn' ? 'text-primary' : 'text-muted-foreground'}>
         BN

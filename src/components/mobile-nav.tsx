@@ -48,6 +48,7 @@ export default function MobileNav() {
             <button
               type="button"
               className="inline-flex flex-col items-center justify-center px-5 text-muted-foreground hover:bg-muted"
+              aria-label="Open menu"
             >
               <Menu className="w-5 h-5" />
               <span className="text-xs">Menu</span>

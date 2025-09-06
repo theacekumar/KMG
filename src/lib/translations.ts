@@ -90,7 +90,6 @@ export const Translations = {
     },
      privacyPolicy: {
       title: "Privacy Policy",
-      lastUpdated: "Last Updated: July 26, 2024",
       p1: "Your privacy is important to us. It is our policy to respect your privacy regarding any information we may collect from you across our website.",
       p2: "We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.",
       p3: "We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.",
@@ -101,7 +100,6 @@ export const Translations = {
     },
     termsAndConditions: {
         title: "Terms & Conditions",
-        lastUpdated: "Last Updated: July 26, 2024",
         p1: "By accessing this website, you are agreeing to be bound by these website Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.",
         p2: "Permission is granted to temporarily download one copy of the materials (information or software) on this website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.",
         p3: "The materials on this website are provided 'as is'. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties, including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.",
@@ -201,7 +199,6 @@ export const Translations = {
     },
     privacyPolicy: {
       title: "গোপনীয়তা নীতি",
-      lastUpdated: "শেষ আপডেট: ২৬ জুলাই, ২০২৪",
       p1: "আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ। আমাদের ওয়েবসাইট জুড়ে আমরা আপনার কাছ থেকে যে কোনও তথ্য সংগ্রহ করতে পারি সে সম্পর্কে আপনার গোপনীয়তাকে সম্মান করা আমাদের নীতি।",
       p2: "আপনাকে একটি পরিষেবা সরবরাহ করার জন্য যখন আমাদের সত্যিই এটির প্রয়োজন হয় তখনই আমরা ব্যক্তিগত তথ্যের জন্য জিজ্ঞাসা করি। আমরা এটি ন্যায্য এবং আইনানুগ উপায়ে, আপনার জ্ঞান এবং সম্মতিতে সংগ্রহ করি। আমরা আপনাকে এটাও জানাই যে আমরা কেন এটি সংগ্রহ করছি এবং এটি কীভাবে ব্যবহার করা হবে।",
       p3: "আমরা কেবল সংগৃহীত তথ্য ততক্ষণ ধরে রাখি যতক্ষণ আপনাকে আপনার অনুরোধ করা পরিষেবা সরবরাহ করার জন্য প্রয়োজন হয়। আমরা যে ডেটা সঞ্চয় করি, আমরা ক্ষতি এবং চুরির পাশাপাশি অননুমোদিত অ্যাক্সেস, প্রকাশ, অনুলিপি, ব্যবহার বা পরিবর্তন রোধ করতে বাণিজ্যিকভাবে গ্রহণযোগ্য উপায়ে রক্ষা করব।",
@@ -212,7 +209,6 @@ export const Translations = {
     },
     termsAndConditions: {
         title: "শর্তাবলী",
-        lastUpdated: "শেষ আপডেট: ২৬ জুলাই, ২০২৪",
         p1: "এই ওয়েবসাইটটি অ্যাক্সেস করার মাধ্যমে, আপনি এই ওয়েবসাইটের ব্যবহারের শর্তাবলী, সমস্ত প্রযোজ্য আইন এবং প্রবিধান দ্বারা আবদ্ধ হতে সম্মত হচ্ছেন এবং সম্মত হচ্ছেন যে আপনি যে কোনও প্রযোজ্য স্থানীয় আইন মেনে চলার জন্য দায়বদ্ধ।",
         p2: "কেবলমাত্র ব্যক্তিগত, অ-বাণিজ্যিক ক্ষণস্থায়ী দেখার জন্য এই ওয়েবসাইটের উপকরণগুলির (তথ্য বা সফ্টওয়্যার) একটি অনুলিপি অস্থায়ীভাবে ডাউনলোড করার অনুমতি দেওয়া হয়েছে। এটি লাইসেন্সের অনুদান, শিরোনামের স্থানান্তর নয়।",
         p3: "এই ওয়েবসাইটের উপকরণগুলি 'যেমন আছে' সরবরাহ করা হয়। আমরা কোনও ওয়্যারেন্টি দিই না, প্রকাশ করা বা উহ্য, এবং এতদ্বারা অন্য সমস্ত ওয়্যারেন্টি অস্বীকার ও বাতিল করি, যার মধ্যে সীমাবদ্ধতা ছাড়াই, উহ্য ওয়্যারেন্টি বা ব্যবসায়িকতার শর্তাবলী, একটি নির্দিষ্ট উদ্দেশ্যে ফিটনেস, বা মেধা সম্পত্তির অ-লঙ্ঘন বা অধিকারের অন্যান্য লঙ্ঘন অন্তর্ভুক্ত।",

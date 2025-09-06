@@ -1,6 +1,11 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Translations } from '@/lib/translations';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Terms & Conditions | Kolkata Metro Guide',
+    description: 'Terms and Conditions for the Kolkata Metro Guide application.',
+};
 
 export default function TermsAndConditionsPage() {
     const t = Translations.en.termsAndConditions;
@@ -12,7 +17,6 @@ export default function TermsAndConditionsPage() {
                     <CardTitle className="text-3xl font-headline text-primary">{t.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6 text-muted-foreground">
-                    <p className="text-sm text-muted-foreground">{t.lastUpdated}</p>
                     <p>{t.p1}</p>
                     <p>{t.p2}</p>
                     <p>{t.p3}</p>

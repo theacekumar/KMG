@@ -1,6 +1,11 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Translations } from '@/lib/translations';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Privacy Policy | Kolkata Metro Guide',
+    description: 'Privacy Policy for the Kolkata Metro Guide application.',
+};
 
 export default function PrivacyPolicyPage() {
     const t = Translations.en.privacyPolicy;
@@ -12,7 +17,6 @@ export default function PrivacyPolicyPage() {
                     <CardTitle className="text-3xl font-headline text-primary">{t.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6 text-muted-foreground">
-                    <p className="text-sm text-muted-foreground">{t.lastUpdated}</p>
                     <p>{t.p1}</p>
                     <p>{t.p2}</p>
                     <p>{t.p3}</p>

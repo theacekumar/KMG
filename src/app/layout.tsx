@@ -7,7 +7,7 @@ import { LanguageProvider } from '@/context/language-provider';
 import AppHeader from '@/components/app-header';
 import MobileNav from '@/components/mobile-nav';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'Kolkata Metro Guide',

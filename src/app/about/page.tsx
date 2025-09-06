@@ -1,6 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle } from 'lucide-react';
 import { Translations } from '@/lib/translations';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'About | Kolkata Metro Guide',
+    description: 'Learn about the Kolkata Metro Guide application, its features, and the technology used to build it.',
+};
 
 export default function AboutPage() {
     const t = Translations.en;

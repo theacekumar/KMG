@@ -4,6 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLanguage } from '@/context/language-provider';
 import dynamic from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
+import type { Metadata } from 'next';
+
+// This metadata will be resolved on the client side
+export const metadata: Metadata = {
+  title: 'Metro Map | Kolkata Metro Guide',
+  description: 'Interactive map of the Kolkata Metro network with all lines and stations. Supports zoom and pan for easy navigation.',
+};
+
 
 const MetroMap = dynamic(() => import('@/components/metro-map'), {
   ssr: false,

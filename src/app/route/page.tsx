@@ -2,13 +2,48 @@
 
 import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { AlertTriangle, Train, IndianRupee, Clock, Footprints, GitBranch } from 'lucide-react';
+import { AlertTriangle, Train, IndianRupee, Clock, Footprints, GitBranch, Loader2 } from 'lucide-react';
 
 import { useLanguage } from '@/context/language-provider';
 import { getRouteDetails, getStationById, getLineColor } from '@/lib/routing';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Skeleton } from '@/components/ui/skeleton';
+
+
+function RouteLoadingSkeleton() {
+    return (
+        <div className="space-y-6">
+            <Card>
+                <CardHeader>
+                    <Skeleton className="h-8 w-3/4" />
+                </CardHeader>
+                <CardContent>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <Skeleton className="h-20 w-full" />
+                        <Skeleton className="h-20 w-full" />
+                        <Skeleton className="h-20 w-full" />
+                        <Skeleton className="h-20 w-full" />
+                    </div>
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                     <Skeleton className="h-8 w-1/4" />
+                </CardHeader>
+                <CardContent>
+                    <div className="space-y-6">
+                        <Skeleton className="h-12 w-full" />
+                        <Skeleton className="h-12 w-full" />
+                        <Skeleton className="h-12 w-full" />
+                    </div>
+                </CardContent>
+            </Card>
+        </div>
+    )
+}
+
 
 function RouteResult() {
     const searchParams = useSearchParams();
@@ -123,7 +158,7 @@ function RouteResult() {
 export default function RoutePage() {
     return (
         <div className="container mx-auto max-w-4xl p-4 md:p-8">
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<RouteLoadingSkeleton />}>
                 <RouteResult />
             </Suspense>
         </div>
