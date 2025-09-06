@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLanguage } from '@/context/language-provider';
+import Image from 'next/image';
 
 export default function MapPage() {
   const { t } = useLanguage();
@@ -13,8 +14,14 @@ export default function MapPage() {
           <CardTitle className="text-2xl font-headline">{t.map.title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center justify-center h-96 bg-muted rounded-md">
-            <p className="text-muted-foreground">Map will be available soon.</p>
+          <div className="relative w-full h-[600px] bg-muted rounded-md">
+             <Image 
+                src="https://i.ibb.co/bF9gYq2/kolkata-metro-map.png" 
+                alt="Kolkata Metro Map" 
+                fill
+                style={{objectFit: "contain"}}
+                data-ai-hint="metro map"
+             />
           </div>
         </CardContent>
       </Card>
