@@ -1,8 +1,21 @@
 'use client';
 
-import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLanguage } from '@/context/language-provider';
+import dynamic from 'next/dynamic';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const MetroMap = dynamic(() => import('@/components/metro-map'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[70vh] md:h-[80vh] border rounded-lg overflow-hidden bg-muted/30 flex items-center justify-center p-4">
+      <div className="w-full h-full flex flex-col items-center justify-center gap-4">
+        <Skeleton className="h-8 w-1/4" />
+        <Skeleton className="w-full h-full" />
+      </div>
+    </div>
+  ),
+});
 
 export default function MapPage() {
   const { t } = useLanguage();
@@ -14,17 +27,7 @@ export default function MapPage() {
           <CardTitle className="text-2xl font-headline">{t.map.title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="w-full h-[70vh] md:h-[80vh] border rounded-lg overflow-auto bg-muted/30 flex items-center justify-center">
-            <div className="relative" style={{ width: '1200px', height: '1200px' }}>
-                <Image
-                    src="https://i.ibb.co/Y7Nq25F/kolkata-metro-map.png"
-                    alt="Kolkata Metro Map"
-                    data-ai-hint="metro map"
-                    layout="fill"
-                    objectFit="contain"
-                />
-            </div>
-          </div>
+          <MetroMap />
         </CardContent>
       </Card>
     </div>
