@@ -14,12 +14,12 @@ export default function MapPage() {
           <CardTitle className="text-2xl font-headline">{t.map.title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="relative w-full h-[600px] bg-muted rounded-md">
+          <div className="relative w-full h-[600px] bg-muted rounded-md flex items-center justify-center">
              <Image 
                 src="https://i.ibb.co/bF9gYq2/kolkata-metro-map.png" 
                 alt="Kolkata Metro Map" 
                 fill
-                style={{objectFit: "contain"}}
+                className="object-contain p-2"
                 data-ai-hint="metro map"
              />
           </div>
