@@ -1,7 +1,7 @@
+
 'use client';
 
 import { Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { AlertTriangle, Train, IndianRupee, Clock, Footprints, GitBranch, Loader2 } from 'lucide-react';
 
 import { useLanguage } from '@/context/language-provider';
@@ -10,7 +10,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Skeleton } from '@/components/ui/skeleton';
-
 
 function RouteLoadingSkeleton() {
     return (
@@ -44,13 +43,8 @@ function RouteLoadingSkeleton() {
     )
 }
 
-
-function RouteResult() {
-    const searchParams = useSearchParams();
+function RouteDetails({ fromId, toId }: { fromId: string; toId: string }) {
     const { t } = useLanguage();
-
-    const fromId = searchParams.get('from');
-    const toId = searchParams.get('to');
 
     if (!fromId || !toId) {
         return (
@@ -135,10 +129,12 @@ function RouteResult() {
                                     <span className={`absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 ring-4 ring-background ${lineColor}`}>
                                         <Train className="w-3 h-3 text-white"/>
                                     </span>
+
                                     <h3 className="font-semibold text-lg">{station.name}</h3>
                                     <Badge style={{backgroundColor: lineColor.replace('bg-','').replace('-500','')}} className={station.line === 'Yellow' ? `text-black` : `text-white`}>
                                         {station.line} {t.route.line}
                                     </Badge>
+                                    
                                     {isInterchange && prevLine && (
                                         <div className="mt-2 p-2 bg-yellow-100 dark:bg-yellow-900/50 rounded-md border border-accent/50 text-sm">
                                             <p className="font-semibold text-accent-foreground">{t.route.changeLine} {station.line} {t.route.line}</p>
@@ -154,13 +150,10 @@ function RouteResult() {
     )
 }
 
-
-export default function RoutePage() {
+export default function RouteResult({ fromId, toId }: { fromId: string, toId: string }) {
     return (
-        <div className="container mx-auto max-w-4xl p-4 md:p-8">
-            <Suspense fallback={<RouteLoadingSkeleton />}>
-                <RouteResult />
-            </Suspense>
-        </div>
+        <Suspense fallback={<RouteLoadingSkeleton />}>
+            <RouteDetails fromId={fromId} toId={toId} />
+        </Suspense>
     );
 }

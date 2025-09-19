@@ -1,8 +1,8 @@
+
 'use client';
 
 import * as React from 'react';
 import { ChevronsUpDown, Check, ArrowRightLeft } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -96,10 +96,9 @@ function StationCombobox({
   );
 }
 
-export default function SearchForm() {
+export default function SearchForm({ onSearch }: { onSearch: (from: string, to: string) => void }) {
   const [fromStation, setFromStation] = React.useState('');
   const [toStation, setToStation] = React.useState('');
-  const router = useRouter();
   const { t } = useLanguage();
   const { toast } = useToast();
 
@@ -126,7 +125,7 @@ export default function SearchForm() {
       });
       return;
     }
-    router.push(`/route?from=${fromStation}&to=${toStation}`);
+    onSearch(fromStation, toStation);
   };
 
   return (
