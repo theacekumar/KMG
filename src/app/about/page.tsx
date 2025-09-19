@@ -19,7 +19,6 @@ export default function AboutPage() {
     const techStack = [
         t.about.tech1,
         t.about.tech2,
-        t.about.tech3,
     ];
 
     return (

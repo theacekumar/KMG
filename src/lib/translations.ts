@@ -50,7 +50,6 @@ export const Translations = {
         techStack: "Technology",
         tech1: "Built with Next.js and React",
         tech2: "Styled with Tailwind CSS and Shadcn/UI",
-        tech3: "Hosted on Firebase",
     },
     smartCard: {
         title: "Smart Card",
@@ -159,7 +158,6 @@ export const Translations = {
         techStack: "প্রযুক্তি",
         tech1: "Next.js এবং React দিয়ে নির্মিত",
         tech2: "Tailwind CSS এবং Shadcn/UI দিয়ে স্টাইল করা হয়েছে",
-        tech3: "Firebase-এ হোস্ট করা হয়েছে",
     },
     smartCard: {
         title: "স্মার্ট কার্ড",
