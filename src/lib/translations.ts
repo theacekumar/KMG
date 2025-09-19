@@ -30,7 +30,7 @@ export const Translations = {
         interchanges: "Interchanges",
         rupees: "₹",
         mins: "mins",
-        noRouteFound: "No route could be found between the selected stations.",
+        noRouteFound: "There is no train between the Source and Destination",
         sameStationError: "Source and destination cannot be the same.",
         selectStationsError: "Please select both source and destination stations.",
         changeLine: "Change to",
@@ -138,7 +138,7 @@ export const Translations = {
         interchanges: "বদল",
         rupees: "₹",
         mins: "মিনিট",
-        noRouteFound: "নির্বাচিত স্টেশনগুলির মধ্যে কোনও রুট খুঁজে পাওয়া যায়নি।",
+        noRouteFound: "উৎস এবং গন্তব্যের মধ্যে কোনো ট্রেন নেই",
         sameStationError: "উৎস এবং গন্তব্য একই হতে পারে না।",
         selectStationsError: "অনুগ্রহ করে উৎস এবং গন্তব্য উভয় স্টেশন নির্বাচন করুন।",
         changeLine: "পরিবর্তন করুন",
@@ -186,7 +186,7 @@ export const Translations = {
             description: "পর্যটকদের জন্য ডিজাইন করা একটি বিশেষ কার্ড, যা একটি নির্দিষ্ট সময়ের জন্য সীমাহীন রাইড অফার করে। প্রতিটি ভ্রমণের জন্য টিকিট কেনার চিন্তা ছাড়াই শহর ঘুরে দেখার এটি একটি নিখুঁত উপায়।",
             types: [
                 { name: "ট্যুরিস্ট স্মার্ট কার্ড-I (৩-দিন)", price: "২৫০", description: "টানা তিন দিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
-                { name: "ট্যুরিস্ট স্মার্ট কার্ড-II (৫-দিন)", price: "৫৫০", description: "টানা পাঁচ দিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
+                { name: "ট্যুরিস্ট স্মার্ট কার্ড-II (৫-দিন)", price: "৫৫০", description: "টana পাঁচ দিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
             ],
             features: [
                 "দুটি কার্ডেই ৮০ টাকার ফেরতযোগ্য নিরাপত্তা আমানত অন্তর্ভুক্ত রয়েছে।",
