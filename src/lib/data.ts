@@ -527,7 +527,9 @@ export const fares: Fare[] = [
   { from: 'baranagar', to: 'city-center', fare: 40 },
   { from: 'baranagar', to: 'howrah', fare: 30 },
   { from: 'baranagar', to: 'howrah-maidan', fare: 30 },
-  { from: 'baranagar', to: 'mahakaran', fare: 25 }
+  { from: 'baranagar', to: 'mahakaran', fare: 25 },
+  { from: 'esplanade', to: 'sealdah', fare: 10 },
+  { from: 'esplanade', to: 'central-park', fare: 20 },
 ];
 
     
