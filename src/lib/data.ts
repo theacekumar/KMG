@@ -36,7 +36,7 @@ export const stations: Station[] = [
     { id: 'central', name: 'Central', code: 'CEN', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "06:59", lastTrain: "21:46", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'chandni-chowk', name: 'Chandni Chowk', code: 'CHC', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:01", lastTrain: "21:44", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'esplanade', name: 'Esplanade', code: 'ESP', lines: ['Blue', 'Green'], gates: 6, facilities: ["Elevator", "Escalator", "Interchange", "Toilets"], firstTrain: "07:00", lastTrain: "21:45", platformInfo: "Blue Line: P1 Kavi Subhash, P2 Dum Dum | Green Line: P1 Howrah Maidan, P2 Sealdah" },
-    { id: 'park-street', name: 'Park Street', code: 'PST', lines: ['Blue', 'Purple'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:03", lastTrain: "21:42", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
+    { id: 'park-street', name: 'Park Street', code: 'PST', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:03", lastTrain: "21:42", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'maidan', name: 'Maidan', code: 'MDN', lines: ['Blue'], gates: 2, facilities: [], firstTrain: "07:05", lastTrain: "21:40", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'rabindra-sadan', name: 'Rabindra Sadan', code: 'RSD', lines: ['Blue'], gates: 2, facilities: ["Escalator"], firstTrain: "07:07", lastTrain: "21:38", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'netaji-bhavan', name: 'Netaji Bhavan', code: 'NBH', lines: ['Blue'], gates: 2, facilities: ["Escalator"], firstTrain: "07:09", lastTrain: "21:36", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
@@ -111,7 +111,7 @@ export const lines: Line[] = [
   {
       name: 'Purple',
       stations: [
-          'joka', 'thakurpukur-cancer-hospital', 'sakherbazar', 'behala-chowrasta', 'behala-bazar', 'taratala', 'majherhat', 'park-street'
+          'joka', 'thakurpukur-cancer-hospital', 'sakherbazar', 'behala-chowrasta', 'behala-bazar', 'taratala', 'majherhat'
       ]
   },
   {
@@ -498,6 +498,7 @@ export const fares: Fare[] = [
     
 
     
+
 
 
 
