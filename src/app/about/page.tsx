@@ -1,25 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle } from 'lucide-react';
-import { Translations } from '@/lib/translations';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-    title: 'About | Kolkata Metro Guide',
-    description: 'Learn about the Kolkata Metro Guide application, its features, and the technology used to build it.',
-};
+import { CheckCircle, Code } from 'lucide-react';
+import { useLanguage } from '@/context/language-provider';
 
 export default function AboutPage() {
-    const t = Translations.en;
+    const { t } = useLanguage();
     const features = [
         t.about.feature1,
         t.about.feature2,
         t.about.feature3,
         t.about.feature4,
     ];
-    const techStack = [
-        t.about.tech1,
-        t.about.tech2,
-    ];
+    const techStack = t.about.techStack;
 
     return (
         <div className="container mx-auto max-w-4xl p-4 md:p-8">
@@ -45,12 +36,18 @@ export default function AboutPage() {
                     </div>
 
                     <div>
-                        <h3 className="text-xl font-headline font-semibold mb-3">{t.about.techStack}</h3>
-                         <ul className="space-y-2">
+                        <h3 className="text-xl font-headline font-semibold mb-3">{t.about.techTitle}</h3>
+                        <p className="text-muted-foreground mb-4">{t.about.techDescription}</p>
+                         <ul className="space-y-4">
                             {techStack.map((tech, index) => (
-                                <li key={index} className="flex items-center">
-                                    <CheckCircle className="h-5 w-5 text-blue-500 mr-3" />
-                                    <span>{tech}</span>
+                                <li key={index} className="flex items-start">
+                                    <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center mr-4">
+                                        <Code className="h-5 w-5 text-primary" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold">{tech.name}</h4>
+                                        <p className="text-muted-foreground">{tech.description}</p>
+                                    </div>
                                 </li>
                             ))}
                         </ul>

@@ -47,9 +47,12 @@ export const Translations = {
         feature2: "Fare Calculation: Get accurate fare information for your journey.",
         feature3: "Station Details: Access information about facilities, timings, and more.",
         feature4: "Offline Support: Key features work without an internet connection.",
-        techStack: "Technology",
-        tech1: "Built with Next.js and React",
-        tech2: "Styled with Tailwind CSS and Shadcn/UI",
+        techTitle: "Technology",
+        techDescription: "This app is built with a modern web-first approach to ensure speed, scalability, and responsiveness:",
+        techStack: [
+            { name: "Next.js & React", description: "Delivering a smooth, dynamic, and optimized user experience." },
+            { name: "Tailwind CSS & Shadcn/UI", description: "Providing a clean, minimal design system with accessible components and a polished look." }
+        ],
     },
     smartCard: {
         title: "Smart Card",
@@ -155,9 +158,12 @@ export const Translations = {
         feature2: "ভাড়া গণনা: আপনার যাত্রার জন্য সঠিক ভাড়ার তথ্য পান।",
         feature3: "স্টেশনের বিবরণ: সুবিধা, সময় এবং আরও অনেক কিছু সম্পর্কে তথ্য অ্যাক্সেস করুন।",
         feature4: "অফলাইন সমর্থন: ইন্টারনেট সংযোগ ছাড়াই মূল বৈশিষ্ট্যগুলি কাজ করে।",
-        techStack: "প্রযুক্তি",
-        tech1: "Next.js এবং React দিয়ে নির্মিত",
-        tech2: "Tailwind CSS এবং Shadcn/UI দিয়ে স্টাইল করা হয়েছে",
+        techTitle: "প্রযুক্তি",
+        techDescription: "গতি, পরিমাপযোগ্যতা এবং প্রতিক্রিয়াশীলতা নিশ্চিত করতে এই অ্যাপটি একটি আধুনিক ওয়েব-ফার্স্ট পদ্ধতি দিয়ে তৈরি করা হয়েছে:",
+        techStack: [
+            { name: "Next.js এবং React", description: "একটি মসৃণ, গতিশীল এবং অপ্টিমাইজড ব্যবহারকারীর অভিজ্ঞতা প্রদান করে।" },
+            { name: "Tailwind CSS এবং Shadcn/UI", description: "একটি পরিষ্কার, ন্যূনতম ডিজাইন সিস্টেমพร้อม অ্যাক্সেসযোগ্য উপাদান এবং একটি পালিশ চেহারা প্রদান করে।" }
+        ],
     },
     smartCard: {
         title: "স্মার্ট কার্ড",
