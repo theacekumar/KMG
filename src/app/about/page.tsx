@@ -1,3 +1,6 @@
+
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Code } from 'lucide-react';
 import { useLanguage } from '@/context/language-provider';
@@ -44,6 +47,7 @@ export default function AboutPage() {
                                     <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center mr-4">
                                         <Code className="h-5 w-5 text-primary" />
                                     </div>
+
                                     <div>
                                         <h4 className="font-semibold">{tech.name}</h4>
                                         <p className="text-muted-foreground">{tech.description}</p>
