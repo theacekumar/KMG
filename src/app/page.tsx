@@ -30,6 +30,9 @@ export default function Home() {
                 <RouteResult fromId={route.from} toId={route.to} />
             </div>
         )}
+         <div className="w-full h-24 mt-8" aria-hidden="true">
+          {/* Ad placement placeholder */}
+        </div>
     </div>
   );
 }
