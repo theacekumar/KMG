@@ -6,6 +6,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { LanguageProvider } from '@/context/language-provider';
 import AppHeader from '@/components/app-header';
 import MobileNav from '@/components/mobile-nav';
+import { LoadingBar } from '@/components/loading-bar';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
@@ -22,6 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn('font-body antialiased min-h-screen bg-background flex flex-col', inter.variable)}>
+        <Suspense>
+          <LoadingBar />
+        </Suspense>
         <LanguageProvider>
           <AppHeader />
           <main className="flex-grow">{children}</main>

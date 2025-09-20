@@ -57,3 +57,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: hsl(var(--primary));
+    transform-origin: 0%;
+    z-index: 100;
+  }
+}
