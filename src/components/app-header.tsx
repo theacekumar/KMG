@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -17,7 +18,6 @@ export default function AppHeader() {
     { href: '/map', label: t.nav.map, icon: <Map className="w-4 h-4" /> },
     { href: '/smart-card', label: t.nav.smartCard, icon: <Ticket className="w-4 h-4" /> },
     { href: '/about', label: t.nav.about, icon: <Info className="w-4 h-4" /> },
-    { href: '/privacy-policy', label: t.nav.privacyPolicy, icon: <ShieldCheck className="w-4 h-4" /> },
   ];
 
   return (
@@ -40,6 +40,14 @@ export default function AppHeader() {
               {item.label}
             </Link>
           ))}
+            <a
+              href="https://sites.google.com/view/kolkatametroguideprivacypolicy/home"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-primary text-muted-foreground"
+            >
+              {t.nav.privacyPolicy}
+            </a>
         </nav>
         <div className="flex flex-1 items-center justify-end">
           <LanguageToggle />

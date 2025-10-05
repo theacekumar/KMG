@@ -1,3 +1,4 @@
+
 export const Translations = {
   en: {
     appName: "Kolkata Metro Guide",
@@ -90,14 +91,7 @@ export const Translations = {
         }
     },
      privacyPolicy: {
-      title: "Privacy Policy",
-      p1: "Your privacy is important to us. It is our policy to respect your privacy regarding any information we may collect from you across our website.",
-      p2: "We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.",
-      p3: "We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.",
-      p4: "We don’t share any personally identifying information publicly or with third-parties, except when required to by law.",
-      p5: "Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.",
-      p6: "You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.",
-      p7: "Your continued use of our website will be regarded as acceptance of our practices around privacy and personal information. If you have any questions about how we handle user data and personal information, feel free to contact us."
+      title: "Privacy Policy"
     },
   },
   bn: {
@@ -191,14 +185,7 @@ export const Translations = {
         }
     },
     privacyPolicy: {
-      title: "গোপনীয়তা নীতি",
-      p1: "আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ। আমাদের ওয়েবসাইট জুড়ে আমরা আপনার কাছ থেকে যে কোনও তথ্য সংগ্রহ করতে পারি সে সম্পর্কে আপনার গোপনীয়তাকে সম্মান করা আমাদের নীতি।",
-      p2: "আপনাকে একটি পরিষেবা সরবরাহ করার জন্য যখন আমাদের সত্যিই এটির প্রয়োজন হয় তখনই আমরা ব্যক্তিগত তথ্যের জন্য জিজ্ঞাসা করি। আমরা এটি ন্যায্য এবং আইনানুগ উপায়ে, আপনার জ্ঞান এবং সম্মতিতে সংগ্রহ করি। আমরা আপনাকে এটাও জানাই যে আমরা কেন এটি সংগ্রহ করছি এবং এটি কীভাবে ব্যবহার করা হবে।",
-      p3: "আমরা কেবল সংগৃহীত তথ্য ততক্ষণ ধরে রাখি যতক্ষণ আপনাকে আপনার অনুরোধ করা পরিষেবা সরবরাহ করার জন্য প্রয়োজন হয়। আমরা যে ডেটা সঞ্চয় করি, আমরা ক্ষতি এবং চুরির পাশাপাশি অননুমোদিত অ্যাক্সেস, প্রকাশ, অনুলিপি, ব্যবহার বা পরিবর্তন রোধ করতে বাণিজ্যিকভাবে গ্রহণযোগ্য উপায়ে রক্ষা করব।",
-      p4: "আইনের প্রয়োজন ছাড়া আমরা ব্যক্তিগতভাবে সনাক্তকারী কোনও তথ্য জনসমক্ষে বা তৃতীয় পক্ষের সাথে ভাগ করি না।",
-      p5: "আমাদের ওয়েবসাইটটি আমাদের দ্বারা পরিচালিত নয় এমন বাহ্যিক সাইটগুলিতে লিঙ্ক করতে পারে। দয়া করে সচেতন হন যে এই সাইটগুলির বিষয়বস্তু এবং অনুশীলনগুলির উপর আমাদের কোনও নিয়ন্ত্রণ নেই এবং তাদের নিজ নিজ গোপনীয়তা নীতির জন্য দায়বদ্ধতা বা দায় স্বীকার করতে পারি না।",
-      p6: "আপনি আপনার ব্যক্তিগত তথ্যের জন্য আমাদের অনুরোধ প্রত্যাখ্যান করতে স্বাধীন, এই বোঝার সাথে যে আমরা আপনাকে আপনার পছন্দসই কিছু পরিষেবা সরবরাহ করতে অক্ষম হতে পারি।",
-      p7: "আমাদের ওয়েবসাইটের আপনার অব্যাহত ব্যবহার গোপনীয়তা এবং ব্যক্তিগত তথ্য সম্পর্কে আমাদের অনুশীলনগুলির স্বীকৃতি হিসাবে বিবেচিত হবে। আমরা কীভাবে ব্যবহারকারীর ডেটা এবং ব্যক্তিগত তথ্য পরিচালনা করি সে সম্পর্কে আপনার যদি কোনও প্রশ্ন থাকে তবে নির্দ্বিধায় আমাদের সাথে যোগাযোগ করুন।"
+      title: "গোপনীয়তা নীতি"
     },
   },
 };
