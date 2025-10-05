@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Map, Info, Menu, Ticket, FileText, ShieldCheck } from 'lucide-react';
+import { Home, Map, Info, Menu, Ticket, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/context/language-provider';
 import { cn } from '@/lib/utils';
 import LanguageToggle from './language-toggle';
@@ -24,7 +24,6 @@ export default function MobileNav() {
 
   const menuItems = [
      { href: '/privacy-policy', label: t.nav.privacyPolicy, icon: <ShieldCheck className="w-4 h-4" /> },
-    { href: '/terms-and-conditions', label: t.nav.termsAndConditions, icon: <FileText className="w-4 h-4" /> },
   ]
 
   return (

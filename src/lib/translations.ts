@@ -7,7 +7,6 @@ export const Translations = {
       smartCard: "Smart Card",
       about: "About",
       privacyPolicy: "Privacy Policy",
-      termsAndConditions: "Terms & Conditions",
     },
     home: {
       title: "Kolkata Metro Guide",
@@ -100,15 +99,6 @@ export const Translations = {
       p6: "You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.",
       p7: "Your continued use of our website will be regarded as acceptance of our practices around privacy and personal information. If you have any questions about how we handle user data and personal information, feel free to contact us."
     },
-    termsAndConditions: {
-        title: "Terms & Conditions",
-        p1: "By accessing this website, you are agreeing to be bound by these website Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.",
-        p2: "Permission is granted to temporarily download one copy of the materials (information or software) on this website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.",
-        p3: "The materials on this website are provided 'as is'. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties, including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.",
-        p4: "In no event shall we be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption,) arising out of the use or inability to use the materials on our website.",
-        p5: "The materials appearing on this website could include technical, typographical, or photographic errors. We do not warrant that any of the materials on its website are accurate, complete, or current.",
-        p6: "We may revise these terms of use for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these Terms and Conditions of Use.",
-    }
   },
   bn: {
     appName: "কলকাতা মেট্রো গাইড",
@@ -118,7 +108,6 @@ export const Translations = {
       smartCard: "স্মার্ট কার্ড",
       about: "সম্পর্কে",
       privacyPolicy: "গোপনীয়তা নীতি",
-      termsAndConditions: "শর্তাবলী",
     },
     home: {
       title: "কলকাতা মেট্রো গাইড",
@@ -211,14 +200,5 @@ export const Translations = {
       p6: "আপনি আপনার ব্যক্তিগত তথ্যের জন্য আমাদের অনুরোধ প্রত্যাখ্যান করতে স্বাধীন, এই বোঝার সাথে যে আমরা আপনাকে আপনার পছন্দসই কিছু পরিষেবা সরবরাহ করতে অক্ষম হতে পারি।",
       p7: "আমাদের ওয়েবসাইটের আপনার অব্যাহত ব্যবহার গোপনীয়তা এবং ব্যক্তিগত তথ্য সম্পর্কে আমাদের অনুশীলনগুলির স্বীকৃতি হিসাবে বিবেচিত হবে। আমরা কীভাবে ব্যবহারকারীর ডেটা এবং ব্যক্তিগত তথ্য পরিচালনা করি সে সম্পর্কে আপনার যদি কোনও প্রশ্ন থাকে তবে নির্দ্বিধায় আমাদের সাথে যোগাযোগ করুন।"
     },
-    termsAndConditions: {
-        title: "শর্তাবলী",
-        p1: "এই ওয়েবসাইটটি অ্যাক্সেস করার মাধ্যমে, আপনি এই ওয়েবসাইটের ব্যবহারের শর্তাবলী, সমস্ত প্রযোজ্য আইন এবং প্রবিধান দ্বারা আবদ্ধ হতে সম্মত হচ্ছেন এবং সম্মত হচ্ছেন যে আপনি যে কোনও প্রযোজ্য স্থানীয় আইন মেনে চলার জন্য দায়বদ্ধ।",
-        p2: "কেবলমাত্র ব্যক্তিগত, অ-বাণিজ্যিক ক্ষণস্থায়ী দেখার জন্য এই ওয়েবসাইটের উপকরণগুলির (তথ্য বা সফ্টওয়্যার) একটি অনুলিপি অস্থায়ীভাবে ডাউনলোড করার অনুমতি দেওয়া হয়েছে। এটি লাইসেন্সের অনুদান, শিরোনামের স্থানান্তর নয়।",
-        p3: "এই ওয়েবসাইটের উপকরণগুলি 'যেমন আছে' সরবরাহ করা হয়। আমরা কোনও ওয়্যারেন্টি দিই না, প্রকাশ করা বা উহ্য, এবং এতদ্বারা অন্য সমস্ত ওয়্যারেন্টি অস্বীকার ও বাতিল করি, যার মধ্যে সীমাবদ্ধতা ছাড়াই, উহ্য ওয়্যারেন্টি বা ব্যবসায়িকতার শর্তাবলী, একটি নির্দিষ্ট উদ্দেশ্যে ফিটনেস, বা মেধা সম্পত্তির অ-লঙ্ঘন বা অধিকারের অন্যান্য লঙ্ঘন অন্তর্ভুক্ত।",
-        p4: "কোনও ক্ষেত্রেই আমরা আমাদের ওয়েবসাইটে উপকরণগুলির ব্যবহার বা ব্যবহারে অক্ষমতা থেকে উদ্ভূত কোনও ক্ষতির (ক্ষতি সহ, সীমাবদ্ধতা ছাড়াই, ডেটা বা লাভের ক্ষতির জন্য, বা ব্যবসায়িক বাধার কারণে) জন্য দায়বদ্ধ থাকব না।",
-        p5: "এই ওয়েবসাইটে প্রদর্শিত উপকরণগুলিতে প্রযুক্তিগত, টাইপোগ্রাফিক বা ফটোগ্রাফিক ত্রুটি থাকতে পারে। আমরা ওয়ারেন্টি দিই না যে এর ওয়েবসাইটের কোনও উপকরণ সঠিক, সম্পূর্ণ বা বর্তমান।",
-        p6: "আমরা কোনও বিজ্ঞপ্তি ছাড়াই যে কোনও সময় তার ওয়েবসাইটের জন্য এই ব্যবহারের শর্তাবলী সংশোধন করতে পারি। এই ওয়েবসাইটটি ব্যবহার করে আপনি এই ব্যবহারের শর্তাবলীর তৎকালীন বর্তমান সংস্করণ দ্বারা আবদ্ধ হতে সম্মত হচ্ছেন।",
-    }
   },
 };
