@@ -17,14 +17,13 @@ export default function MobileNav() {
 
   const mainNavItems = [
     { href: '/', label: t.nav.home, icon: <Home className="w-5 h-5" /> },
-    { href: '/map', label: t.nav.map, icon: <Map className="w-5 h-5" /> },
     { href: '/smart-card', label: t.nav.smartCard, icon: <Ticket className="w-5 h-5" /> },
     { href: '/about', label: t.nav.about, icon: <Info className="w-5 h-5" /> },
   ];
 
   return (
     <div className="fixed bottom-0 left-0 z-50 w-full h-16 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:hidden">
-      <div className="grid h-full grid-cols-5 mx-auto font-medium">
+      <div className="grid h-full grid-cols-4 mx-auto font-medium">
         {mainNavItems.map((item) => (
           <Link
             href={item.href}
@@ -54,6 +53,10 @@ export default function MobileNav() {
                <LanguageToggle />
                <Separator />
                 <nav className="flex flex-col space-y-2">
+                    <Link href="/map" className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-primary">
+                        <Map className="w-4 h-4" />
+                        <span>{t.nav.map}</span>
+                    </Link>
                     <a
                       href="https://sites.google.com/view/kolkatametroguideprivacypolicy/home"
                       target="_blank"
