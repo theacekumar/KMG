@@ -53,10 +53,15 @@ export default function MobileNav() {
                <LanguageToggle />
                <Separator />
                 <nav className="flex flex-col space-y-2">
-                    <Link href="/map" className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-primary">
+                    <a
+                        href="https://kolkatametroguide-privacypolicy.my.canva.site/map"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-primary"
+                    >
                         <Map className="w-4 h-4" />
                         <span>{t.nav.map}</span>
-                    </Link>
+                    </a>
                     <a
                       href="https://sites.google.com/view/kolkatametroguideprivacypolicy/home"
                       target="_blank"
