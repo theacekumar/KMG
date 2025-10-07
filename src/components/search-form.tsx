@@ -29,10 +29,12 @@ type StationOption = {
   label: string;
 };
 
-const stationOptions: StationOption[] = stations.map((s) => ({
-  value: s.id,
-  label: s.name,
-}));
+const stationOptions: StationOption[] = stations
+  .map((s) => ({
+    value: s.id,
+    label: s.name,
+  }))
+  .sort((a, b) => a.label.localeCompare(b.label));
 
 function StationCombobox({
   value,
