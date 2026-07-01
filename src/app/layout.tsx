@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
@@ -8,12 +8,29 @@ import AppHeader from '@/components/app-header';
 import MobileNav from '@/components/mobile-nav';
 import { LoadingBar } from '@/components/loading-bar';
 import { Suspense } from 'react';
+import { PwaRegistration } from '@/components/pwa-registration';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'Kolkata Metro Guide',
   description: 'Your guide to the Kolkata Metro. Find routes, fares, and station information.',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Kolkata Metro Guide',
+  },
+  formatDetection: {
+    telephone: false,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#3b82f6',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -28,6 +45,7 @@ export default function RootLayout({
           <LoadingBar />
         </Suspense>
         <LanguageProvider>
+          <PwaRegistration />
           <AppHeader />
           <main className="flex-grow">{children}</main>
           <MobileNav />
