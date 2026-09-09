@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,7 +10,6 @@ export default function AboutPage() {
         t.about.feature1,
         t.about.feature2,
         t.about.feature3,
-        t.about.feature4,
     ];
     const techStack = t.about.techStack;
 

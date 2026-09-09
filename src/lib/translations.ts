@@ -1,4 +1,3 @@
-
 export const Translations = {
   en: {
     appName: "Kolkata Metro Guide",
@@ -46,7 +45,6 @@ export const Translations = {
         feature1: "Route Planning: Find the shortest path between any two stations.",
         feature2: "Fare Calculation: Get accurate fare information for your journey.",
         feature3: "Station Details: Access information about facilities, timings, and more.",
-        feature4: "Offline Support: Key features work without an internet connection.",
         techTitle: "Technology",
         techDescription: "This app is built with a modern web-first approach to ensure speed, scalability, and responsiveness:",
         techStack: [
@@ -140,7 +138,6 @@ export const Translations = {
         feature1: "রুট পরিকল্পনা: যেকোনো দুটি স্টেশনের মধ্যে সবচেয়ে ছোট পথ খুঁজুন।",
         feature2: "ভাড়া গণনা: আপনার যাত্রার জন্য সঠিক ভাড়ার তথ্য পান।",
         feature3: "স্টেশনের বিবরণ: সুবিধা, সময় এবং আরও অনেক কিছু সম্পর্কে তথ্য অ্যাক্সেস করুন।",
-        feature4: "অফলাইন সমর্থন: ইন্টারনেট সংযোগ ছাড়াই মূল বৈশিষ্ট্যগুলি কাজ করে।",
         techTitle: "প্রযুক্তি",
         techDescription: "গতি, পরিমাপযোগ্যতা এবং প্রতিক্রিয়াশীলতা নিশ্চিত করতে এই অ্যাপটি একটি আধুনিক ওয়েব-ফার্স্ট পদ্ধতি দিয়ে তৈরি করা হয়েছে:",
         techStack: [
