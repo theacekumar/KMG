@@ -9,9 +9,9 @@ const config: CapacitorConfig = {
     androidScheme: 'https'
   },
   android: {
-    // Ensuring we target the latest SDK versions
-    compileSdkVersion: 35,
-    targetSdkVersion: 35,
+    // Ensuring we target the latest SDK versions for Google Play compliance
+    compileSdkVersion: 36,
+    targetSdkVersion: 36,
     minSdkVersion: 24,
     buildOptions: {
       releaseType: 'AAB'
