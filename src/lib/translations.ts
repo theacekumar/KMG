@@ -46,10 +46,14 @@ export const Translations = {
         feature2: "Fare Calculation: Get accurate fare information for your journey.",
         feature3: "Station Details: Access information about facilities, timings, and more.",
         techTitle: "Technology",
-        techDescription: "This app is built with a modern web-first approach to ensure speed, scalability, and responsiveness:",
+        techDescription: "This app is built with a cutting-edge web stack to ensure speed, scalability, and a premium user experience on both web and mobile platforms:",
         techStack: [
-            { name: "Next.js & React", description: "Delivering a smooth, dynamic, and optimized user experience." },
-            { name: "Tailwind CSS & Shadcn/UI", description: "Providing a clean, minimal design system with accessible components and a polished look." }
+            { name: "Next.js 15 & React", description: "Utilizing the latest App Router and React features for lightning-fast performance and seamless transitions." },
+            { name: "Tailwind CSS", description: "A utility-first CSS framework that enables a responsive and highly customizable design system." },
+            { name: "Shadcn UI", description: "A set of high-quality, accessible UI components built on top of Radix UI for a professional look and feel." },
+            { name: "TypeScript", description: "Ensuring code reliability and maintainability with a robust type-safe development environment." },
+            { name: "Capacitor", description: "A cross-platform native runtime that allows the app to run as a high-performance native application on Android." },
+            { name: "Lucide Icons", description: "A library of beautiful, consistent, and lightweight vector icons that enhance the visual clarity of the interface." }
         ],
     },
     smartCard: {
@@ -139,10 +143,14 @@ export const Translations = {
         feature2: "ভাড়া গণনা: আপনার যাত্রার জন্য সঠিক ভাড়ার তথ্য পান।",
         feature3: "স্টেশনের বিবরণ: সুবিধা, সময় এবং আরও অনেক কিছু সম্পর্কে তথ্য অ্যাক্সেস করুন।",
         techTitle: "প্রযুক্তি",
-        techDescription: "গতি, পরিমাপযোগ্যতা এবং প্রতিক্রিয়াশীলতা নিশ্চিত করতে এই অ্যাপটি একটি আধুনিক ওয়েব-ফার্স্ট পদ্ধতি দিয়ে তৈরি করা হয়েছে:",
+        techDescription: "গতি, পরিমাপযোগ্যতা এবং একটি প্রিমিয়াম ব্যবহারকারীর অভিজ্ঞতা নিশ্চিত করতে এই অ্যাপটি একটি আধুনিক টেক স্ট্যাক দিয়ে তৈরি করা হয়েছে:",
         techStack: [
-            { name: "Next.js এবং React", description: "একটি মসৃণ, গতিশীল এবং অপ্টিমাইজড ব্যবহারকারীর অভিজ্ঞতা প্রদান করে।" },
-            { name: "Tailwind CSS এবং Shadcn/UI", description: "একটি পরিষ্কার, ন্যূনতম ডিজাইন সিস্টেমพร้อม অ্যাক্সেসযোগ্য উপাদান এবং একটি পালিশ চেহারা প্রদান করে।" }
+            { name: "Next.js 15 এবং React", description: "বিদ্যুত-গতিতে পারফরম্যান্স এবং মসৃণ নেভিগেশনের জন্য লেটেস্ট অ্যাপ রাউটার এবং রিঅ্যাক্ট ফিচার ব্যবহার করা হয়েছে।" },
+            { name: "Tailwind CSS", description: "একটি ইউটিলিটি-ফার্স্ট সিএসএস ফ্রেমওয়ার্ক যা একটি রেসপন্সিভ এবং কাস্টমাইজযোগ্য ডিজাইন নিশ্চিত করে।" },
+            { name: "Shadcn UI", description: "একটি পেশাদার লুক এবং ফিলের জন্য রেডিক্স ইউআই-এর উপর নির্মিত উচ্চ-মানের ইউআই উপাদানের সেট।" },
+            { name: "TypeScript", description: "একটি শক্তিশালী টাইপ-সেফ ডেভেলপমেন্ট এনভায়রনমেন্টের মাধ্যমে কোডের নির্ভরযোগ্যতা নিশ্চিত করা হয়েছে।" },
+            { name: "Capacitor", description: "একটি ক্রস-প্ল্যাটফর্ম নেটিভ রানটাইম যা অ্যাপটিকে অ্যান্ড্রয়েডে নেটিভ অ্যাপ্লিকেশন হিসাবে চালানোর সুবিধা দেয়।" },
+            { name: "Lucide আইকন", description: "সুন্দর এবং সামঞ্জস্যপূর্ণ ভেক্টর আইকনগুলির একটি লাইব্রেরি যা ইন্টারফেসের দৃশ্যমান স্বচ্ছতা বাড়ায়।" }
         ],
     },
     smartCard: {
