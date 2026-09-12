@@ -63,11 +63,16 @@ export default function MetroMapSvg() {
 
         {/* Metro Lines Tracks */}
         <g id="metro-lines" fill="none" strokeLinecap="round" strokeLinejoin="round">
+          {/* Blue Line - Dakshineswar to Kavi Subhash */}
+          <path 
+            d="M 300 300 L 325 335 L 350 370 L 350 410 L 350 440 L 350 470 L 350 500 L 320 570 L 290 610 L 275 635 L 265 660 L 260 710 L 260 735 L 260 770 L 260 810 L 260 860 L 260 900 L 260 940 L 260 980 L 260 1010 L 290 1070 L 330 1100 L 380 1120 L 440 1120 L 510 1120 L 570 1070" 
+            stroke="#0055A4" 
+            strokeWidth="7" 
+            id="line-blue" 
+          />
+
           {/* Yellow Line - Operational (Noapara to Jai Hind) */}
           <path d="M 350 370 L 410 330 L 490 280 L 550 280" stroke="#FFD200" strokeWidth="6" id="line-yellow" />
-
-          {/* Blue Line */}
-          <path d="M 300 300 L 350 370 L 350 540 L 290 610 L 260 660 L 260 1010 L 310 1080 L 380 1120 L 510 1120 L 570 1070" stroke="#0055A4" strokeWidth="7" id="line-blue" />
 
           {/* Purple Line - Operational (Joka to Majerhat) */}
           <path d="M 70 1180 L 85 1150 L 110 1110 L 120 1110 L 140 1060 L 160 1030 L 160 1010 L 160 970 L 160 930" stroke="#8C318C" strokeWidth="6" id="line-purple" />
@@ -121,7 +126,7 @@ export default function MetroMapSvg() {
           </g>
           <g onClick={() => handleStationClick('Mahatma Gandhi Road', 'Blue Line')}>
             <circle cx="290" cy="610" r="5" fill="#0055A4" />
-            <text x="305" y="615" fontSize="12" fill="#0055A4">M G Road</text>
+            <text x="305" y="615" fontSize="12" fill="#0055A4">Mahatma Gandhi Road</text>
           </g>
           <g onClick={() => handleStationClick('Central', 'Blue Line')}>
             <circle cx="275" cy="635" r="5" fill="#0055A4" />
@@ -151,9 +156,9 @@ export default function MetroMapSvg() {
             <circle cx="260" cy="860" r="5" fill="#0055A4" />
             <text x="275" y="865" fontSize="12" fill="#0055A4">Netaji Bhavan</text>
           </g>
-          <g onClick={() => handleStationClick('Jatindas Park', 'Blue Line')}>
+          <g onClick={() => handleStationClick('Jatin Das Park', 'Blue Line')}>
             <circle cx="260" cy="900" r="5" fill="#0055A4" />
-            <text x="275" y="905" fontSize="12" fill="#0055A4">Jatindas Park</text>
+            <text x="275" y="905" fontSize="12" fill="#0055A4">Jatin Das Park</text>
           </g>
           <g onClick={() => handleStationClick('Kalighat', 'Blue Line')}>
             <circle cx="260" cy="940" r="5" fill="#0055A4" />
@@ -165,7 +170,7 @@ export default function MetroMapSvg() {
           </g>
           <g onClick={() => handleStationClick('Mahanayak Uttam Kumar', 'Blue Line')}>
             <circle cx="260" cy="1010" r="5" fill="#0055A4" />
-            <text x="275" y="1015" fontSize="12" fill="#0055A4">Uttam Kumar</text>
+            <text x="275" y="1015" fontSize="12" fill="#0055A4">Mahanayak Uttam Kumar</text>
           </g>
           <g onClick={() => handleStationClick('Netaji', 'Blue Line')}>
             <circle cx="290" cy="1070" r="5" fill="#0055A4" />
@@ -173,15 +178,15 @@ export default function MetroMapSvg() {
           </g>
           <g onClick={() => handleStationClick('Masterda Surya Sen', 'Blue Line')}>
             <circle cx="330" cy="1100" r="5" fill="#0055A4" />
-            <text x="300" y="1135" fontSize="12" fill="#0055A4">Surya Sen</text>
-          </g>
-          <g onClick={() => handleStationClick('Kavi Nazrul', 'Blue Line')}>
-            <circle cx="380" cy="1120" r="5" fill="#0055A4" />
-            <text x="360" y="1155" fontSize="12" fill="#0055A4">Kavi Nazrul</text>
+            <text x="300" y="1135" fontSize="12" fill="#0055A4">Masterda Surya Sen</text>
           </g>
           <g onClick={() => handleStationClick('Gitanjali', 'Blue Line')}>
+            <circle cx="380" cy="1120" r="5" fill="#0055A4" />
+            <text x="360" y="1155" fontSize="12" fill="#0055A4">Gitanjali</text>
+          </g>
+          <g onClick={() => handleStationClick('Kavi Nazrul', 'Blue Line')}>
             <circle cx="440" cy="1120" r="5" fill="#0055A4" />
-            <text x="430" y="1155" fontSize="12" fill="#0055A4">Gitanjali</text>
+            <text x="430" y="1155" fontSize="12" fill="#0055A4">Kavi Nazrul</text>
           </g>
           <g onClick={() => handleStationClick('Shahid Khudiram', 'Blue Line')}>
             <circle cx="510" cy="1120" r="5" fill="#0055A4" />
@@ -247,9 +252,9 @@ export default function MetroMapSvg() {
             <circle cx="490" cy="280" r="5" fill="#FFD200" />
             <text x="480" y="265" fontSize="12" fill="#FFD200">Jessore Road</text>
           </g>
-          <g onClick={() => handleStationClick('Dumdum Cantonment', 'Yellow Line')}>
+          <g onClick={() => handleStationClick('Dum Dum Cantonment', 'Yellow Line')}>
             <circle cx="410" cy="330" r="5" fill="#FFD200" />
-            <text x="410" y="315" fontSize="11" fill="#FFD200">Dumdum Cantonment</text>
+            <text x="410" y="315" fontSize="11" fill="#FFD200">Dum Dum Cantonment</text>
           </g>
 
           {/* ORANGE LINE STATIONS - Operational (Kavi Subhash to Beleghata) */}
