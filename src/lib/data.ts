@@ -64,14 +64,14 @@ export const stations: Station[] = [
     { id: 'howrah', name: 'Howrah', code: 'HWH', lines: ['Green'], gates: 5, facilities: ["Elevator", "Escalator", "Toilets"], firstTrain: "07:00", lastTrain: "21:30", platformInfo: "Platform 1: Salt Lake Sector V | Platform 2: Terminating" },
     { id: 'howrah-maidan', name: 'Howrah Maidan', code: 'HWM', lines: ['Green'], gates: 3, facilities: ["Elevator", "Escalator"], firstTrain: "07:00", lastTrain: "21:30", platformInfo: "Platform 1: Salt Lake Sector V | Platform 2: Terminating" },
 
-    // Purple Line (Joka-Esplanade)
-    { id: 'joka', name: 'Joka', code: 'JOK', lines: ['Purple'], gates: 2, facilities: ["Parking"], firstTrain: "08:55", lastTrain: "16:00", platformInfo: "Platform 1: Majherhat | Platform 2: Terminating" },
-    { id: 'thakurpukur-cancer-hospital', name: 'Thakurpukur Cancer Hospital', code: 'TCP', lines: ['Purple'], gates: 2, facilities: [], firstTrain: "09:00", lastTrain: "16:05", platformInfo: "Platform 1: Majherhat | Platform 2: Joka" },
-    { id: 'sakherbazar', name: 'Sakherbazar', code: 'SKB', lines: ['Purple'], gates: 2, facilities: [], firstTrain: "09:03", lastTrain: "16:08", platformInfo: "Platform 1: Majherhat | Platform 2: Joka" },
-    { id: 'behala-chowrasta', name: 'Behala Chowrasta', code: 'BHC', lines: ['Purple'], gates: 2, facilities: ["Escalator"], firstTrain: "09:05", lastTrain: "16:10", platformInfo: "Platform 1: Majherhat | Platform 2: Joka" },
-    { id: 'behala-bazar', name: 'Behala Bazar', code: 'BHB', lines: ['Purple'], gates: 2, facilities: [], firstTrain: "09:08", lastTrain: "16:13", platformInfo: "Platform 1: Majherhat | Platform 2: Joka" },
-    { id: 'taratala', name: 'Taratala', code: 'TAR', lines: ['Purple'], gates: 2, facilities: ["Elevator"], firstTrain: "09:12", lastTrain: "16:17", platformInfo: "Platform 1: Majherhat | Platform 2: Joka" },
-    { id: 'majherhat', name: 'Majherhat', code: 'MAJ', lines: ['Purple'], gates: 3, facilities: ["Elevator", "Escalator", "Interchange"], firstTrain: "09:15", lastTrain: "16:20", platformInfo: "Platform 1: Terminating | Platform 2: Joka | Indian Railways Interchange" },
+    // Purple Line (Joka-Majerhat) - Operational Section (7 Stations)
+    { id: 'joka', name: 'Joka', code: 'JOK', lines: ['Purple'], gates: 2, facilities: ["Parking"], firstTrain: "08:55", lastTrain: "16:00", platformInfo: "Platform 1: Majerhat | Platform 2: Terminating" },
+    { id: 'thakurpukur', name: 'Thakurpukur', code: 'TKP', lines: ['Purple'], gates: 2, facilities: [], firstTrain: "09:00", lastTrain: "16:05", platformInfo: "Platform 1: Majerhat | Platform 2: Joka" },
+    { id: 'sakher-bazar', name: 'Sakher Bazar', code: 'SKB', lines: ['Purple'], gates: 2, facilities: [], firstTrain: "09:03", lastTrain: "16:08", platformInfo: "Platform 1: Majerhat | Platform 2: Joka" },
+    { id: 'behala-chowrasta', name: 'Behala Chowrasta', code: 'BHC', lines: ['Purple'], gates: 2, facilities: ["Escalator"], firstTrain: "09:05", lastTrain: "16:10", platformInfo: "Platform 1: Majerhat | Platform 2: Joka" },
+    { id: 'behala-bazar', name: 'Behala Bazar', code: 'BHB', lines: ['Purple'], gates: 2, facilities: [], firstTrain: "09:08", lastTrain: "16:13", platformInfo: "Platform 1: Majerhat | Platform 2: Joka" },
+    { id: 'taratala', name: 'Taratala', code: 'TAR', lines: ['Purple'], gates: 2, facilities: ["Elevator"], firstTrain: "09:12", lastTrain: "16:17", platformInfo: "Platform 1: Majerhat | Platform 2: Joka" },
+    { id: 'majherhat', name: 'Majerhat', code: 'MAJ', lines: ['Purple'], gates: 3, facilities: ["Elevator", "Escalator", "Interchange"], firstTrain: "09:15", lastTrain: "16:20", platformInfo: "Platform 1: Terminating | Platform 2: Joka | Indian Railways Interchange" },
 
     // Orange Line (Kavi Subhash-Beleghata) - Operational Section (9 Stations)
     { id: 'satyajit-ray', name: 'Satyajit Ray', code: 'SJR', lines: ['Orange'], gates: 2, facilities: [], firstTrain: "09:00", lastTrain: "17:00", platformInfo: "Platform 1: Beleghata | Platform 2: Kavi Subhash" },
@@ -110,7 +110,7 @@ export const lines: Line[] = [
   {
       name: 'Purple',
       stations: [
-          'joka', 'thakurpukur-cancer-hospital', 'sakherbazar', 'behala-chowrasta', 'behala-bazar', 'taratala', 'majherhat'
+          'joka', 'thakurpukur', 'sakher-bazar', 'behala-chowrasta', 'behala-bazar', 'taratala', 'majherhat'
       ]
   },
   {
