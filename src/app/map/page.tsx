@@ -4,8 +4,8 @@
 import React from 'react';
 import MetroMapSvg from '@/components/metro-map-svg';
 import { useLanguage } from '@/context/language-provider';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { MapPin, Layers } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Layers } from 'lucide-react';
 
 export default function MapPage() {
   const { t } = useLanguage();
@@ -22,9 +22,6 @@ export default function MapPage() {
               <CardTitle className="text-3xl font-headline font-bold text-primary tracking-tight">
                 {t.map?.title || "Kolkata Metro Map"}
               </CardTitle>
-              <CardDescription className="text-base text-muted-foreground mt-1">
-                True Scalable Vector Graphics (SVG) Recreation of the Schematic Route Network
-              </CardDescription>
             </div>
           </div>
         </CardHeader>
@@ -34,32 +31,6 @@ export default function MapPage() {
           </div>
         </CardContent>
       </Card>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card className="border p-4 bg-card shadow-sm flex items-start gap-4">
-          <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-600 shrink-0">
-            <MapPin className="h-5 w-5" />
-          </div>
-          <div>
-            <h4 className="font-semibold text-base text-foreground">Interactive Tracing</h4>
-            <p className="text-sm text-muted-foreground mt-1">
-              Tap any station circle marker or labeled node to view live lines and interchanges.
-            </p>
-          </div>
-        </Card>
-
-        <Card className="border p-4 bg-card shadow-sm flex items-start gap-4">
-          <div className="p-2 rounded-lg bg-blue-500/10 text-blue-600 shrink-0">
-            <Layers className="h-5 w-5" />
-          </div>
-          <div>
-            <h4 className="font-semibold text-base text-foreground">Offline Support</h4>
-            <p className="text-sm text-muted-foreground mt-1">
-              This map relies on local vector data, allowing it to work instantly without an internet connection.
-            </p>
-          </div>
-        </Card>
-      </div>
     </div>
   );
 }
