@@ -1,4 +1,3 @@
-
 import { Line, Station, Fare, lines, stations, fares } from './data';
 import type { Translations } from './translations';
 
@@ -23,11 +22,15 @@ function buildAdjacencyList() {
       const currentStationId = line.stations[i];
       if (i > 0) {
         const prevStationId = line.stations[i - 1];
-        adjacencyList.get(currentStationId)?.push(prevStationId);
+        if (!adjacencyList.get(currentStationId)?.includes(prevStationId)) {
+            adjacencyList.get(currentStationId)?.push(prevStationId);
+        }
       }
       if (i < line.stations.length - 1) {
         const nextStationId = line.stations[i + 1];
-        adjacencyList.get(currentStationId)?.push(nextStationId);
+        if (!adjacencyList.get(currentStationId)?.includes(nextStationId)) {
+            adjacencyList.get(currentStationId)?.push(nextStationId);
+        }
       }
     }
   });
@@ -69,10 +72,10 @@ export function findShortestPath(startId: string, endId: string): Station[] | nu
 // Function to determine the line color
 export function getLineColor(lineName: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow'): string {
     switch(lineName) {
-        case 'Blue': return 'bg-blue-500';
-        case 'Green': return 'bg-green-500';
-        case 'Purple': return 'bg-purple-500';
-        case 'Orange': return 'bg-orange-500';
+        case 'Blue': return 'bg-blue-600';
+        case 'Green': return 'bg-green-600';
+        case 'Purple': return 'bg-purple-600';
+        case 'Orange': return 'bg-orange-600';
         case 'Yellow': return 'bg-yellow-500';
         default: return 'bg-gray-500';
     }
@@ -90,90 +93,52 @@ export function getStationById(id: string): Station | undefined {
   return station;
 }
 
-function calculateSegmentFare(segment: StationNode[]): number {
-    if (segment.length < 2) return 0;
-
-    const fromId = segment[0].id;
-    const toId = segment[segment.length - 1].id;
-    
-    const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.from === fromId));
-    if (directFare) return directFare.fare;
-
-    const blueLineStations = lines.find(l => l.name === 'Blue')?.stations || [];
-    const fromIndex = blueLineStations.indexOf(fromId);
-    const toIndex = blueLineStations.indexOf(toId);
-
-    if (fromIndex !== -1 && toIndex !== -1) {
-        const distance = Math.abs(toIndex - fromIndex);
-        if (distance <= 2) return 10;
-        if (distance <= 5) return 15;
-        if (distance <= 10) return 20;
-        return 25;
-    }
-
-    const km = (segment.length - 1) * 2; // Approximation of 2km per station
-    const line = segment[0].line;
-
-    if (line === 'Blue') {
-        if (km <= 2) return 5;
-        if (km <= 5) return 10;
-        if (km <= 10) return 15;
-        if (km <= 20) return 20;
-        return 25;
-    }
-
-    if (line === 'Green') {
-        if (km <= 2) return 5;
-        if (km <= 5) return 10;
-        if (km <= 10) return 20;
-        if (km <= 16.5) return 30;
-        return 30;
-    }
-
-    // Default fare structure for other lines (Purple, Orange, Yellow)
-    if (km <= 2) return 5;
-    if (km <= 5) return 10;
-    if (km <= 15) return 20;
-    return 25;
-}
-
-
 export function calculateFare(path: Station[]): number {
     if (path.length < 2) return 0;
     
     const fromId = path[0].id;
     const toId = path[path.length - 1].id;
     
+    // Check direct fare table first
     const directFare = fares.find(f => (f.from === fromId && f.to === toId) || (f.from === toId && f.to === fromId));
     if (directFare) {
         return directFare.fare;
     }
 
+    // Fallback fare calculation logic
     const pathWithLines = getPathWithLines(path);
     if (!pathWithLines) return 0;
 
+    const stops = path.length - 1;
+    
+    // Blue line specific logic if the whole path is Blue
+    const isBlueOnly = pathWithLines.every(s => s.line === 'Blue');
+    if (isBlueOnly) {
+        if (stops <= 2) return 5;
+        if (stops <= 5) return 10;
+        if (stops <= 10) return 15;
+        if (stops <= 15) return 20;
+        return 25;
+    }
+
+    // General interchange fare logic
     let totalFare = 0;
-    let currentSegment: StationNode[] = [pathWithLines[0]];
+    let currentLine = pathWithLines[0].line;
+    let segmentStops = 0;
 
     for (let i = 1; i < pathWithLines.length; i++) {
-        if (pathWithLines[i].line !== pathWithLines[i - 1].line) {
-            totalFare += calculateSegmentFare(currentSegment);
-            currentSegment = [pathWithLines[i - 1], pathWithLines[i]];
-        } else {
-            currentSegment.push(pathWithLines[i]);
+        segmentStops++;
+        if (pathWithLines[i].line !== currentLine) {
+            // Calculate for segment
+            totalFare += Math.min(25, 5 + Math.floor(segmentStops / 3) * 5);
+            segmentStops = 0;
+            currentLine = pathWithLines[i].line;
         }
     }
-    totalFare += calculateSegmentFare(currentSegment);
-    
-    // If the entire journey is on the blue line, use the specific blue line logic
-    const isBlueLineOnly = pathWithLines.every(station => station.line === 'Blue');
-    if (isBlueLineOnly) {
-      return calculateSegmentFare(pathWithLines);
-    }
-    
-    return totalFare;
-}
+    totalFare += Math.min(25, 5 + Math.floor(segmentStops / 3) * 5);
 
+    return Math.min(60, totalFare); // Cap total fare
+}
 
 const getLineForPathSegment = (stationA: Station, stationB: Station, preferredLine?: string): 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' => {
     const commonLines = stationA.lines.filter(line => stationB.lines.includes(line));
@@ -186,11 +151,6 @@ const getLineForPathSegment = (stationA: Station, stationB: Station, preferredLi
         return commonLines[0];
     }
     
-    // Handle interchange stations where the next station in path might not share a direct line
-    if(stationA.name === stationB.name){
-        return stationB.lines[0];
-    }
-
     return stationA.lines[0];
 }
 
@@ -200,52 +160,34 @@ const getPathWithLines = (path: Station[]): StationNode[] | null => {
     }
     
     const pathWithLines: StationNode[] = [];
+    let currentLine: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' | undefined;
     
     for (let i = 0; i < path.length; i++) {
         const currentStation = path[i];
-        let line: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow';
         
         if (i === 0) {
             const nextStation = path[i + 1];
-            line = nextStation ? getLineForPathSegment(currentStation, nextStation) : currentStation.lines[0];
+            currentLine = nextStation ? getLineForPathSegment(currentStation, nextStation) : currentStation.lines[0];
         } else {
-            const prevStationNode = pathWithLines[i - 1];
-            const prevStation = getStationById(prevStationNode.id)!;
-            
-            // If the current station is on the same line as the previous one, keep the line
-            if (currentStation.lines.includes(prevStationNode.line)) {
-                line = prevStationNode.line;
+            const nextStation = path[i + 1];
+            if (nextStation) {
+                const availableLines = currentStation.lines.filter(l => nextStation.lines.includes(l));
+                if (currentLine && !availableLines.includes(currentLine)) {
+                    // Interchange
+                    currentLine = availableLines[0] || currentStation.lines[0];
+                }
             } else {
-                // Otherwise, it's an interchange. Find the new line.
-                // This logic assumes the new line is the first one listed that is not the previous line.
-                const newLine = currentStation.lines.find(l => l !== prevStationNode.line);
-                line = newLine || currentStation.lines[0];
+                // Last station
+                if (currentLine && !currentStation.lines.includes(currentLine)) {
+                    currentLine = currentStation.lines[0];
+                }
             }
         }
-        pathWithLines.push({ ...currentStation, line: line });
+        pathWithLines.push({ ...currentStation, line: currentLine as any });
     }
-
-    // Refine interchanges
-     for (let i = 1; i < pathWithLines.length; i++) {
-        if (pathWithLines[i].id === pathWithLines[i-1].id) continue;
-
-        const prevLines = pathWithLines[i-1].lines;
-        const currLines = pathWithLines[i].lines;
-        const commonLines = currLines.filter(l => prevLines.includes(l));
-        
-        if(!commonLines.includes(pathWithLines[i-1].line)) {
-             pathWithLines[i-1].line = commonLines[0] || prevLines[0];
-        }
-
-        if (!commonLines.includes(pathWithLines[i].line)) {
-            pathWithLines[i].line = commonLines[0] || currLines[0];
-        }
-    }
-
 
     return pathWithLines;
 }
-
 
 export function getRouteDetails(fromId: string, toId: string, t: (typeof Translations)['en']) {
     const path = findShortestPath(fromId, toId);
@@ -255,15 +197,13 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
     }
     
     const stops = path.length - 1;
-    const time = stops * 3; // Estimated 3 minutes per station (including wait)
-    
     const pathWithLines = getPathWithLines(path);
     if(!pathWithLines) {
         return { error: t.route.noRouteFound };
     }
 
     const fare = calculateFare(path);
-
+    
     let interchanges = 0;
     for (let i = 1; i < pathWithLines.length; i++) {
         if (pathWithLines[i].line !== pathWithLines[i - 1].line) {
@@ -271,11 +211,14 @@ export function getRouteDetails(fromId: string, toId: string, t: (typeof Transla
         }
     }
 
+    // Estimate time: 2 mins per station + 5 mins per interchange
+    const estimatedTime = (stops * 2) + (interchanges * 5);
+
     return {
         path: pathWithLines,
         fare,
         stops,
-        time,
+        time: estimatedTime,
         interchanges,
     };
 }

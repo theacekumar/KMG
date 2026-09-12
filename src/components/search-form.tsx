@@ -1,8 +1,7 @@
-
 'use client';
 
 import * as React from 'react';
-import { ChevronsUpDown, Check, ArrowRightLeft } from 'lucide-react';
+import { ChevronsUpDown, Check, ArrowRightLeft, Search } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -19,7 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/context/language-provider';
 import { stations } from '@/lib/data';
 import { useToast } from '@/hooks/use-toast';
@@ -42,12 +41,14 @@ function StationCombobox({
   placeholder,
   searchText,
   noResultsText,
+  disabledValue
 }: {
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
   searchText: string;
   noResultsText: string;
+  disabledValue?: string;
 }) {
   const [open, setOpen] = React.useState(false);
 
@@ -58,15 +59,17 @@ function StationCombobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-full justify-between h-12 text-base"
+          className="w-full justify-between h-14 text-base border-2 hover:border-primary transition-all duration-200"
         >
-          {value
-            ? stationOptions.find((station) => station.value === value)?.label
-            : placeholder}
+          <span className={cn("truncate", !value && "text-muted-foreground")}>
+            {value
+              ? stationOptions.find((station) => station.value === value)?.label
+              : placeholder}
+          </span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+      <PopoverContent className="w-[--radix-popover-trigger-width] p-0" align="start">
         <Command>
           <CommandInput placeholder={searchText} />
           <CommandList>
@@ -76,14 +79,18 @@ function StationCombobox({
                 <CommandItem
                   key={station.value}
                   value={station.label}
+                  disabled={station.value === disabledValue}
                   onSelect={() => {
                     onChange(station.value);
                     setOpen(false);
                   }}
+                  className={cn(
+                      station.value === disabledValue && "opacity-50 cursor-not-allowed"
+                  )}
                 >
                   <Check
                     className={cn(
-                      'mr-2 h-4 w-4',
+                      'mr-2 h-4 w-4 text-primary',
                       value === station.value ? 'opacity-100' : 'opacity-0'
                     )}
                   />
@@ -105,8 +112,9 @@ export default function SearchForm({ onSearch }: { onSearch: (from: string, to: 
   const { toast } = useToast();
 
   const handleSwap = () => {
+    const temp = fromStation;
     setFromStation(toStation);
-    setToStation(fromStation);
+    setToStation(temp);
   };
 
   const handleSearch = (e: React.FormEvent) => {
@@ -114,7 +122,7 @@ export default function SearchForm({ onSearch }: { onSearch: (from: string, to: 
     if (!fromStation || !toStation) {
       toast({
         variant: "destructive",
-        title: "Error",
+        title: "Selection Error",
         description: t.route.selectStationsError,
       });
       return;
@@ -122,7 +130,7 @@ export default function SearchForm({ onSearch }: { onSearch: (from: string, to: 
     if (fromStation === toStation) {
       toast({
         variant: "destructive",
-        title: "Error",
+        title: "Selection Error",
         description: t.route.sameStationError,
       });
       return;
@@ -131,43 +139,60 @@ export default function SearchForm({ onSearch }: { onSearch: (from: string, to: 
   };
 
   return (
-    <Card className="w-full max-w-md lg:max-w-lg mt-8 z-10 shadow-2xl">
+    <Card className="w-full max-w-2xl mt-4 shadow-xl border-t-4 border-t-primary">
       <form onSubmit={handleSearch}>
         <CardContent className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4">
-            <StationCombobox
-              value={fromStation}
-              onChange={setFromStation}
-              placeholder={t.home.from}
-              searchText={t.home.searchStation}
-              noResultsText={t.home.noStationFound}
-            />
+          <div className="flex flex-col md:flex-row items-center gap-4 relative">
+            <div className="flex-1 w-full space-y-4">
+                <div className="space-y-2">
+                    <label className="text-sm font-semibold text-muted-foreground uppercase tracking-wider pl-1">
+                        {t.home.from}
+                    </label>
+                    <StationCombobox
+                        value={fromStation}
+                        onChange={setFromStation}
+                        placeholder={t.home.from}
+                        searchText={t.home.searchStation}
+                        noResultsText={t.home.noStationFound}
+                        disabledValue={toStation}
+                    />
+                </div>
+
+                <div className="space-y-2">
+                    <label className="text-sm font-semibold text-muted-foreground uppercase tracking-wider pl-1">
+                        {t.home.to}
+                    </label>
+                    <StationCombobox
+                        value={toStation}
+                        onChange={setToStation}
+                        placeholder={t.home.to}
+                        searchText={t.home.searchStation}
+                        noResultsText={t.home.noStationFound}
+                        disabledValue={fromStation}
+                    />
+                </div>
+            </div>
 
             <Button
               type="button"
-              variant="ghost"
+              variant="outline"
               size="icon"
               onClick={handleSwap}
-              className="mx-auto"
+              className="md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 bg-background border-2 shadow-sm z-20 rounded-full h-10 w-10 hover:bg-primary hover:text-white transition-colors"
               aria-label={t.home.swap}
             >
-              <ArrowRightLeft className="h-5 w-5" />
+              <ArrowRightLeft className="h-5 w-5 md:rotate-90" />
             </Button>
-
-            <StationCombobox
-              value={toStation}
-              onChange={setToStation}
-              placeholder={t.home.to}
-              searchText={t.home.searchStation}
-              noResultsText={t.home.noStationFound}
-            />
+            
+            <Button 
+                type="submit" 
+                className="w-full md:w-auto md:h-28 px-8 text-lg font-bold bg-primary text-white hover:bg-primary/90 transition-all rounded-xl mt-4 md:mt-6"
+            >
+                <Search className="mr-2 h-5 w-5" />
+                {t.home.search}
+            </Button>
           </div>
         </CardContent>
-        <CardFooter>
-          <Button type="submit" className="w-full h-12 text-lg bg-accent text-accent-foreground hover:bg-accent/90">
-            {t.home.search}
-          </Button>
-        </CardFooter>
       </form>
     </Card>
   );

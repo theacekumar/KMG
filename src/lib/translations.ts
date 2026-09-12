@@ -20,11 +20,12 @@ export const Translations = {
       noStationFound: "No station found.",
     },
     route: {
-        title: "Your Route",
+        title: "Your Journey",
+        summary: "Journey Summary",
         from: "From",
         to: "To",
         fare: "Fare",
-        time: "Time",
+        time: "Estimated Time",
         stops: "Stops",
         interchanges: "Interchanges",
         rupees: "₹",
@@ -34,6 +35,12 @@ export const Translations = {
         selectStationsError: "Please select both source and destination stations.",
         changeLine: "Change to",
         line: "Line",
+        firstTrain: "First Train",
+        lastTrain: "Last Train",
+        platform: "Platform",
+        facilities: "Facilities",
+        approx: "Approx.",
+        unavailable: "Information unavailable"
     },
     map: {
         title: "Metro Map"
@@ -46,14 +53,14 @@ export const Translations = {
         feature2: "Fare Calculation: Get accurate fare information for your journey.",
         feature3: "Station Details: Access information about facilities, timings, and more.",
         techTitle: "Technology",
-        techDescription: "This app is built with a cutting-edge web stack to ensure speed, scalability, and a premium user experience on both web and mobile platforms:",
+        techDescription: "This app is built with a modern web-first approach to ensure speed, scalability, and reliability:",
         techStack: [
-            { name: "Next.js 15 & React", description: "Utilizing the latest App Router and React features for lightning-fast performance and seamless transitions." },
-            { name: "Tailwind CSS", description: "A utility-first CSS framework that enables a responsive and highly customizable design system." },
-            { name: "Shadcn UI", description: "A set of high-quality, accessible UI components built on top of Radix UI for a professional look and feel." },
-            { name: "TypeScript", description: "Ensuring code reliability and maintainability with a robust type-safe development environment." },
-            { name: "Capacitor", description: "A cross-platform native runtime that allows the app to run as a high-performance native application on Android." },
-            { name: "Lucide Icons", description: "A library of beautiful, consistent, and lightweight vector icons that enhance the visual clarity of the interface." }
+            { name: "Next.js 15 & React", description: "Utilizing the latest App Router and React features for lightning-fast performance." },
+            { name: "Tailwind CSS", description: "A utility-first CSS framework for responsive design." },
+            { name: "Shadcn UI", description: "High-quality, accessible UI components." },
+            { name: "TypeScript", description: "Ensuring code reliability with type safety." },
+            { name: "Capacitor", description: "Allowing the app to run as a native application on Android." },
+            { name: "Lucide Icons", description: "Beautiful, consistent vector icons." }
         ],
     },
     smartCard: {
@@ -80,14 +87,14 @@ export const Translations = {
         howToUseStep3: "Tap the card again on the reader at the exit gate. The fare is automatically deducted.",
         touristCard: {
             title: "Tourist Card",
-            description: "A special card designed for tourists, offering unlimited rides for a fixed period. It's the perfect way to explore the city without worrying about buying tickets for each trip.",
+            description: "A special card designed for tourists, offering unlimited rides for a fixed period.",
             types: [
-                { name: "Tourist Smart Card-I (3-Day)", price: "250", description: "Valid for unlimited rides for three consecutive days." },
-                { name: "Tourist Smart Card-II (5-Day)", price: "550", description: "Valid for unlimited rides for five consecutive days." },
+                { name: "Tourist Smart Card-I (3-Day)", price: "250", description: "Unlimited rides for three consecutive days." },
+                { name: "Tourist Smart Card-II (5-Day)", price: "550", description: "Unlimited rides for five consecutive days." },
             ],
             features: [
                 "Both cards include a refundable security deposit of ₹80.",
-                "The deposit is returned when you hand back the card in good condition.",
+                "The deposit is returned when you hand back the card.",
                 "Available at all metro station ticket counters.",
             ]
         }
@@ -117,11 +124,12 @@ export const Translations = {
       noStationFound: "কোনো স্টেশন পাওয়া যায়নি।",
     },
     route: {
-        title: "আপনার রুট",
+        title: "আপনার যাত্রা",
+        summary: "যাত্রার সারাংশ",
         from: "থেকে",
         to: "পর্যন্ত",
         fare: "ভাড়া",
-        time: "সময়",
+        time: "আনুমানিক সময়",
         stops: "স্টপ",
         interchanges: "বদল",
         rupees: "₹",
@@ -131,6 +139,12 @@ export const Translations = {
         selectStationsError: "অনুগ্রহ করে উৎস এবং গন্তব্য উভয় স্টেশন নির্বাচন করুন।",
         changeLine: "পরিবর্তন করুন",
         line: "লাইন",
+        firstTrain: "প্রথম ট্রেন",
+        lastTrain: "শেষ ট্রেন",
+        platform: "প্ল্যাটফর্ম",
+        facilities: "সুবিধাসমূহ",
+        approx: "প্রায়",
+        unavailable: "তথ্য পাওয়া যায়নি"
     },
     map: {
         title: "মেট্রো মানচিত্র"
@@ -143,14 +157,14 @@ export const Translations = {
         feature2: "ভাড়া গণনা: আপনার যাত্রার জন্য সঠিক ভাড়ার তথ্য পান।",
         feature3: "স্টেশনের বিবরণ: সুবিধা, সময় এবং আরও অনেক কিছু সম্পর্কে তথ্য অ্যাক্সেস করুন।",
         techTitle: "প্রযুক্তি",
-        techDescription: "গতি, পরিমাপযোগ্যতা এবং একটি প্রিমিয়াম ব্যবহারকারীর অভিজ্ঞতা নিশ্চিত করতে এই অ্যাপটি একটি আধুনিক টেক স্ট্যাক দিয়ে তৈরি করা হয়েছে:",
+        techDescription: "গতি, পরিমাপযোগ্যতা এবং নির্ভরযোগ্যতা নিশ্চিত করতে এই অ্যাপটি একটি আধুনিক ওয়েব-ফার্স্ট দৃষ্টিভঙ্গি নিয়ে তৈরি করা হয়েছে:",
         techStack: [
-            { name: "Next.js 15 এবং React", description: "বিদ্যুত-গতিতে পারফরম্যান্স এবং মসৃণ নেভিগেশনের জন্য লেটেস্ট অ্যাপ রাউটার এবং রিঅ্যাক্ট ফিচার ব্যবহার করা হয়েছে।" },
-            { name: "Tailwind CSS", description: "একটি ইউটিলিটি-ফার্স্ট সিএসএস ফ্রেমওয়ার্ক যা একটি রেসপন্সিভ এবং কাস্টমাইজযোগ্য ডিজাইন নিশ্চিত করে।" },
-            { name: "Shadcn UI", description: "একটি পেশাদার লুক এবং ফিলের জন্য রেডিক্স ইউআই-এর উপর নির্মিত উচ্চ-মানের ইউআই উপাদানের সেট।" },
-            { name: "TypeScript", description: "একটি শক্তিশালী টাইপ-সেফ ডেভেলপমেন্ট এনভায়রনমেন্টের মাধ্যমে কোডের নির্ভরযোগ্যতা নিশ্চিত করা হয়েছে।" },
-            { name: "Capacitor", description: "একটি ক্রস-প্ল্যাটফর্ম নেটিভ রানটাইম যা অ্যাপটিকে অ্যান্ড্রয়েডে নেটিভ অ্যাপ্লিকেশন হিসাবে চালানোর সুবিধা দেয়।" },
-            { name: "Lucide আইকন", description: "সুন্দর এবং সামঞ্জস্যপূর্ণ ভেক্টর আইকনগুলির একটি লাইব্রেরি যা ইন্টারফেসের দৃশ্যমান স্বচ্ছতা বাড়ায়।" }
+            { name: "Next.js 15 এবং React", description: "বিদ্যুত-গতিতে পারফরম্যান্সের জন্য লেটেস্ট অ্যাপ রাউটার এবং রিঅ্যাক্ট ফিচার ব্যবহার করা হয়েছে।" },
+            { name: "Tailwind CSS", description: "রেসপন্সিভ ডিজাইনের জন্য একটি ইউটিলিটি-ফার্স্ট সিএসএস ফ্রেমওয়ার্ক।" },
+            { name: "Shadcn UI", description: "উচ্চ-মানের, অ্যাক্সেসযোগ্য ইউআই উপাদানের সেট।" },
+            { name: "TypeScript", description: "টাইপ সেফটির মাধ্যমে কোডের নির্ভরযোগ্যতা নিশ্চিত করা হয়েছে।" },
+            { name: "Capacitor", description: "অ্যাপটিকে অ্যান্ড্রয়েডে নেটিভ অ্যাপ্লিকেশন হিসাবে চালানোর সুবিধা দেয়।" },
+            { name: "Lucide আইকন", description: "সুন্দর এবং সামঞ্জস্যপূর্ণ ভেক্টর আইকন।" }
         ],
     },
     smartCard: {
@@ -177,10 +191,10 @@ export const Translations = {
         howToUseStep3: "প্রস্থান গেটে রিডারের উপর কার্ডটি আবার আলতো চাপুন। ভাড়া স্বয়ংক্রিয়ভাবে কেটে নেওয়া হবে।",
         touristCard: {
             title: "ট্যুরিস্ট কার্ড",
-            description: "পর্যটকদের জন্য ডিজাইন করা একটি বিশেষ কার্ড, যা একটি নির্দিষ্ট সময়ের জন্য সীমাহীন রাইড অফার করে। প্রতিটি ভ্রমণের জন্য টিকিট কেনার চিন্তা ছাড়াই শহর ঘুরে দেখার এটি একটি নিখুঁত উপায়।",
+            description: "পর্যটকদের জন্য ডিজাইন করা একটি বিশেষ কার্ড, যা একটি নির্দিষ্ট সময়ের জন্য সীমাহীন রাইড অফার করে।",
             types: [
                 { name: "ট্যুরিস্ট স্মার্ট কার্ড-I (৩-দিন)", price: "২৫০", description: "টানা তিন দিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
-                { name: "ট্যুরিস্ট স্মার্ট কার্ড-II (৫-দিন)", price: "৫৫০", description: "টana পাঁচ দিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
+                { name: "ট্যুরিস্ট স্মার্ট কার্ড-II (৫-দিন)", price: "৫৫০", description: "টানা পাঁচ দিনের জন্য সীমাহীন রাইডের জন্য বৈধ।" },
             ],
             features: [
                 "দুটি কার্ডেই ৮০ টাকার ফেরতযোগ্য নিরাপত্তা আমানত অন্তর্ভুক্ত রয়েছে।",
