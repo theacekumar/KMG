@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useState, useContext, ReactNode, useMemo } from 'react';
+import { createContext, useState, useContext, ReactNode, useMemo, useEffect } from 'react';
 import { Translations } from '@/lib/translations';
 
 export type Language = 'en' | 'bn';
@@ -16,11 +16,24 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('en');
 
+  // Load persistence after mount
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('app_language') as Language;
+    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'bn')) {
+      setLanguage(savedLanguage);
+    }
+  }, []);
+
+  const handleSetLanguage = (lang: Language) => {
+    setLanguage(lang);
+    localStorage.setItem('app_language', lang);
+  };
+
   const t = useMemo(() => Translations[language], [language]);
 
   const value = useMemo(() => ({
     language,
-    setLanguage,
+    setLanguage: handleSetLanguage,
     t,
   }), [language, t]);
 

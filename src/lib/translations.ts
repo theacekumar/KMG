@@ -54,7 +54,7 @@ export const Translations = {
         feature2: "Fare Calculation: Get accurate fare information for your journey.",
         feature3: "Station Details: Access information about facilities, timings, and more.",
         techTitle: "Technology",
-        techDescription: "This app is built with a modern web-first approach to ensure speed, scalability, and reliability:",
+        techDescription: "This app is built with a cutting-edge web stack to ensure speed, scalability, and a premium user experience.",
         techStack: [
             { name: "Next.js 15 & React", description: "Utilizing the latest App Router and React features for lightning-fast performance." },
             { name: "Tailwind CSS", description: "A utility-first CSS framework for responsive design." },
@@ -101,7 +101,9 @@ export const Translations = {
         }
     },
      privacyPolicy: {
-      title: "Privacy Policy"
+      title: "Privacy Policy",
+      redirecting: "Redirecting to Privacy Policy",
+      pleaseWait: "Please wait while we redirect you to our privacy policy..."
     },
   },
   bn: {
@@ -206,7 +208,9 @@ export const Translations = {
         }
     },
     privacyPolicy: {
-      title: "গোপনীয়তা নীতি"
+      title: "গোপনীয়তা নীতি",
+      redirecting: "গোপনীয়তা নীতিতে পাঠানো হচ্ছে",
+      pleaseWait: "অনুগ্রহ করে অপেক্ষা করুন যখন আমরা আপনাকে আমাদের গোপনীয়তা নীতিতে পাঠাচ্ছি..."
     },
   },
 };

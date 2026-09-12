@@ -1,16 +1,23 @@
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { IndianRupee, Star, Ticket, Percent, Briefcase } from 'lucide-react';
-import { Translations } from '@/lib/translations';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-    title: 'Smart Card & Tourist Card | Kolkata Metro Guide',
-    description: 'Information about Kolkata Metro Smart Cards, Tourist Cards, pricing, benefits, and how to use them.',
-};
+import { useLanguage } from '@/context/language-provider';
+import { useEffect, useState } from 'react';
 
 export default function SmartCardPage() {
-    const t = Translations.en;
+    const { t } = useLanguage();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) {
+        return null;
+    }
+
     const benefits = t.smartCard.benefitsList;
     const touristCardTypes = t.smartCard.touristCard.types;
 
@@ -118,7 +125,6 @@ export default function SmartCardPage() {
                     </ul>
                 </CardContent>
             </Card>
-
         </div>
     );
 }
