@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -11,7 +12,7 @@ export default function MetroMapSvg() {
     setSelectedStation(name);
     toast({
       title: name,
-      description: `Line: ${line} | Native Interactive Station Selected`,
+      description: `Line: ${line} | Operational Station Selected`,
     });
   };
 
@@ -66,8 +67,8 @@ export default function MetroMapSvg() {
           {/* Green Line */}
           <path d="M 100 620 L 180 620 L 220 650 L 260 710 L 350 710 L 410 660 L 480 620 L 600 620 L 640 650" stroke="#0a8237" strokeWidth="6" id="line-green" />
 
-          {/* Orange Line */}
-          <path d="M 550 280 L 610 350 L 710 350 L 790 410 L 790 710 L 710 770 L 640 650 L 640 980 L 570 1070" stroke="#f75e11" strokeWidth="6" id="line-orange" />
+          {/* Orange Line (Line 6) - Kavi Subhash to Beleghata */}
+          <path d="M 570 1070 L 640 980 L 640 710" stroke="#F26522" strokeWidth="6" id="line-orange" />
         </g>
 
         {/* Station Markers & Interactive Groups */}
@@ -309,70 +310,38 @@ export default function MetroMapSvg() {
             <text x="410" y="315" fontSize="11" fill="#f7b70c">Dum Dum Cantent</text>
           </g>
 
-          {/* ORANGE LINE STATIONS */}
-          <g onClick={() => handleStationClick('Teghoria/ VIP Road', 'Orange Line')}>
-            <circle cx="610" cy="350" r="5" fill="#f75e11" />
-            <text x="625" y="355" fontSize="12" fill="#000000">Teghoria/ VIP Road</text>
-          </g>
-          <g onClick={() => handleStationClick('Titumir', 'Orange Line')}>
-            <circle cx="670" cy="350" r="5" fill="#f75e11" />
-            <text x="670" y="335" fontSize="12" fill="#f75e11">Titumir</text>
-          </g>
-          <g onClick={() => handleStationClick('Sub CBD 2', 'Orange Line')}>
-            <circle cx="730" cy="350" r="5" fill="#f75e11" />
-            <text x="730" y="335" fontSize="11" fill="#f75e11">Sub CBD 2</text>
-          </g>
-          <g onClick={() => handleStationClick('Convention Centre', 'Orange Line')}>
-            <circle cx="790" cy="410" r="5" fill="#f75e11" />
-            <text x="805" y="415" fontSize="11" fill="#f75e11">Convention Centre</text>
-          </g>
-          <g onClick={() => handleStationClick('New Town', 'Orange Line')}>
-            <circle cx="790" cy="460" r="5" fill="#f75e11" />
-            <text x="805" y="465" fontSize="12" fill="#f75e11">New Town</text>
-          </g>
-          <g onClick={() => handleStationClick('Kalakhetra', 'Orange Line')}>
-            <circle cx="790" cy="510" r="5" fill="#f75e11" />
-            <text x="805" y="515" fontSize="12" fill="#f75e11">Kalakhetra</text>
-          </g>
-          <g onClick={() => handleStationClick('CBD 1', 'Orange Line')}>
-            <circle cx="790" cy="570" r="5" fill="#f75e11" />
-            <text x="805" y="575" fontSize="12" fill="#f75e11">CBD 1</text>
-          </g>
-          <g onClick={() => handleStationClick('Sub CBD 1', 'Orange Line')}>
-            <circle cx="790" cy="630" r="5" fill="#f75e11" />
-            <text x="805" y="635" fontSize="11" fill="#f75e11">Sub CBD 1</text>
-          </g>
-          <g onClick={() => handleStationClick('Bidhan Nagar', 'Orange Line')}>
-            <circle cx="760" cy="670" r="5" fill="#f75e11" />
-            <text x="775" y="685" fontSize="12" fill="#f75e11">Bidhan Nagar</text>
-          </g>
-          <g onClick={() => handleStationClick('Technopolis', 'Orange Line')}>
-            <circle cx="710" cy="710" r="5" fill="#f75e11" />
-            <text x="725" y="725" fontSize="12" fill="#f75e11">Technopolis</text>
-          </g>
-          <g onClick={() => handleStationClick('Nicco Park', 'Orange Line')}>
-            <circle cx="640" cy="710" r="5" fill="#f75e11" />
-            <text x="560" y="715" fontSize="12" fill="#f75e11">Nicco Park</text>
-          </g>
-          <g onClick={() => handleStationClick('Gour Kishor Ghosh', 'Orange Line')}>
-            <circle cx="640" cy="760" r="5" fill="#f75e11" />
-            <text x="655" y="765" fontSize="12" fill="#f75e11">Gour Kishor Ghosh</text>
-          </g>
-          <g onClick={() => handleStationClick('Barun Sengupta', 'Orange Line')}>
-            <circle cx="640" cy="810" r="5" fill="#f75e11" />
-            <text x="655" y="815" fontSize="12" fill="#f75e11">Barun Sengupta</text>
-          </g>
-          <g onClick={() => handleStationClick('VIP Bazar', 'Orange Line')}>
-            <circle cx="640" cy="860" r="5" fill="#f75e11" />
-            <text x="655" y="865" fontSize="12" fill="#f75e11">VIP Bazar</text>
-          </g>
-          <g onClick={() => handleStationClick('Hemanta Mukhopadhyay', 'Orange Line')}>
-            <circle cx="640" cy="910" r="5" fill="#f75e11" />
-            <text x="655" y="915" fontSize="12" fill="#f75e11">Hemanta Mukhopadhyay</text>
+          {/* ORANGE LINE STATIONS - Operational Section (Kavi Subhash to Beleghata) */}
+          <g onClick={() => handleStationClick('Satyajit Ray', 'Orange Line')}>
+            <circle cx="605" cy="1025" r="5" fill="#F26522" />
+            <text x="620" y="1030" fontSize="12" fill="#333333">Satyajit Ray</text>
           </g>
           <g onClick={() => handleStationClick('Jyotirindra Nandi', 'Orange Line')}>
-            <circle cx="640" cy="950" r="5" fill="#f75e11" />
-            <text x="655" y="955" fontSize="12" fill="#f75e11">Jyotirindra Nandi</text>
+            <circle cx="640" cy="980" r="5" fill="#F26522" />
+            <text x="655" y="985" fontSize="12" fill="#333333">Jyotirindra Nandi</text>
+          </g>
+          <g onClick={() => handleStationClick('Kavi Sukanta', 'Orange Line')}>
+            <circle cx="640" cy="940" r="5" fill="#F26522" />
+            <text x="655" y="945" fontSize="12" fill="#333333">Kavi Sukanta</text>
+          </g>
+          <g onClick={() => handleStationClick('Hemanta Mukhopadhyay', 'Orange Line')}>
+            <circle cx="640" cy="910" r="5" fill="#F26522" />
+            <text x="655" y="915" fontSize="12" fill="#333333">Hemanta Mukhopadhyay</text>
+          </g>
+          <g onClick={() => handleStationClick('VIP Bazar', 'Orange Line')}>
+            <circle cx="640" cy="860" r="5" fill="#F26522" />
+            <text x="655" y="865" fontSize="12" fill="#333333">VIP Bazar</text>
+          </g>
+          <g onClick={() => handleStationClick('Ritwik Ghatak', 'Orange Line')}>
+            <circle cx="640" cy="810" r="5" fill="#F26522" />
+            <text x="655" y="815" fontSize="12" fill="#333333">Ritwik Ghatak</text>
+          </g>
+          <g onClick={() => handleStationClick('Barun Sengupta', 'Orange Line')}>
+            <circle cx="640" cy="760" r="5" fill="#F26522" />
+            <text x="655" y="765" fontSize="12" fill="#333333">Barun Sengupta</text>
+          </g>
+          <g onClick={() => handleStationClick('Beleghata', 'Orange Line')}>
+            <circle cx="640" cy="710" r="7" fill="#ffffff" stroke="#000000" strokeWidth="3" />
+            <text x="655" y="715" fontSize="13" fontWeight="bold" fill="#F26522">Beleghata</text>
           </g>
 
           {/* PURPLE LINE STATIONS */}
@@ -445,7 +414,7 @@ export default function MetroMapSvg() {
           <text x="65" y="130" fontSize="13" fontFamily="sans-serif" fontWeight="600">Purple Line</text>
 
           {/* Orange Line sample */}
-          <line x1="25" y1="155" x2="55" y2="155" stroke="#f75e11" strokeWidth="5" />
+          <line x1="25" y1="155" x2="55" y2="155" stroke="#F26522" strokeWidth="5" />
           <text x="65" y="160" fontSize="13" fontFamily="sans-serif" fontWeight="600">Orange Line</text>
 
           {/* Yellow Line sample */}
