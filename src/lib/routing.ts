@@ -1,7 +1,7 @@
 import { Line, Station, Fare, lines, stations, fares } from './data';
 import type { Translations } from './translations';
 
-export type StationNode = Station & { line: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' };
+export type StationNode = Station & { line: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' | 'Pink' };
 
 // Adjacency list representation of the metro graph
 const adjacencyList = new Map<string, string[]>();
@@ -69,15 +69,16 @@ export function findShortestPath(startId: string, endId: string): Station[] | nu
   return null; // Path not found
 }
 
-// Function to determine the line color
-export function getLineColor(lineName: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow'): string {
+// Function to determine the line color (returns hex for reliable rendering)
+export function getLineColor(lineName: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' | 'Pink'): string {
     switch(lineName) {
-        case 'Blue': return 'bg-blue-600';
-        case 'Green': return 'bg-green-600';
-        case 'Purple': return 'bg-purple-600';
-        case 'Orange': return 'bg-orange-600';
-        case 'Yellow': return 'bg-yellow-500';
-        default: return 'bg-gray-500';
+        case 'Blue': return '#0055A4';
+        case 'Green': return '#00A651';
+        case 'Purple': return '#8C318C';
+        case 'Orange': return '#F26522';
+        case 'Yellow': return '#FFD200';
+        case 'Pink': return '#F45DA1';
+        default: return '#6B7280';
     }
 }
 
@@ -140,18 +141,18 @@ export function calculateFare(path: Station[]): number {
     return Math.min(60, totalFare); // Cap total fare
 }
 
-const getLineForPathSegment = (stationA: Station, stationB: Station, preferredLine?: string): 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' => {
+const getLineForPathSegment = (stationA: Station, stationB: Station, preferredLine?: string): 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' | 'Pink' => {
     const commonLines = stationA.lines.filter(line => stationB.lines.includes(line));
 
     if (preferredLine && commonLines.includes(preferredLine as any)) {
-      return preferredLine as 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow';
+      return preferredLine as 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' | 'Pink';
     }
     
     if (commonLines.length > 0) {
-        return commonLines[0];
+        return commonLines[0] as any;
     }
     
-    return stationA.lines[0];
+    return stationA.lines[0] as any;
 }
 
 const getPathWithLines = (path: Station[]): StationNode[] | null => {
@@ -160,26 +161,26 @@ const getPathWithLines = (path: Station[]): StationNode[] | null => {
     }
     
     const pathWithLines: StationNode[] = [];
-    let currentLine: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' | undefined;
+    let currentLine: 'Blue' | 'Green' | 'Purple' | 'Orange' | 'Yellow' | 'Pink' | undefined;
     
     for (let i = 0; i < path.length; i++) {
         const currentStation = path[i];
         
         if (i === 0) {
             const nextStation = path[i + 1];
-            currentLine = nextStation ? getLineForPathSegment(currentStation, nextStation) : currentStation.lines[0];
+            currentLine = nextStation ? getLineForPathSegment(currentStation, nextStation) : currentStation.lines[0] as any;
         } else {
             const nextStation = path[i + 1];
             if (nextStation) {
                 const availableLines = currentStation.lines.filter(l => nextStation.lines.includes(l));
-                if (currentLine && !availableLines.includes(currentLine)) {
+                if (currentLine && !availableLines.includes(currentLine as any)) {
                     // Interchange
-                    currentLine = availableLines[0] || currentStation.lines[0];
+                    currentLine = (availableLines[0] || currentStation.lines[0]) as any;
                 }
             } else {
                 // Last station
-                if (currentLine && !currentStation.lines.includes(currentLine)) {
-                    currentLine = currentStation.lines[0];
+                if (currentLine && !currentStation.lines.includes(currentLine as any)) {
+                    currentLine = currentStation.lines[0] as any;
                 }
             }
         }

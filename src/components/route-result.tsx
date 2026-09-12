@@ -123,24 +123,26 @@ function RouteDetails({ fromId, toId }: { fromId: string; toId: string }) {
                              const isInterchange = index > 0 && station.line !== path[index-1].line;
                              const isStart = index === 0;
                              const isEnd = index === path.length - 1;
-                             const colorClass = getLineColor(station.line);
+                             const colorHex = getLineColor(station.line);
                              
                             return (
                                 <div key={`${station.id}-${index}`} className="relative pb-8 last:pb-0">
                                     {/* Line connector */}
                                     {!isEnd && (
-                                        <div className={cn(
-                                            "absolute left-[-1.65rem] top-4 w-1 h-full",
-                                            colorClass
-                                        )} />
+                                        <div 
+                                            className="absolute left-[-1.65rem] top-4 w-1 h-full"
+                                            style={{ backgroundColor: colorHex }}
+                                        />
                                     )}
 
                                     {/* Station Marker */}
-                                    <div className={cn(
-                                        "absolute left-[-2.15rem] top-0.5 w-5 h-5 rounded-full border-4 border-background z-10",
-                                        colorClass,
-                                        (isStart || isEnd) && "scale-125 ring-2 ring-primary/20"
-                                    )} />
+                                    <div 
+                                        className={cn(
+                                            "absolute left-[-2.15rem] top-0.5 w-5 h-5 rounded-full border-4 border-background z-10",
+                                            (isStart || isEnd) && "scale-125 ring-2 ring-primary/20"
+                                        )}
+                                        style={{ backgroundColor: colorHex }}
+                                    />
 
                                     <div className="flex flex-col">
                                         <div className="flex items-center gap-3">
