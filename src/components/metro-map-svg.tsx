@@ -72,8 +72,12 @@ export default function MetroMapSvg() {
           {/* Purple Line - Operational (Joka to Majerhat) */}
           <path d="M 70 1180 L 85 1150 L 110 1110 L 120 1110 L 140 1060 L 160 1030 L 160 1010 L 160 970 L 160 930" stroke="#8C318C" strokeWidth="6" id="line-purple" />
 
-          {/* Green Line */}
-          <path d="M 100 620 L 150 620 L 220 650 L 260 710 L 350 710 L 410 660 L 450 635 L 480 620 L 520 620 L 560 620 L 590 620 L 640 650" stroke="#00A651" strokeWidth="6" id="line-green" />
+          {/* Green Line Section B (Howrah Maidan to Esplanade) */}
+          <path d="M 100 620 L 150 620 L 220 650 L 260 710" stroke="#00A651" strokeWidth="6" id="line-green-b" />
+          {/* Green Line Unopened Section (Dashed) */}
+          <path d="M 260 710 L 350 710" stroke="#00A651" strokeWidth="6" strokeDasharray="8,4" opacity="0.4" id="line-green-unopened" />
+          {/* Green Line Section A (Sealdah to Salt Lake Sector V) */}
+          <path d="M 350 710 L 410 660 L 450 635 L 480 620 L 520 620 L 560 620 L 590 620 L 640 650" stroke="#00A651" strokeWidth="6" id="line-green-a" />
 
           {/* Orange Line (Line 6) - Operational (Kavi Subhash to Beleghata) */}
           <path d="M 570 1070 L 605 1025 L 640 980 L 640 940 L 640 910 L 640 860 L 640 810 L 640 760 L 640 710" stroke="#F26522" strokeWidth="6" id="line-orange" />
@@ -202,8 +206,8 @@ export default function MetroMapSvg() {
             <text x="210" y="635" fontSize="12" fill="#00A651">Mahakaran</text>
           </g>
           <g onClick={() => handleStationClick('Sealdah', 'Green Line')}>
-            <circle cx="350" cy="710" r="5" fill="#00A651" />
-            <text x="360" y="700" fontSize="12" fill="#00A651">Sealdah</text>
+            <circle cx="350" cy="710" r="7" fill="#ffffff" stroke="#000000" strokeWidth="3" />
+            <text x="360" y="700" fontSize="12" fontWeight="bold" fill="#00A651">Sealdah</text>
           </g>
           <g onClick={() => handleStationClick('Phoolbagan', 'Green Line')}>
             <circle cx="410" cy="660" r="5" fill="#00A651" />
@@ -217,9 +221,9 @@ export default function MetroMapSvg() {
             <circle cx="480" cy="620" r="5" fill="#00A651" />
             <text x="480" y="590" fontSize="11" fill="#00A651">Bengal Chemical</text>
           </g>
-          <g onClick={() => handleStationClick('City Center', 'Green Line')}>
+          <g onClick={() => handleStationClick('City Centre', 'Green Line')}>
             <circle cx="520" cy="620" r="5" fill="#00A651" />
-            <text x="520" y="580" fontSize="11" fill="#00A651">City Center</text>
+            <text x="520" y="580" fontSize="11" fill="#00A651">City Centre</text>
           </g>
           <g onClick={() => handleStationClick('Central Park', 'Green Line')}>
             <circle cx="560" cy="620" r="5" fill="#00A651" />
@@ -230,7 +234,7 @@ export default function MetroMapSvg() {
             <text x="570" y="645" fontSize="11" fill="#00A651">Karunamoyee</text>
           </g>
           <g onClick={() => handleStationClick('Salt Lake Sector V', 'Interchange')}>
-            <circle cx="640" cy="650" r="8" fill="#f7b70c" stroke="#000000" strokeWidth="2.5" />
+            <circle cx="640" cy="650" r="7" fill="#ffffff" stroke="#000000" strokeWidth="3" />
             <text x="655" y="650" fontSize="12" fontWeight="bold" fill="#00A651">Salt Lake Sector V</text>
           </g>
 

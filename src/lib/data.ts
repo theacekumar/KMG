@@ -35,7 +35,7 @@ export const stations: Station[] = [
     { id: 'mahatma-gandhi-road', name: 'Mahatma Gandhi Road', code: 'MGR', lines: ['Blue'], gates: 4, facilities: ["Escalator"], firstTrain: "06:57", lastTrain: "21:48", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'central', name: 'Central', code: 'CEN', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "06:59", lastTrain: "21:46", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'chandni-chowk', name: 'Chandni Chowk', code: 'CHC', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:01", lastTrain: "21:44", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
-    { id: 'esplanade', name: 'Esplanade', code: 'ESP', lines: ['Blue', 'Green'], gates: 6, facilities: ["Elevator", "Escalator", "Interchange", "Toilets"], firstTrain: "07:00", lastTrain: "21:45", platformInfo: "Blue Line: P1 Kavi Subhash, P2 Dum Dum | Green Line: P1 Howrah Maidan, P2 Sealdah" },
+    { id: 'esplanade', name: 'Esplanade', code: 'ESP', lines: ['Blue', 'Green'], gates: 6, facilities: ["Elevator", "Escalator", "Interchange", "Toilets"], firstTrain: "07:00", lastTrain: "21:45", platformInfo: "Blue Line: P1 Kavi Subhash, P2 Dum Dum | Green Line: P1 Howrah Maidan" },
     { id: 'park-street', name: 'Park Street', code: 'PST', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator"], firstTrain: "07:03", lastTrain: "21:42", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'maidan', name: 'Maidan', code: 'MDN', lines: ['Blue'], gates: 2, facilities: [], firstTrain: "07:05", lastTrain: "21:40", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'rabindra-sadan', name: 'Rabindra Sadan', code: 'RSD', lines: ['Blue'], gates: 2, facilities: ["Escalator"], firstTrain: "07:07", lastTrain: "21:38", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
@@ -52,17 +52,17 @@ export const stations: Station[] = [
     { id: 'kavi-subhash', name: 'Kavi Subhash', code: 'KVS', lines: ['Blue', 'Orange'], gates: 4, facilities: ["Elevator", "Escalator", "Parking", "Toilets", "Interchange"], firstTrain: "06:45", lastTrain: "21:45", platformInfo: "Blue Line: P2 Dakshineswar | Orange Line: P1 Beleghata" },
 
     // Green Line (East-West)
-    { id: 'salt-lake-sector-v', name: 'Salt Lake Sector V', code: 'SLV', lines: ['Green'], gates: 3, facilities: ["Elevator", "Toilets", "Wifi"], firstTrain: "06:55", lastTrain: "22:00", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Terminating" },
-    { id: 'karunamoyee', name: 'Karunamoyee', code: 'KRM', lines: ['Green'], gates: 2, facilities: ["Escalator", "Toilets"], firstTrain: "06:58", lastTrain: "21:57", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Salt Lake Sector V" },
-    { id: 'central-park', name: 'Central Park', code: 'CPK', lines: ['Green'], gates: 2, facilities: ["Parking"], firstTrain: "07:00", lastTrain: "21:55", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Salt Lake Sector V" },
-    { id: 'city-center', name: 'City Center', code: 'CIT', lines: ['Green'], gates: 2, facilities: [], firstTrain: "07:02", lastTrain: "21:53", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Salt Lake Sector V" },
-    { id: 'bengal-chemical', name: 'Bengal Chemical', code: 'BNC', lines: ['Green'], gates: 2, facilities: [], firstTrain: "07:04", lastTrain: "21:51", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Salt Lake Sector V" },
-    { id: 'salt-lake-stadium', name: 'Salt Lake Stadium', code: 'SLS', lines: ['Green'], gates: 3, facilities: ["Elevator", "Escalator"], firstTrain: "07:07", lastTrain: "21:48", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Salt Lake Sector V" },
-    { id: 'phoolbagan', name: 'Phoolbagan', code: 'PHB', lines: ['Green'], gates: 2, facilities: ["Elevator", "Escalator"], firstTrain: "07:10", lastTrain: "21:45", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Salt Lake Sector V" },
-    { id: 'sealdah', name: 'Sealdah', code: 'SDH', lines: ['Green'], gates: 4, facilities: ["Elevator", "Escalator", "Interchange", "Toilets"], firstTrain: "07:00", lastTrain: "21:40", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Salt Lake Sector V | Indian Railways Interchange" },
-    { id: 'mahakaran', name: 'Mahakaran', code: 'MHK', lines: ['Green'], gates: 4, facilities: ["Elevator", "Escalator", "Toilets"], firstTrain: "07:00", lastTrain: "21:40", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Salt Lake Sector V" },
-    { id: 'howrah', name: 'Howrah', code: 'HWH', lines: ['Green'], gates: 5, facilities: ["Elevator", "Escalator", "Toilets"], firstTrain: "07:00", lastTrain: "21:30", platformInfo: "Platform 1: Salt Lake Sector V | Platform 2: Terminating" },
-    { id: 'howrah-maidan', name: 'Howrah Maidan', code: 'HWM', lines: ['Green'], gates: 3, facilities: ["Elevator", "Escalator"], firstTrain: "07:00", lastTrain: "21:30", platformInfo: "Platform 1: Salt Lake Sector V | Platform 2: Terminating" },
+    { id: 'salt-lake-sector-v', name: 'Salt Lake Sector V', code: 'SLV', lines: ['Green'], gates: 3, facilities: ["Elevator", "Toilets", "Wifi"], firstTrain: "06:55", lastTrain: "22:00", platformInfo: "Platform 1: Sealdah | Platform 2: Terminating" },
+    { id: 'karunamoyee', name: 'Karunamoyee', code: 'KRM', lines: ['Green'], gates: 2, facilities: ["Escalator", "Toilets"], firstTrain: "06:58", lastTrain: "21:57", platformInfo: "Platform 1: Sealdah | Platform 2: Salt Lake Sector V" },
+    { id: 'central-park', name: 'Central Park', code: 'CPK', lines: ['Green'], gates: 2, facilities: ["Parking"], firstTrain: "07:00", lastTrain: "21:55", platformInfo: "Platform 1: Sealdah | Platform 2: Salt Lake Sector V" },
+    { id: 'city-center', name: 'City Centre', code: 'CIT', lines: ['Green'], gates: 2, facilities: [], firstTrain: "07:02", lastTrain: "21:53", platformInfo: "Platform 1: Sealdah | Platform 2: Salt Lake Sector V" },
+    { id: 'bengal-chemical', name: 'Bengal Chemical', code: 'BNC', lines: ['Green'], gates: 2, facilities: [], firstTrain: "07:04", lastTrain: "21:51", platformInfo: "Platform 1: Sealdah | Platform 2: Salt Lake Sector V" },
+    { id: 'salt-lake-stadium', name: 'Salt Lake Stadium', code: 'SLS', lines: ['Green'], gates: 3, facilities: ["Elevator", "Escalator"], firstTrain: "07:07", lastTrain: "21:48", platformInfo: "Platform 1: Sealdah | Platform 2: Salt Lake Sector V" },
+    { id: 'phoolbagan', name: 'Phoolbagan', code: 'PHB', lines: ['Green'], gates: 2, facilities: ["Elevator", "Escalator"], firstTrain: "07:10", lastTrain: "21:45", platformInfo: "Platform 1: Sealdah | Platform 2: Salt Lake Sector V" },
+    { id: 'sealdah', name: 'Sealdah', code: 'SDH', lines: ['Green'], gates: 4, facilities: ["Elevator", "Escalator", "Interchange", "Toilets"], firstTrain: "07:00", lastTrain: "21:40", platformInfo: "Platform 1: Terminating | Platform 2: Salt Lake Sector V | Indian Railways Interchange" },
+    { id: 'mahakaran', name: 'Mahakaran', code: 'MHK', lines: ['Green'], gates: 4, facilities: ["Elevator", "Escalator", "Toilets"], firstTrain: "07:00", lastTrain: "21:40", platformInfo: "Platform 1: Howrah Maidan | Platform 2: Esplanade" },
+    { id: 'howrah', name: 'Howrah', code: 'HWH', lines: ['Green'], gates: 5, facilities: ["Elevator", "Escalator", "Toilets"], firstTrain: "07:00", lastTrain: "21:30", platformInfo: "Platform 1: Howrah Maidan | Indian Railways Interchange" },
+    { id: 'howrah-maidan', name: 'Howrah Maidan', code: 'HWM', lines: ['Green'], gates: 3, facilities: ["Elevator", "Escalator"], firstTrain: "07:00", lastTrain: "21:30", platformInfo: "Platform 1: Terminating" },
 
     // Purple Line (Joka-Majerhat) - Operational Section (7 Stations)
     { id: 'joka', name: 'Joka', code: 'JOK', lines: ['Purple'], gates: 2, facilities: ["Parking"], firstTrain: "08:55", lastTrain: "16:00", platformInfo: "Platform 1: Majerhat | Platform 2: Terminating" },
@@ -103,7 +103,13 @@ export const lines: Line[] = [
   {
     name: 'Green',
     stations: [
-      'howrah-maidan', 'howrah', 'mahakaran', 'esplanade', 'sealdah', 'phoolbagan', 'salt-lake-stadium',
+      'howrah-maidan', 'howrah', 'mahakaran', 'esplanade'
+    ],
+  },
+  {
+    name: 'Green',
+    stations: [
+      'sealdah', 'phoolbagan', 'salt-lake-stadium',
       'bengal-chemical', 'city-center', 'central-park', 'karunamoyee', 'salt-lake-sector-v'
     ],
   },
@@ -292,7 +298,7 @@ export const fares: Fare[] = [
   { from: 'mahatma-gandhi-road', to: 'masterda-surya-sen', fare: 20 },
   { from: 'mahatma-gandhi-road', to: 'gitanjali', fare: 20 },
   { from: 'mahatma-gandhi-road', to: 'kavi-nazrul', fare: 20 },
-  { from: 'this.stationA', to: 'shahid-khudiram', fare: 20 },
+  { from: 'mahatma-gandhi-road', to: 'shahid-khudiram', fare: 20 },
   { from: 'mahatma-gandhi-road', to: 'kavi-subhash', fare: 20 },
   { from: 'mahatma-gandhi-road', to: 'noapara', fare: 15 },
   { from: 'mahatma-gandhi-road', to: 'baranagar', fare: 20 },
@@ -507,8 +513,6 @@ export const fares: Fare[] = [
   // Base Fares
   { from: 'howrah-maidan', to: 'howrah', fare: 5 },
   { from: 'howrah-maidan', to: 'esplanade', fare: 10 },
-  { from: 'howrah-maidan', to: 'sealdah', fare: 20 },
-  { from: 'howrah-maidan', to: 'salt-lake-sector-v', fare: 30 },
   { from: 'howrah', to: 'mahakaran', fare: 10 },
   { from: 'dakshineswar', to: 'karunamoyee', fare: 50 },
   { from: 'dakshineswar', to: 'central-park', fare: 40 },
