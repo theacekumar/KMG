@@ -7,6 +7,7 @@ export const Translations = {
       smartCard: "Smart Card",
       about: "About",
       privacyPolicy: "Privacy Policy",
+      menu: "Menu",
     },
     home: {
       title: "Kolkata Metro Guide",
@@ -111,6 +112,7 @@ export const Translations = {
       smartCard: "স্মার্ট কার্ড",
       about: "সম্পর্কে",
       privacyPolicy: "গোপনীয়তা নীতি",
+      menu: "মেনু",
     },
     home: {
       title: "কলকাতা মেট্রো গাইড",

@@ -48,7 +48,7 @@ export default function RootLayout({
         <LanguageProvider>
           <PwaRegistration />
           <AppHeader />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow pb-16 md:pb-0">{children}</main>
           <MobileNav />
           <Toaster />
         </LanguageProvider>
