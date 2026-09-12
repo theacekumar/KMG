@@ -1,7 +1,7 @@
 'use client';
 
 import { Suspense, useMemo } from 'react';
-import { AlertTriangle, Train, IndianRupee, Clock, Footprints, GitBranch, MapPin, ArrowDown } from 'lucide-react';
+import { AlertTriangle, Train, IndianRupee, Clock, Footprints, GitBranch, MapPin } from 'lucide-react';
 
 import { useLanguage } from '@/context/language-provider';
 import { getRouteDetails, getStationById, getLineColor } from '@/lib/routing';
@@ -123,14 +123,18 @@ function RouteDetails({ fromId, toId }: { fromId: string; toId: string }) {
                              const isInterchange = index > 0 && station.line !== path[index-1].line;
                              const isStart = index === 0;
                              const isEnd = index === path.length - 1;
+                             
+                             // The line taken FROM this station to the next
                              const colorHex = getLineColor(station.line);
+                             // The line taken TO arrive at this station
+                             const incomingColorHex = index > 0 ? getLineColor(path[index-1].line) : colorHex;
                              
                             return (
                                 <div key={`${station.id}-${index}`} className="relative pb-8 last:pb-0">
-                                    {/* Line connector */}
+                                    {/* Vertical Line Connector (Departure) */}
                                     {!isEnd && (
                                         <div 
-                                            className="absolute left-[-1.65rem] top-4 w-1 h-full"
+                                            className="absolute left-[-1.125rem] top-6 w-1 h-full z-0"
                                             style={{ backgroundColor: colorHex }}
                                         />
                                     )}
@@ -138,10 +142,14 @@ function RouteDetails({ fromId, toId }: { fromId: string; toId: string }) {
                                     {/* Station Marker */}
                                     <div 
                                         className={cn(
-                                            "absolute left-[-2.15rem] top-0.5 w-5 h-5 rounded-full border-4 border-background z-10",
-                                            (isStart || isEnd) && "scale-125 ring-2 ring-primary/20"
+                                            "absolute left-[-1.75rem] top-0.5 w-6 h-6 rounded-full border-[3px] border-background z-10",
+                                            (isStart || isEnd) && "scale-110 shadow-sm"
                                         )}
-                                        style={{ backgroundColor: colorHex }}
+                                        style={{ 
+                                            background: isInterchange 
+                                                ? `linear-gradient(to bottom, ${incomingColorHex} 50%, ${colorHex} 50%)`
+                                                : (isEnd ? incomingColorHex : colorHex)
+                                        }}
                                     />
 
                                     <div className="flex flex-col">
