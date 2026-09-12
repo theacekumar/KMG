@@ -26,7 +26,7 @@ export const stations: Station[] = [
     // Blue Line (North-South)
     { id: 'dakshineswar', name: 'Dakshineswar', code: 'DKS', lines: ['Blue'], gates: 4, facilities: ["Elevator", "Escalator", "Toilets"], firstTrain: "06:45", lastTrain: "21:30", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Terminating" },
     { id: 'baranagar', name: 'Baranagar', code: 'BRN', lines: ['Blue'], gates: 2, facilities: ["Elevator", "Toilets"], firstTrain: "06:48", lastTrain: "21:33", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dakshineswar" },
-    { id: 'noapara', name: 'Noapara', code: 'NOA', lines: ['Blue', 'Yellow'], gates: 3, facilities: ["Elevator", "Escalator", "Parking", "Interchange"], firstTrain: "06:50", lastTrain: "21:35", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dakshineswar" },
+    { id: 'noapara', name: 'Noapara', code: 'NOA', lines: ['Blue', 'Yellow'], gates: 3, facilities: ["Elevator", "Escalator", "Parking", "Interchange"], firstTrain: "06:50", lastTrain: "21:35", platformInfo: "Blue Line: P1 Kavi Subhash, P2 Dakshineswar | Yellow Line: P3 Jai Hind" },
     { id: 'dum-dum', name: 'Dum Dum', code: 'DDM', lines: ['Blue'], gates: 5, facilities: ["Elevator", "Escalator", "Food Court", "Parking", "Toilets"], firstTrain: "06:45", lastTrain: "22:00", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dakshineswar | Platform 3 & 4: Indian Railways" },
     { id: 'belgachia', name: 'Belgachia', code: 'BGA', lines: ['Blue'], gates: 2, facilities: ["Escalator", "Toilets"], firstTrain: "06:48", lastTrain: "21:57", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
     { id: 'shyambazar', name: 'Shyambazar', code: 'SMB', lines: ['Blue'], gates: 3, facilities: ["Elevator"], firstTrain: "06:51", lastTrain: "21:54", platformInfo: "Platform 1: Kavi Subhash | Platform 2: Dum Dum" },
@@ -83,7 +83,7 @@ export const stations: Station[] = [
     { id: 'barun-sengupta', name: 'Barun Sengupta', code: 'BSG', lines: ['Orange'], gates: 2, facilities: [], firstTrain: "09:17", lastTrain: "17:17", platformInfo: "Platform 1: Beleghata | Platform 2: Kavi Subhash" },
     { id: 'beleghata', name: 'Beleghata', code: 'BLG', lines: ['Orange'], gates: 2, facilities: [], firstTrain: "09:20", lastTrain: "17:20", platformInfo: "Platform 1: Terminating | Platform 2: Kavi Subhash" },
 
-    // Yellow Line
+    // Yellow Line - Operational Section (4 Stations)
     { id: 'dumdum-cantonment', name: 'Dumdum Cantonment', code: 'DDC', lines: ['Yellow'], gates: 2, facilities: ["Toilets"], firstTrain: "07:00", lastTrain: "21:00", platformInfo: "Platform 1: Jai Hind | Platform 2: Noapara" },
     { id: 'jessore-road', name: 'Jessore Road', code: 'JSR', lines: ['Yellow'], gates: 2, facilities: ["Toilets"], firstTrain: "07:05", lastTrain: "20:55", platformInfo: "Platform 1: Jai Hind | Platform 2: Noapara" },
     { id: 'jai-hind', name: 'Jai Hind (Airport)', code: 'JHD', lines: ['Yellow'], gates: 3, facilities: ["Elevator", "Escalator", "Interchange with Airport"], firstTrain: "07:10", lastTrain: "20:50", platformInfo: "Platform 1: Terminating | Platform 2: Noapara" }
@@ -292,7 +292,7 @@ export const fares: Fare[] = [
   { from: 'mahatma-gandhi-road', to: 'masterda-surya-sen', fare: 20 },
   { from: 'mahatma-gandhi-road', to: 'gitanjali', fare: 20 },
   { from: 'mahatma-gandhi-road', to: 'kavi-nazrul', fare: 20 },
-  { from: 'mahatma-gandhi-road', to: 'shahid-khudiram', fare: 20 },
+  { from: 'this.stationA', to: 'shahid-khudiram', fare: 20 },
   { from: 'mahatma-gandhi-road', to: 'kavi-subhash', fare: 20 },
   { from: 'mahatma-gandhi-road', to: 'noapara', fare: 15 },
   { from: 'mahatma-gandhi-road', to: 'baranagar', fare: 20 },

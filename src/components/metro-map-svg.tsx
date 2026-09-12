@@ -23,6 +23,12 @@ export default function MetroMapSvg() {
         className="w-full max-w-4xl h-auto select-none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <defs>
+          <linearGradient id="grad-noapara" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="50%" stopColor="#03318b" />
+            <stop offset="50%" stopColor="#FFD200" />
+          </linearGradient>
+        </defs>
         {/* Background Styling */}
         <rect width="950" height="1280" fill="#ffffff" />
 
@@ -55,8 +61,8 @@ export default function MetroMapSvg() {
           {/* Pink Line */}
           <path d="M 350 50 L 350 370" stroke="#f45da1" strokeWidth="6" id="line-pink" />
 
-          {/* Yellow Line */}
-          <path d="M 690 120 L 610 210 L 550 280 L 490 280 L 410 330 L 350 370" stroke="#f7b70c" strokeWidth="6" id="line-yellow" />
+          {/* Yellow Line - Operational Segment (Noapara to Jai Hind) */}
+          <path d="M 350 370 L 410 330 L 490 280 L 550 280" stroke="#FFD200" strokeWidth="6" id="line-yellow" />
 
           {/* Blue Line */}
           <path d="M 300 300 L 350 370 L 350 540 L 290 610 L 260 660 L 260 1010 L 310 1080 L 380 1120 L 510 1120 L 570 1070" stroke="#03318b" strokeWidth="7" id="line-blue" />
@@ -68,7 +74,7 @@ export default function MetroMapSvg() {
           <path d="M 100 620 L 180 620 L 220 650 L 260 710 L 350 710 L 410 660 L 480 620 L 600 620 L 640 650" stroke="#0a8237" strokeWidth="6" id="line-green" />
 
           {/* Orange Line (Line 6) - Kavi Subhash to Beleghata */}
-          <path d="M 570 1070 L 640 980 L 640 710" stroke="#F26522" strokeWidth="6" id="line-orange" />
+          <path d="M 570 1070 L 605 1025 L 640 980 L 640 710" stroke="#F26522" strokeWidth="6" id="line-orange" />
         </g>
 
         {/* Station Markers & Interactive Groups */}
@@ -126,7 +132,7 @@ export default function MetroMapSvg() {
             <text x="320" y="355" fontSize="12" fill="#03318b">Baranagar</text>
           </g>
           <g onClick={() => handleStationClick('Noapara', 'Interchange')}>
-            <circle cx="350" cy="370" r="8" fill="#f7b70c" stroke="#000000" strokeWidth="2.5" />
+            <circle cx="350" cy="370" r="9" fill="url(#grad-noapara)" stroke="#000000" strokeWidth="2.5" />
             <text x="330" y="375" textAnchor="end" fontSize="13" fontWeight="bold" fill="#03318b">Noapara</text>
           </g>
           <g onClick={() => handleStationClick('Dum Dum', 'Blue Line')}>
@@ -272,42 +278,18 @@ export default function MetroMapSvg() {
             <text x="655" y="663" fontSize="12" fontWeight="bold" fill="#0a8237">Sector V</text>
           </g>
 
-          {/* YELLOW LINE STATIONS */}
-          <g onClick={() => handleStationClick('Barasat', 'Yellow Line')}>
-            <circle cx="690" cy="120" r="7" fill="#ffffff" stroke="#000000" strokeWidth="3" />
-            <text x="705" y="125" fontSize="13" fontWeight="bold" fill="#f7b70c">Barasat</text>
-          </g>
-          <g onClick={() => handleStationClick('Hridaypur', 'Yellow Line')}>
-            <circle cx="670" cy="150" r="5" fill="#f7b70c" />
-            <text x="685" y="155" fontSize="12" fill="#f7b70c">Hridaypur</text>
-          </g>
-          <g onClick={() => handleStationClick('Madhyamgram', 'Yellow Line')}>
-            <circle cx="650" cy="180" r="5" fill="#f7b70c" />
-            <text x="665" y="185" fontSize="12" fill="#f7b70c">Madhyamgram</text>
-          </g>
-          <g onClick={() => handleStationClick('New Barrackpur', 'Yellow Line')}>
-            <circle cx="630" cy="210" r="5" fill="#f7b70c" />
-            <text x="645" y="215" fontSize="11" fill="#f7b70c">New Barrackpur</text>
-          </g>
-          <g onClick={() => handleStationClick('Michael Nagar', 'Yellow Line')}>
-            <circle cx="610" cy="240" r="5" fill="#f7b70c" />
-            <text x="625" y="245" fontSize="11" fill="#f7b70c">Michael Nagar</text>
-          </g>
-          <g onClick={() => handleStationClick('Birati', 'Yellow Line')}>
-            <circle cx="590" cy="265" r="5" fill="#f7b70c" />
-            <text x="605" y="270" fontSize="11" fill="#f7b70c">Birati</text>
-          </g>
-          <g onClick={() => handleStationClick('Biman Bandar', 'Yellow Line')}>
+          {/* YELLOW LINE STATIONS - Operational Section (Noapara to Jai Hind) */}
+          <g onClick={() => handleStationClick('Jai Hind (Airport)', 'Yellow Line')}>
             <circle cx="550" cy="280" r="7" fill="#ffffff" stroke="#000000" strokeWidth="3" />
-            <text x="565" y="295" fontSize="13" fontWeight="bold" fill="#000000">Biman Bandar</text>
+            <text x="565" y="295" fontSize="13" fontWeight="bold" fill="#000000">Jai Hind (Airport)</text>
           </g>
           <g onClick={() => handleStationClick('Jessore Road', 'Yellow Line')}>
-            <circle cx="490" cy="280" r="5" fill="#f7b70c" />
-            <text x="480" y="265" fontSize="12" fill="#f7b70c">Jessore Road</text>
+            <circle cx="490" cy="280" r="5" fill="#FFD200" />
+            <text x="480" y="265" fontSize="12" fill="#FFD200">Jessore Road</text>
           </g>
-          <g onClick={() => handleStationClick('Dum Dum Cantent', 'Yellow Line')}>
-            <circle cx="410" cy="330" r="5" fill="#f7b70c" />
-            <text x="410" y="315" fontSize="11" fill="#f7b70c">Dum Dum Cantent</text>
+          <g onClick={() => handleStationClick('Dumdum Cantonment', 'Yellow Line')}>
+            <circle cx="410" cy="330" r="5" fill="#FFD200" />
+            <text x="410" y="315" fontSize="11" fill="#FFD200">Dum Dum Cantonment</text>
           </g>
 
           {/* ORANGE LINE STATIONS - Operational Section (Kavi Subhash to Beleghata) */}
@@ -418,7 +400,7 @@ export default function MetroMapSvg() {
           <text x="65" y="160" fontSize="13" fontFamily="sans-serif" fontWeight="600">Orange Line</text>
 
           {/* Yellow Line sample */}
-          <line x1="25" y1="185" x2="55" y2="185" stroke="#f7b70c" strokeWidth="5" />
+          <line x1="25" y1="185" x2="55" y2="185" stroke="#FFD200" strokeWidth="5" />
           <text x="65" y="190" fontSize="13" fontFamily="sans-serif" fontWeight="600">Yellow Line</text>
 
           {/* Pink Line sample */}
