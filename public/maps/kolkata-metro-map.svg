@@ -1,0 +1,42 @@
+
+<svg viewBox="0 0 950 1280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="950" height="1280" fill="#ffffff" />
+  <g id="background-river">
+    <path d="M 270 0 C 260 150, 240 250, 250 350 C 260 450, 210 520, 190 580 C 170 640, 140 700, 110 760 C 70 840, 40 920, 30 1000 L 0 1050 L 0 0 Z" fill="#d4f3ff" opacity="0.8" />
+    <text x="90" y="750" fill="#29a3a3" font-size="16" font-weight="bold" font-family="sans-serif" transform="rotate(-15, 90, 750)">Victoria</text>
+  </g>
+  <g id="boundary-lines" stroke="#333333" stroke-width="1.5" stroke-dasharray="5,5" fill="none">
+    <path d="M 85 0 L 85 530 L 150 630 L 220 630" />
+    <path d="M 400 0 L 400 330 L 350 370" />
+    <path d="M 150 910 L 420 910 L 520 1010 L 680 1200" />
+  </g>
+  <g id="metro-lines" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 350 50 L 350 370" stroke="#f45da1" stroke-width="6" id="line-pink" />
+    <path d="M 690 120 L 610 210 L 550 280 L 490 280 L 410 330 L 350 370" stroke="#f7b70c" stroke-width="6" id="line-yellow" />
+    <path d="M 300 300 L 350 370 L 350 540 L 290 610 L 260 660 L 260 1010 L 310 1080 L 380 1120 L 510 1120 L 570 1070" stroke="#03318b" stroke-width="7" id="line-blue" />
+    <path d="M 260 710 L 260 750 L 160 830 L 160 1030 L 120 1110 L 70 1180 L 110 1220" stroke="#ab12d6" stroke-width="6" id="line-purple" />
+    <path d="M 100 620 L 180 620 L 220 650 L 260 710 L 350 710 L 410 660 L 480 620 L 600 620 L 640 650" stroke="#0a8237" stroke-width="6" id="line-green" />
+    <path d="M 550 280 L 610 350 L 710 350 L 790 410 L 790 710 L 710 770 L 640 650 L 640 980 L 570 1070" stroke="#f75e11" stroke-width="6" id="line-orange" />
+  </g>
+  <g id="map-legend" transform="translate(730, 800)">
+    <rect width="200" height="280" fill="#ffffff" stroke="#0a8237" stroke-width="3" rx="4" />
+    <text x="100" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#03318b" font-family="sans-serif">Legend</text>
+    <line x1="20" y1="38" x2="180" y2="38" stroke="#03318b" stroke-width="1.5" />
+    <line x1="25" y1="65" x2="55" y2="65" stroke="#03318b" stroke-width="5" />
+    <text x="65" y="70" font-size="13" font-family="sans-serif" font-weight="600">Blue Line</text>
+    <line x1="25" y1="95" x2="55" y2="95" stroke="#0a8237" stroke-width="5" />
+    <text x="65" y="100" font-size="13" font-family="sans-serif" font-weight="600">Green Line</text>
+    <line x1="25" y1="125" x2="55" y2="125" stroke="#ab12d6" stroke-width="5" />
+    <text x="65" y="130" font-size="13" font-family="sans-serif" font-weight="600">Purple Line</text>
+    <line x1="25" y1="155" x2="55" y2="155" stroke="#f75e11" stroke-width="5" />
+    <text x="65" y="160" font-size="13" font-family="sans-serif" font-weight="600">Orange Line</text>
+    <line x1="25" y1="185" x2="55" y2="185" stroke="#f7b70c" stroke-width="5" />
+    <text x="65" y="190" font-size="13" font-family="sans-serif" font-weight="600">Yellow Line</text>
+    <line x1="25" y1="215" x2="55" y2="215" stroke="#f45da1" stroke-width="5" />
+    <text x="65" y="220" font-size="13" font-family="sans-serif" font-weight="600">Pink Line</text>
+    <circle cx="40" cy="245" r="5" fill="#777777" />
+    <text x="65" y="250" font-size="13" font-family="sans-serif">Station</text>
+    <circle cx="40" cy="265" r="5" fill="#ffffff" stroke="#000000" stroke-width="2" />
+    <text x="65" y="270" font-size="13" font-family="sans-serif">Terminal</text>
+  </g>
+</svg>

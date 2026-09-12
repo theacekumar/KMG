@@ -17,6 +17,7 @@ export default function MobileNav() {
 
   const mainNavItems = [
     { href: '/', label: t.nav.home, icon: <Home className="w-5 h-5" /> },
+    { href: '/map', label: t.nav.map, icon: <Map className="w-5 h-5" /> },
     { href: '/smart-card', label: t.nav.smartCard, icon: <Ticket className="w-5 h-5" /> },
     { href: '/about', label: t.nav.about, icon: <Info className="w-5 h-5" /> },
   ];
@@ -53,15 +54,6 @@ export default function MobileNav() {
                <LanguageToggle />
                <Separator />
                 <nav className="flex flex-col space-y-2">
-                    <a
-                        href="https://kolkatametroguide-privacypolicy.my.canva.site/map"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-primary"
-                    >
-                        <Map className="w-4 h-4" />
-                        <span>{t.nav.map}</span>
-                    </a>
                     <a
                       href="https://sites.google.com/view/kolkatametroguideprivacypolicy/home"
                       target="_blank"

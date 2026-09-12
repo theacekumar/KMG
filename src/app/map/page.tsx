@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -34,7 +35,6 @@ export default function MapPage() {
         </CardContent>
       </Card>
 
-      {/* Responsive Usage Help Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card className="border p-4 bg-card shadow-sm flex items-start gap-4">
           <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-600 shrink-0">
@@ -43,7 +43,7 @@ export default function MapPage() {
           <div>
             <h4 className="font-semibold text-base text-foreground">Interactive Tracing</h4>
             <p className="text-sm text-muted-foreground mt-1">
-              Tap any station circle marker or labeled node to immediately view live lines, interchanges, or terminal relationships.
+              Tap any station circle marker or labeled node to view live lines and interchanges.
             </p>
           </div>
         </Card>
@@ -53,9 +53,9 @@ export default function MapPage() {
             <Layers className="h-5 w-5" />
           </div>
           <div>
-            <h4 className="font-semibold text-base text-foreground">Offline Support Capable</h4>
+            <h4 className="font-semibold text-base text-foreground">Offline Support</h4>
             <p className="text-sm text-muted-foreground mt-1">
-              This layout vector relies completely on local SVG geometry code, enabling instant high-definition rendering offline.
+              This map relies on local vector data, allowing it to work instantly without an internet connection.
             </p>
           </div>
         </Card>

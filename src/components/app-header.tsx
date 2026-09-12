@@ -15,6 +15,7 @@ export default function AppHeader() {
 
   const navItems = [
     { href: '/', label: t.nav.home, icon: <Home className="w-4 h-4" /> },
+    { href: '/map', label: t.nav.map, icon: <Map className="w-4 h-4" /> },
     { href: '/smart-card', label: t.nav.smartCard, icon: <Ticket className="w-4 h-4" /> },
     { href: '/about', label: t.nav.about, icon: <Info className="w-4 h-4" /> },
   ];
@@ -39,14 +40,6 @@ export default function AppHeader() {
               {item.label}
             </Link>
           ))}
-            <a
-              href="https://kolkatametroguide-privacypolicy.my.canva.site/map"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-primary text-muted-foreground"
-            >
-              {t.nav.map}
-            </a>
             <a
               href="https://sites.google.com/view/kolkatametroguideprivacypolicy/home"
               target="_blank"
