@@ -9,7 +9,7 @@ const config: CapacitorConfig = {
     androidScheme: 'https'
   },
   android: {
-    // Ensuring we target the latest SDK versions for Google Play compliance
+    // Target Android 16 (API 36) and ensure 16 KB page alignment compatibility
     compileSdkVersion: 36,
     targetSdkVersion: 36,
     minSdkVersion: 24,

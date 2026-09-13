@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace "com.kolkatametroguide.app"
+    compileSdk 36
+    defaultConfig {
+        applicationId "com.kolkatametroguide.app"
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        aaptOptions {
+             // Handled by AGP 8.5+
+        }
+    }
+    
+    // Support 16 KB memory page sizes requires building with NDK r27+
+    // NDK r28 provides the necessary alignment by default
+    ndkVersion "28.0.12433566"
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+    packaging {
+        jniLibs {
+            // Setting useLegacyPackaging to false ensures native libs are uncompressed
+            // and aligned to 16 KB boundaries in the final AAB/APK
+            useLegacyPackaging = false
+        }
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:androidx.appcompat:1.7.0'
+    implementation 'androidx.coordinatorlayout:androidx.coordinatorlayout:1.2.0'
+    implementation 'androidx.core:androidx.core-ktx:1.15.0'
+    implementation project(':capacitor-android')
+    implementation project(':capacitor-cordova-android-plugins')
+}
+
+apply from: 'capacitor.build.gradle'
+
+try {
+    def servicesConfig = file('google-services.json')
+    if (servicesConfig.exists()) {
+        apply plugin: 'com.google.gms.google-services'
+    }
+} catch(Exception e) {
+    logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}
