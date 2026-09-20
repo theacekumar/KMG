@@ -11,10 +11,10 @@
         android:theme="@style/AppTheme"
         android:extractNativeLibs="false">
 
-        <!-- AdMob App ID placeholder - REPLACE with your actual ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX ID -->
+        <!-- AdMob App ID -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-7962981529644720~REPLACE_WITH_REAL_APP_ID"/>
+            android:value="ca-app-pub-7962981529644720~3093700609"/>
 
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
