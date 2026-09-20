@@ -5,6 +5,7 @@ import SearchForm from "@/components/search-form";
 import { useLanguage } from "@/context/language-provider";
 import RouteResult from '@/components/route-result';
 import AdBanner from '@/components/ad-banner';
+import { adService } from '@/lib/ad-service';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -12,6 +13,8 @@ export default function Home() {
 
   const handleSearch = (from: string, to: string) => {
     setRoute({ from, to });
+    // Trigger interstitial logic - non-blocking
+    adService.handleRouteSearchAd();
   };
 
   return (

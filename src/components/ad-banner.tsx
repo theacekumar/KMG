@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import { AdMob, BannerAdPosition, BannerAdSize } from '@capacitor-community/admob';
 import { Capacitor } from '@capacitor/core';
+import { adService } from '@/lib/ad-service';
 
 interface AdBannerProps {
   adUnitId: string;
@@ -13,9 +14,10 @@ export default function AdBanner({ adUnitId }: AdBannerProps) {
     // Only run on native platforms
     if (Capacitor.getPlatform() === 'web') return;
 
-    const initializeAdMob = async () => {
+    const showBanner = async () => {
       try {
-        await AdMob.initialize();
+        // Ensure initialized via shared service
+        await adService.init();
         
         // Show banner at the bottom, above the fixed navigation
         // Bottom nav height is 16 units (64px)
@@ -24,16 +26,16 @@ export default function AdBanner({ adUnitId }: AdBannerProps) {
           adSize: BannerAdSize.ADAPTIVE_BANNER,
           position: BannerAdPosition.BOTTOM_CENTER,
           margin: 64, // Space for the bottom navigation bar
-          isTesting: false // Set to true during manual testing if needed
+          isTesting: false
         });
       } catch (error) {
-        console.error('AdMob initialization or banner show failed:', error);
+        console.error('Banner show failed:', error);
       }
     };
 
-    initializeAdMob();
+    showBanner();
 
-    // Clean up: hide banner when component unmounts or user navigates
+    // Clean up: hide banner when component unmounts
     return () => {
       if (Capacitor.getPlatform() !== 'web') {
         AdMob.hideBanner().catch(err => console.error('Failed to hide banner:', err));
@@ -43,7 +45,6 @@ export default function AdBanner({ adUnitId }: AdBannerProps) {
 
   return (
     <div className="w-full h-24 flex items-center justify-center bg-muted/5 mt-8 border-y border-dashed border-muted-foreground/10" aria-hidden="true">
-       {/* Placeholder for the native ad view that is rendered by the Android system */}
        <span className="text-xs text-muted-foreground uppercase tracking-widest opacity-30">Advertisement</span>
     </div>
   );
