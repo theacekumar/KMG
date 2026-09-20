@@ -67,7 +67,8 @@ class AdService {
 
     // Logic: 
     // 1. Never on the 1st search.
-    // 2. Show on every 3rd search (3, 6, 9...).
+    // 2. Never on the 2nd search.
+    // 3. Show on every 3rd search (3, 6, 9...).
     if (this.searchCount > 1 && this.searchCount % 3 === 0) {
       if (this.isInterstitialReady) {
         try {

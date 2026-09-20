@@ -43,9 +43,9 @@ export default function AdBanner({ adUnitId }: AdBannerProps) {
     };
   }, [adUnitId]);
 
+  // Return a clean spacer to prevent content from being covered by the native banner
+  // No borders or "Advertisement" text as requested
   return (
-    <div className="w-full h-24 flex items-center justify-center bg-muted/5 mt-8 border-y border-dashed border-muted-foreground/10" aria-hidden="true">
-       <span className="text-xs text-muted-foreground uppercase tracking-widest opacity-30">Advertisement</span>
-    </div>
+    <div className="w-full h-24 mt-8" aria-hidden="true" />
   );
 }

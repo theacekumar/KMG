@@ -13,9 +13,14 @@ export default function Home() {
 
   const handleSearch = (from: string, to: string) => {
     setRoute({ from, to });
-    // Trigger interstitial logic - non-blocking
-    adService.handleRouteSearchAd();
   };
+
+  // Trigger interstitial logic only after a successful route result exists
+  React.useEffect(() => {
+    if (route) {
+      adService.handleRouteSearchAd();
+    }
+  }, [route]);
 
   return (
     <div className="flex-grow flex flex-col items-center p-4">
@@ -34,7 +39,7 @@ export default function Home() {
             </div>
         )}
         
-        {/* AdMob Banner Integration */}
+        {/* AdMob Banner Integration - Returns a spacer only */}
         <AdBanner adUnitId="ca-app-pub-7962981529644720/6885016627" />
     </div>
   );
