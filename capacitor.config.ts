@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.kolkatametroguide.app',
+  appId: 'app.kmg.app',
   appName: 'Kolkata Metro Guide',
   webDir: 'out',
   bundledWebRuntime: false,

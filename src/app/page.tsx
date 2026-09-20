@@ -1,10 +1,10 @@
-
 'use client';
 
 import * as React from 'react';
 import SearchForm from "@/components/search-form";
 import { useLanguage } from "@/context/language-provider";
 import RouteResult from '@/components/route-result';
+import AdBanner from '@/components/ad-banner';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -30,9 +30,9 @@ export default function Home() {
                 <RouteResult fromId={route.from} toId={route.to} />
             </div>
         )}
-         <div className="w-full h-24 mt-8" aria-hidden="true">
-          {/* Ad placement placeholder */}
-        </div>
+        
+        {/* AdMob Banner Integration */}
+        <AdBanner adUnitId="ca-app-pub-7962981529644720/6885016627" />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="app.kmg.app">
 
     <application
         android:allowBackup="true"
@@ -10,9 +11,14 @@
         android:theme="@style/AppTheme"
         android:extractNativeLibs="false">
 
+        <!-- AdMob App ID placeholder - REPLACE with your actual ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX ID -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7962981529644720~REPLACE_WITH_REAL_APP_ID"/>
+
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-            android:name="com.kolkatametroguide.app.MainActivity"
+            android:name="app.kmg.app.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBarLaunch"
             android:launchMode="singleTask"
