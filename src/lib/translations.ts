@@ -61,8 +61,7 @@ export const Translations = {
             { name: "Tailwind CSS", description: "A utility-first CSS framework for responsive design." },
             { name: "Shadcn UI", description: "High-quality, accessible UI components." },
             { name: "TypeScript", description: "Ensuring code reliability with type safety." },
-            { name: "Capacitor", description: "Allowing the app to run as a native application on Android." },
-            { name: "Lucide Icons", description: "Beautiful, consistent vector icons." }
+            { name: "Capacitor", description: "Allowing the app to run as a native application on Android." }
         ],
     },
     smartCard: {
@@ -168,8 +167,7 @@ export const Translations = {
             { name: "Tailwind CSS", description: "রেসপন্সিভ ডিজাইনের জন্য একটি ইউটিলিটি-ফার্স্ট সিএসএস ফ্রেমওয়ার্ক।" },
             { name: "Shadcn UI", description: "উচ্চ-মানের, অ্যাক্সেসযোগ্য ইউআই উপাদানের সেট।" },
             { name: "TypeScript", description: "টাইপ সেফটির মাধ্যমে কোডের নির্ভরযোগ্যতা নিশ্চিত করা হয়েছে।" },
-            { name: "Capacitor", description: "অ্যাপটিকে অ্যান্ড্রয়েডে নেটিভ অ্যাপ্লিকেশন হিসাবে চালানোর সুবিধা দেয়।" },
-            { name: "Lucide আইকন", description: "সুন্দর এবং সামঞ্জস্যপূর্ণ ভেক্টর আইকন।" }
+            { name: "Capacitor", description: "অ্যাপটিকে অ্যান্ড্রয়েডে নেটিভ অ্যাপ্লিকেশন হিসাবে চালানোর সুবিধা দেয়।" }
         ],
     },
     smartCard: {
